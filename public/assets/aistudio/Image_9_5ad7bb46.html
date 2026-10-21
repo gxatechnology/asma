@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-surface":"#171c20","surface-container":"#eaeef4","outline-variant":"#d1c5b4","background":"#f6faff","inverse-primary":"#e6c27d","surface-container-high":"#e4e9ee","on-secondary":"#ffffff","surface-container-highest":"#dfe3e8","surface-tint":"#755a20","on-tertiary-container":"#36322a","surface-dim":"#d6dae0","on-primary":"#ffffff","surface-container-lowest":"#ffffff","on-secondary-container":"#576958","surface-bright":"#f6faff","surface":"#f6faff","on-primary-fixed":"#261900","on-primary-fixed-variant":"#5b4309","on-primary-container":"#432f00","secondary-fixed":"#d4e8d3","on-tertiary-fixed-variant":"#4b463e","secondary-fixed-dim":"#b9ccb7","primary-fixed-dim":"#e6c27d","tertiary-container":"#a09a8f","tertiary":"#635e54","on-tertiary":"#ffffff","on-surface-variant":"#4d4639","on-secondary-fixed-variant":"#3a4b3b","tertiary-fixed-dim":"#cdc6ba","primary":"#755a20","error":"#ba1a1a","primary-fixed":"#ffdea4","primary-container":"#b79656","surface-variant":"#dfe3e8","inverse-on-surface":"#edf1f6","on-error-container":"#93000a","on-secondary-fixed":"#0f1f12","outline":"#7f7668","tertiary-fixed":"#e9e1d5","inverse-surface":"#2c3135","secondary":"#526352","on-tertiary-fixed":"#1e1b14","on-background":"#171c20","secondary-container":"#d4e8d3","surface-container-low":"#f0f4f9","on-error":"#ffffff","error-container":"#ffdad6"},borderRadius:{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},spacing:{"space-lg":"2rem","gutter-lg":"2.5rem","space-xs":"0.375rem","margin":"1.25rem","space-xl":"3.5rem","margin-lg":"5rem","gutter":"1.5rem","space-sm":"0.75rem","margin-md":"3rem","space-md":"1.25rem"},fontFamily:{"headline-xl":["Playfair Display"],"body-md":["Inter"],"headline-sm":["Playfair Display"],"display-lg-mobile":["Playfair Display"],"label-sm":["Inter"],"body-sm":["Inter"],"body-lg":["Inter"],"display-lg":["Playfair Display"],"headline-md":["Playfair Display"],"headline-xl-mobile":["Playfair Display"],"label-md":["Inter"]},fontSize:{"headline-xl":["42px",{lineHeight:"52px",letterSpacing:"-0.01em",fontWeight:"500"}],"body-md":["15px",{lineHeight:"24px",fontWeight:"400"}],"headline-sm":["22px",{lineHeight:"30px",fontWeight:"500"}],"display-lg-mobile":["38px",{lineHeight:"48px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.05em",fontWeight:"500"}],"body-sm":["13px",{lineHeight:"20px",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],"display-lg":["56px",{lineHeight:"68px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-md":["28px",{lineHeight:"36px",fontWeight:"500"}],"headline-xl-mobile":["30px",{lineHeight:"38px",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.08em",fontWeight:"600"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 left-0 right-0 z-50 bg-inverse-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.06)]"><div class="h-20 w-full max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-sm"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><img alt="Asma Parnianfard Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UlkQTtHZsKkOKT_18TDpPnM6pNpi-UEA72rvK7x_0iLy4l_xVba4nEzxhnTVzH9hAMK2QxTDEZHkg76epaaN0nNhpTgxAY3vAvRyFUnH-JikUads7D-fXitLaqw5CFQE9Pfuynac80Iwnd3pn9zuGbqBzThtFtSOKi5UzotmGzkAV7JK5J7nAj5u97pq9tIJwarvT5SBG8Y94bz75vGI9nDyoSEIyVhZKHw_VVEzIAsdOVNWUk4zO5FWk"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-inverse-on-surface tracking-wide group-hover:text-inverse-primary transition-colors">Asma Parnianfard</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-outline-variant">Translation &amp; Localization</span></div></a></div><nav class="hidden xl:flex items-center gap-space-md" data-active-classes="text-inverse-primary font-semibold"><a class="font-body-sm text-body-sm text-tertiary-fixed hover:text-inverse-on-surface transition-colors py-space-xs" data-path="home" href="#">Home</a><a class="font-body-sm text-body-sm text-tertiary-fixed hover:text-inverse-on-surface transition-colors py-space-xs" data-path="about" href="#">About</a><div class="relative group py-space-xs"><a aria-current="page" class="transition-colors inline-flex items-center gap-1 text-inverse-primary font-semibold" data-path="services" href="#">Services<span class="material-symbols-outlined text-[16px] text-tertiary-fixed transition-transform duration-200 group-hover:rotate-180">expand_more</span></a><div class="absolute top-full left-0 hidden group-hover:block w-64 pt-2 z-50"><div class="bg-inverse-surface rounded-DEFAULT p-space-sm shadow-xl"><a class="block px-space-sm py-2 rounded-DEFAULT font-body-sm text-body-sm text-tertiary-fixed hover:bg-tertiary hover:text-on-tertiary transition-colors" data-path="services-financial" href="#">Financial &amp; Accounting</a><a class="block px-space-sm py-2 rounded-DEFAULT font-body-sm text-body-sm text-tertiary-fixed hover:bg-tertiary hover:text-on-tertiary transition-colors" data-path="services-commercial" href="#">Business &amp; Commercial</a><a class="block px-space-sm py-2 rounded-DEFAULT font-body-sm text-body-sm text-tertiary-fixed hover:bg-tertiary hover:text-on-tertiary transition-colors" data-path="services-proofreading" href="#">Proofreading &amp; Editing</a><a class="block px-space-sm py-2 rounded-DEFAULT font-body-sm text-body-sm text-tertiary-fixed hover:bg-tertiary hover:text-on-tertiary transition-colors" data-path="services-localization" href="#">Literary &amp; Cultural Localization</a></div></div></div><a class="font-body-sm text-body-sm text-tertiary-fixed hover:text-inverse-on-surface transition-colors py-space-xs" data-path="portfolio" href="#">Portfolio</a><a class="font-body-sm text-body-sm text-tertiary-fixed hover:text-inverse-on-surface transition-colors py-space-xs" data-path="blog" href="#">Blog</a><a class="font-body-sm text-body-sm text-tertiary-fixed hover:text-inverse-on-surface transition-colors py-space-xs" data-path="contact" href="#">Contact</a><a class="font-body-sm text-body-sm px-space-sm py-1 rounded-full bg-surface-container-highest/20 text-inverse-primary hover:bg-surface-container-highest/40 transition-colors font-medium text-right" data-path="persian-edition" dir="rtl" href="#">فارسی</a></nav><div class="flex items-center gap-space-sm"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs rounded-full bg-primary-container text-on-primary font-body-sm text-body-sm font-medium tracking-wide shadow-[0_0_24px_rgba(183,150,86,0.28)] hover:bg-primary transition-all duration-300" data-path="request-a-quote" href="#">Request a Quote</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- Introductory Title Area (No H1 duplication of header brand) -->
+<section class="w-full max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-space-lg pb-space-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-md">
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<div class="inline-flex items-center gap-2">
+<span class="w-6 h-[2px] bg-primary"></span>
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary">Practice Disciplines &amp; Portfolio</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-surface tracking-tight">Translation &amp; Localization Services</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          Meticulous English-to-Persian linguistic solutions tailored for corporate, financial, and digital ventures. Every commission is governed by scholarly precision, financial standard synchronization, and deep contextual acumen.
+        </p>
+</div>
+<div class="flex flex-col items-start md:items-end gap-2 shrink-0">
+<div class="flex items-center gap-2 bg-surface-container-high px-space-md py-2 rounded-full text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">100% Certified Human Translation</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Mashhad Academic Faculty Aligned · Dual ISO 17100 Methodology</span>
+</div>
+</div>
+</section>
+<!-- Interactive Filter Tabs -->
+<section class="w-full max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg mb-space-lg">
+<div class="flex flex-wrap items-center gap-space-xs p-1.5 bg-surface-container-low rounded-full w-fit">
+<button class="service-tab-btn active-tab px-space-md py-2 rounded-full font-label-md text-label-md transition-all duration-300 bg-primary text-on-primary shadow-sm" id="btn-all" onclick="filterServices('all')">
+        All Disciplines (6)
+      </button>
+<button class="service-tab-btn px-space-md py-2 rounded-full font-label-md text-label-md transition-all duration-300 text-on-surface-variant hover:text-on-surface hover:bg-surface-container" id="btn-finance" onclick="filterServices('finance')">
+        Financial &amp; Accounting
+      </button>
+<button class="service-tab-btn px-space-md py-2 rounded-full font-label-md text-label-md transition-all duration-300 text-on-surface-variant hover:text-on-surface hover:bg-surface-container" id="btn-commercial" onclick="filterServices('commercial')">
+        Corporate &amp; Legal
+      </button>
+<button class="service-tab-btn px-space-md py-2 rounded-full font-label-md text-label-md transition-all duration-300 text-on-surface-variant hover:text-on-surface hover:bg-surface-container" id="btn-editorial" onclick="filterServices('editorial')">
+        Editorial &amp; Software
+      </button>
+</div>
+</section>
+<!-- 6 Comprehensive Service Cards Grid -->
+<section class="w-full max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pb-space-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg" id="services-grid">
+<!-- Card 1: Financial Translation (Featuring IMAGE_3) -->
+<article class="service-card flex flex-col bg-surface-container-lowest rounded-DEFAULT shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group" data-category="finance">
+<div class="relative h-56 w-full overflow-hidden bg-surface-container">
+<img alt="Audited financial balance sheet documents on polished executive conference table" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_G3aZPBDKRMZCj7-4EBQ_AFahkVstPw3JYp8xKKE_rsSjFXZjG7neMMBE3Uq28eKJODek0KGTM_EbhBp_S9gdpVC37237LHWt9toUBK_zzcbbL4Tu8z4T7irpH-gGBAhef8vCs4lSnVyQ_vFE8DRvDrU1lHmHgTWJMKXG9bdk5luK5WpbHh8pqV74LyG8N3amIEkJr6VUUSFOkaonEd29Uxx28Rcr5oMOBUv89iinGY4D4yMSYtVZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+              Primary Practice
+            </span>
+<span class="font-label-sm text-label-sm text-inverse-on-surface bg-inverse-surface/60 backdrop-blur px-2 py-0.5 rounded-full">
+              IFRS / Iran GAAP
+            </span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">01 / Financial</span>
+<span class="material-symbols-outlined text-primary text-[24px]">account_balance</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Financial Translation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Rigorous fiscal translation guaranteeing zero ambiguity between English IFRS definitions and Iranian statutory accounting terminology. Preserves balance sheet formulas, notes to financial statements, and numerical equity mappings.
+            </p>
+<div class="bg-surface-container-low p-space-sm rounded-DEFAULT flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Core Documents:</span>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Audited Balance Sheets</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Cash Flow Analyses</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Capital Disclosures</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Investment Memoranda</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Client Benefit:</span>
+<p class="font-body-sm text-body-sm text-secondary font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+                Mitigates cross-border audit disputes &amp; investor scrutiny risks.
+              </p>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<a class="inline-flex items-center gap-2 font-body-sm text-body-sm font-semibold text-primary group-hover:text-primary-container transition-colors" data-path="services-financial" href="#">
+<span>Explore Practice Area</span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</a>
+<span class="font-label-sm text-label-sm text-outline">Bilingual Corpus Sync</span>
+</div>
+</div>
+</article>
+<!-- Card 2: Accounting & Audit Translation -->
+<article class="service-card flex flex-col bg-surface-container-lowest rounded-DEFAULT shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group" data-category="finance">
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">02 / Auditing</span>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Accounting &amp; Audit Translation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              In-depth translation of statutory audit opinions, internal control reviews, and corporate general ledgers. Prepared strictly to withstand inspection by tax authorities and external international chartered auditing firms.
+            </p>
+<div class="bg-surface-container-low p-space-sm rounded-DEFAULT flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Core Documents:</span>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Independent Auditor Reports</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Corporate Tax Filings</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Consolidated General Ledgers</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Asset Valuations</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Client Benefit:</span>
+<p class="font-body-sm text-body-sm text-secondary font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+                Absolute consistency across historical tax years and ledger entries.
+              </p>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<a class="inline-flex items-center gap-2 font-body-sm text-body-sm font-semibold text-primary group-hover:text-primary-container transition-colors" data-path="request-a-quote" href="#">
+<span>Commission Translation</span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</a>
+<span class="font-label-sm text-label-sm text-outline">Statutory Precision</span>
+</div>
+</div>
+</article>
+<!-- Card 3: Business & Commercial Translation -->
+<article class="service-card flex flex-col bg-surface-container-lowest rounded-DEFAULT shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group" data-category="commercial">
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">03 / Corporate</span>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Business &amp; Commercial</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              High-stakes corporate contracts, joint-venture charters, bilateral tenders, and distribution agreements. Translating legal intent while adhering to local jurisdiction enforceability criteria in Iran and Western legal frameworks.
+            </p>
+<div class="bg-surface-container-low p-space-sm rounded-DEFAULT flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Core Documents:</span>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Joint Venture Accords</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Procurement Tenders</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Articles of Association</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Agency Agreements</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Client Benefit:</span>
+<p class="font-body-sm text-body-sm text-secondary font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+                Legally balanced bilateral terminology preventing transactional disputes.
+              </p>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<a class="inline-flex items-center gap-2 font-body-sm text-body-sm font-semibold text-primary group-hover:text-primary-container transition-colors" data-path="services-commercial" href="#">
+<span>View Commercial Scope</span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</a>
+<span class="font-label-sm text-label-sm text-outline">Strict NDA Protection</span>
+</div>
+</div>
+</article>
+<!-- Card 4: Proofreading & Editing (Featuring IMAGE_5) -->
+<article class="service-card flex flex-col bg-surface-container-lowest rounded-DEFAULT shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group" data-category="editorial">
+<div class="relative h-56 w-full overflow-hidden bg-surface-container">
+<img alt="Hand using fountain pen for editorial proofreading and nuanced linguistic critique on archival manuscript paper" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiwVfg58BoDk2-OLX3il9B8093v-tYW0GotpbLX8guHwS1yDtYzjb9TTe_F_SdMjWS400_iwus-qpeJ__F0JFOJ0-MKrOI6q_6FakdT8yH_G7i52DUvJ6jF4gm3yvBW0qCOPGnlw8QOfyeE113x7eiRCcFNz7rvTZ6EVvHP_A8HBSRYsqxtoHLOj182FA6Xmtohdnu_ALbjVlhFezJ30iMDyEGbLmBNmWpN4tpm-3RUqCMFIBHTIz-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur text-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+              Scholarly Review
+            </span>
+<span class="font-label-sm text-label-sm text-inverse-on-surface bg-inverse-surface/60 backdrop-blur px-2 py-0.5 rounded-full">
+              Post-Translation Polish
+            </span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">04 / Editorial</span>
+<span class="material-symbols-outlined text-primary text-[24px]">history_edu</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Proofreading &amp; Editing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Multi-pass scholarly proofreading of academic articles, publication monographs, and pre-translated corporate copy. Eliminates syntactic awkwardness, calques, and tone drift while preserving scholarly voice.
+            </p>
+<div class="bg-surface-container-low p-space-sm rounded-DEFAULT flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Core Documents:</span>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Peer-Reviewed Papers</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Translation Revisions</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Corporate Annuals</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Policy Briefs</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Client Benefit:</span>
+<p class="font-body-sm text-body-sm text-secondary font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+                Publication-ready prose conforming to APA, Chicago, or house style guides.
+              </p>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<a class="inline-flex items-center gap-2 font-body-sm text-body-sm font-semibold text-primary group-hover:text-primary-container transition-colors" data-path="services-proofreading" href="#">
+<span>View Editorial Standards</span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</a>
+<span class="font-label-sm text-label-sm text-outline">Double-Blind Proofing</span>
+</div>
+</div>
+</article>
+<!-- Card 5: Website & Software Localization -->
+<article class="service-card flex flex-col bg-surface-container-lowest rounded-DEFAULT shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group" data-category="editorial">
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">05 / Digital</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">language</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Website &amp; Software Localization</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Full-spectrum software string translation and RTL (Right-to-Left) UI optimization. Preserving string length constraints, placeholders, character encodings, and cultural nuances across consumer and enterprise digital platforms.
+            </p>
+<div class="bg-surface-container-low p-space-sm rounded-DEFAULT flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Core Documents:</span>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">JSON/PO/XLIFF UI Strings</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">SaaS Portals &amp; Dashboards</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Marketing Landing Pages</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">E-Commerce Checkouts</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Client Benefit:</span>
+<p class="font-body-sm text-body-sm text-secondary font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+                Native Persian UX engagement without layout clipping or text inversion bugs.
+              </p>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<a class="inline-flex items-center gap-2 font-body-sm text-body-sm font-semibold text-primary group-hover:text-primary-container transition-colors" data-path="services-localization" href="#">
+<span>Localization Details</span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</a>
+<span class="font-label-sm text-label-sm text-outline">RTL Structural Focus</span>
+</div>
+</div>
+</article>
+<!-- Card 6: Executive Business Correspondence -->
+<article class="service-card flex flex-col bg-surface-container-lowest rounded-DEFAULT shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group" data-category="commercial">
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">06 / Diplomatic</span>
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[20px]">mark_email_unread</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Executive Correspondence</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Discreet translation for executive leadership, board members, and international negotiators. Calibrates courtesy registers (Tarof, formal Persian address, Anglo-American boardroom rhetoric) for critical corporate interactions.
+            </p>
+<div class="bg-surface-container-low p-space-sm rounded-DEFAULT flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Core Documents:</span>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Board Minutes &amp; Resolves</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Shareholder Letters</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">High-Level Inquiries</span>
+<span class="px-2 py-0.5 bg-surface-container-lowest rounded-full font-body-sm text-body-sm text-on-surface">Diplomatic Memoranda</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Client Benefit:</span>
+<p class="font-body-sm text-body-sm text-secondary font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+                Prevents costly cultural faux pas and establishes authoritative corporate presence.
+              </p>
+</div>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<a class="inline-flex items-center gap-2 font-body-sm text-body-sm font-semibold text-primary group-hover:text-primary-container transition-colors" data-path="request-a-quote" href="#">
+<span>Initiate Executive Inquiry</span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</a>
+<span class="font-label-sm text-label-sm text-outline">Direct Lead Time</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Bilingual Terminology & Quality Architecture Feature -->
+<section class="w-full bg-surface-container py-space-xl">
+<div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+<div class="lg:col-span-5 flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary font-semibold">Linguistic Infrastructure</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface leading-tight">
+            Scholarly Terminology Management
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Every client translation benefits from a dedicated bilingual glossary. We maintain precise term bases across multiple accounting frameworks (IFRS, US GAAP, Iran Statutory Accounting Standards) to safeguard multi-year semantic consistency.
+          </p>
+<div class="flex flex-col gap-3 pt-2">
+<div class="flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-primary text-[18px]">menu_book</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface text-[17px]">Proprietary Glossaries</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Client-specific corpora maintained across recurring quarterly reports.</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">sync_alt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface text-[17px]">Bi-directional Cross-Verification</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Symmetric checks for semantic weight, tone register, and regulatory fidelity.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<!-- Interactive Bilingual Terminology Live Preview -->
+<div class="bg-surface-container-lowest p-space-md md:p-space-lg rounded-DEFAULT shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-2 bg-surface-container-low px-4 py-2 rounded-lg">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Sample Concordance: Financial &amp; Legal Lexicon</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Corpus Ver. 2025.1</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2 px-3">English Term</th>
+<th class="py-2 px-3 text-right" dir="rtl">اصطلاح معادل فارسی</th>
+<th class="py-2 px-3">Category</th>
+<th class="py-2 px-3">Standard Alignment</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y-0">
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-semibold text-on-surface">Statement of Financial Position</td>
+<td class="py-2.5 px-3 text-right font-medium text-primary" dir="rtl">صورت وضعیت مالی (ترازنامه)</td>
+<td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">IFRS IAS 1</span></td>
+<td class="py-2.5 px-3 text-on-surface-variant">Audited Statements</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-semibold text-on-surface">Comprehensive Income</td>
+<td class="py-2.5 px-3 text-right font-medium text-primary" dir="rtl">سود و زیان جامع</td>
+<td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">Accounting</span></td>
+<td class="py-2.5 px-3 text-on-surface-variant">Quarterly Filing</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-semibold text-on-surface">Indemnification &amp; Hold Harmless</td>
+<td class="py-2.5 px-3 text-right font-medium text-primary" dir="rtl">جبران خسارت و رفع مسئولیت حقوقی</td>
+<td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">Commercial</span></td>
+<td class="py-2.5 px-3 text-on-surface-variant">Contractual Clauses</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-semibold text-on-surface">Impairment of Goodwill</td>
+<td class="py-2.5 px-3 text-right font-medium text-primary" dir="rtl">کاهش ارزش سرقفلی</td>
+<td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">Auditing</span></td>
+<td class="py-2.5 px-3 text-on-surface-variant">M&amp;A Valuation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex items-center justify-between text-outline font-body-sm text-body-sm pt-2">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">database</span>
+                Client-encrypted terminology database with strict isolation
+              </span>
+<a class="text-primary hover:underline font-medium" data-path="request-a-quote" href="#">Request Corpus Demo →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Methodology & Delivery Matrix -->
+<section class="w-full max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl">
+<div class="flex flex-col gap-space-xs text-center items-center mb-space-lg">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary font-semibold">Operational Cadence</span>
+<h2 class="font-display-lg text-display-lg text-on-surface tracking-tight">Methodology &amp; Delivery Matrix</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+        Transparent engagement models customized for routine enterprise filings, urgent tender deadlines, and comprehensive bilingual localization projects.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg">
+<!-- Tier 1: Standard Delivery -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm uppercase tracking-wider font-semibold">Standard Track</span>
+<span class="material-symbols-outlined text-outline text-[22px]">schedule</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Standard Academic</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Recommended for non-urgent publications, quarterly filings, regulatory submissions, and extensive academic dissertations.
+          </p>
+<div class="pt-2 flex flex-col gap-2 font-body-sm text-body-sm text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">timer</span>
+<span>Speed: 2,000 – 2,500 words / business day</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">checklist</span>
+<span>2-pass review (Translator + Senior Editor)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">rule</span>
+<span>IFRS &amp; Local Terminology concordance</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">draft</span>
+<span>Formatted DOCX and side-by-side layout</span>
+</div>
+</div>
+</div>
+<a class="w-full text-center py-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-semibold transition-colors" data-path="request-a-quote" href="#">
+          Select Standard Track
+        </a>
+</div>
+<!-- Tier 2: Expedited & Urgent Delivery (Highlighted) -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-space-lg shadow-xl relative flex flex-col justify-between gap-space-md ring-2 ring-primary">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold shadow-md">
+          Most Requested for Bids
+        </div>
+<div class="flex flex-col gap-space-sm pt-2">
+<div class="flex items-center justify-between">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm uppercase tracking-wider font-semibold">Expedited Tier</span>
+<span class="material-symbols-outlined text-primary text-[22px]">bolt</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Urgent Commercial</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Engineered for high-stakes bids, tender submissions, emergency board packs, and active trade negotiation memoranda.
+          </p>
+<div class="pt-2 flex flex-col gap-2 font-body-sm text-body-sm text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">timer</span>
+<span class="font-semibold text-primary">Turnaround: 24 to 48 hours</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">groups</span>
+<span>Priority dedicated lead linguist oversight</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">lock</span>
+<span>Enhanced NDA &amp; VIP direct communication channel</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">quick_reference</span>
+<span>Immediate term agreement within 4 hours</span>
+</div>
+</div>
+</div>
+<a class="w-full text-center py-3 rounded-full bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container shadow-[0_0_24px_rgba(183,150,86,0.28)] transition-all" data-path="request-a-quote" href="#">
+          Request Expedited Review
+        </a>
+</div>
+<!-- Tier 3: Enterprise & Digital Localization -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm uppercase tracking-wider font-semibold">Strategic Suite</span>
+<span class="material-symbols-outlined text-outline text-[22px]">hub</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Enterprise Localization</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Full-scope linguistic governance for enterprise software, corporate digital ecosystems, and multi-document annual reports.
+          </p>
+<div class="pt-2 flex flex-col gap-2 font-body-sm text-body-sm text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">tune</span>
+<span>Custom continuous delivery workflows</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">code</span>
+<span>Direct Git / XLIFF / JSON integration</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span>Dedicated term-base custodian</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">support_agent</span>
+<span>Monthly SLA &amp; dedicated consultation hours</span>
+</div>
+</div>
+</div>
+<a class="w-full text-center py-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-semibold transition-colors" data-path="contact" href="#">
+          Consult Enterprise Program
+        </a>
+</div>
+</div>
+</section>
+<!-- Quality Assurance Guarantee: 3-Tier Review Process -->
+<section class="w-full bg-surface-container-low py-space-xl">
+<div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex flex-col gap-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="max-w-2xl flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary font-semibold">Audit Proof Methodology</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">3-Tier Academic Quality Assurance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Unlike rapid automated aggregators, our delivery framework enforces three rigorous, non-overlapping checkpoints before releasing any translated document.
+          </p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-lowest px-space-md py-3 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary text-[28px]">format_image_left</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Quality Guarantee</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Zero-Error Precision Standard</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg">
+<!-- Stage 1 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-DEFAULT shadow-sm flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between">
+<span class="text-display-lg font-headline-xl text-primary/30 leading-none">01</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm uppercase tracking-wider">Semantic Parse</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Primary Human Translation</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Direct initial draft executed by an M.A.-accredited translation scholar specializing exclusively in the target technical domain. Preserves technical formula structures and cross-lingual equivalence without synthetic translation tools.
+          </p>
+<div class="mt-auto pt-space-xs flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Syntactic alignment &amp; vocabulary mapping</span>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-DEFAULT shadow-sm flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between">
+<span class="text-display-lg font-headline-xl text-primary/30 leading-none">02</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm uppercase tracking-wider">Audit Pass</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Independent Peer Audit</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Secondary deep audit conducted by a subject-matter specialist. For finance and corporate contracts, every ledger sum, percentage, footnote clause, and legal liability threshold is verified line-by-line against source documents.
+          </p>
+<div class="mt-auto pt-space-xs flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Mathematical and legal formula auditing</span>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-DEFAULT shadow-sm flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between">
+<span class="text-display-lg font-headline-xl text-primary/30 leading-none">03</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm uppercase tracking-wider">Stylistic Finalization</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Native Register Polish</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            The final pass fine-tunes Persian rhetorical elegance, typographical balance, bidirectional hyphenation, and typesetting symmetry. Output reads as if natively authored by prestigious regional publishers or corporate counsel.
+          </p>
+<div class="mt-auto pt-space-xs flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Typographical layout and Persian aesthetics</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Document Assessment Calculator / FAQ Teaser -->
+<section class="w-full max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl">
+<div class="bg-surface-container-lowest p-space-lg md:p-space-xl rounded-DEFAULT shadow-md flex flex-col lg:flex-row gap-gutter-lg items-center justify-between">
+<div class="max-w-xl flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary font-semibold">Immediate Advisory</span>
+<h3 class="font-headline-xl text-headline-xl text-on-surface">Need an instant word count &amp; scope estimation?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Select your estimated word range to view approximate turnaround cadences. Every proposal includes a binding Non-Disclosure Agreement (NDA) and formal invoice options.
+        </p>
+<!-- Micro-calculator interaction -->
+<div class="flex flex-col gap-3 pt-2">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline" for="wordRange">Approximate Document Length</label>
+<div class="flex items-center gap-4">
+<input class="w-full accent-primary h-2 bg-surface-container-high rounded-lg cursor-pointer" id="wordRange" max="25000" min="500" oninput="updateEstimate(this.value)" step="500" type="range" value="5000"/>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold shrink-0 min-w-[110px] text-right" id="rangeDisplay">5,000 words</span>
+</div>
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-DEFAULT mt-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Standard Turnaround</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface" id="estDays">2-3 Business Days</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-outline">Expedited Option</span>
+<span class="font-body-sm text-body-sm font-semibold text-primary" id="estUrgent">24-36 Hours</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Free Assessment CTA Card -->
+<div class="w-full lg:w-96 bg-surface-container-low p-space-lg rounded-DEFAULT flex flex-col gap-space-md text-center items-center">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">upload_file</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Upload for Analysis</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Receive a formal, binding price quote and delivery schedule within 3 hours. Confidentiality assured.
+          </p>
+</div>
+<a class="w-full py-3 rounded-full bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container shadow-[0_0_24px_rgba(183,150,86,0.28)] transition-all" data-path="request-a-quote" href="#">
+          Submit Confidential Document
+        </a>
+<span class="font-label-sm text-label-sm text-outline">Supported: PDF, DOCX, XLSX, XLIFF, PPTX</span>
+</div>
+</div>
+</section>
+<!-- Conversion Footer Banner -->
+<section class="w-full bg-inverse-surface text-inverse-on-surface py-space-xl">
+<div class="max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-gutter-lg">
+<div class="max-w-2xl flex flex-col gap-space-xs text-center lg:text-left">
+<span class="font-label-md text-label-md uppercase tracking-widest text-inverse-primary font-semibold">Free Document Diagnosis</span>
+<h2 class="font-headline-xl text-headline-xl text-inverse-on-surface">
+            Not sure which translation tier your project requires?
+          </h2>
+<p class="font-body-lg text-body-lg text-tertiary-fixed leading-relaxed">
+            Submit your draft or prospectus for a complimentary linguistic evaluation. Asma Parnianfard will personally analyze your document structure, terminology depth, and recommended timeline.
+          </p>
+<div class="flex flex-wrap items-center justify-center lg:justify-start gap-space-md pt-2 font-body-sm text-body-sm text-outline-variant">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-inverse-primary">lock</span>Strict Corporate NDA</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-inverse-primary">schedule</span>3-Hour Response Guarantee</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-inverse-primary">translate</span>Academic M.A. Oversight</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm shrink-0">
+<a class="px-space-lg py-3 rounded-full bg-primary-container text-on-primary font-body-sm text-body-sm font-medium hover:bg-primary shadow-[0_0_24px_rgba(183,150,86,0.28)] transition-all text-center" data-path="request-a-quote" href="#">
+            Request a Free Quote
+          </a>
+<a class="px-space-lg py-3 rounded-full bg-tertiary text-on-tertiary font-body-sm text-body-sm font-medium hover:bg-inverse-primary hover:text-on-primary-fixed transition-all text-center" data-path="contact" href="#">
+            Direct Consultation
+          </a>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  function filterServices(category) {
+    // Update button states
+    const buttons = document.querySelectorAll('.service-tab-btn');
+    buttons.forEach(btn => {
+      btn.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+      btn.classList.add('text-on-surface-variant');
+    });
+
+    const activeBtn = document.getElementById('btn-' + category);
+    if (activeBtn) {
+      activeBtn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+      activeBtn.classList.remove('text-on-surface-variant');
+    }
+
+    // Filter cards
+    const cards = document.querySelectorAll('.service-card');
+    cards.forEach(card => {
+      const cardCat = card.getAttribute('data-category');
+      if (category === 'all' || cardCat === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function updateEstimate(val) {
+    const words = parseInt(val, 10);
+    const rangeDisplay = document.getElementById('rangeDisplay');
+    const estDays = document.getElementById('estDays');
+    const estUrgent = document.getElementById('estUrgent');
+
+    rangeDisplay.textContent = words.toLocaleString() + ' words';
+
+    if (words <= 2500) {
+      estDays.textContent = '1-2 Business Days';
+      estUrgent.textContent = 'Under 24 Hours';
+    } else if (words <= 7500) {
+      estDays.textContent = '2-4 Business Days';
+      estUrgent.textContent = '24-36 Hours';
+    } else if (words <= 15000) {
+      estDays.textContent = '5-7 Business Days';
+      estUrgent.textContent = '48-72 Hours';
+    } else {
+      estDays.textContent = '8-12 Business Days';
+      estUrgent.textContent = '3-5 Days (Sprint)';
+    }
+  }
+</script></main><footer class="w-full bg-inverse-surface text-inverse-on-surface"><div class="w-full max-w-[1320px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter-lg pb-space-xl"><div class="lg:col-span-4 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="Asma Parnianfard Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UlkQTtHZsKkOKT_18TDpPnM6pNpi-UEA72rvK7x_0iLy4l_xVba4nEzxhnTVzH9hAMK2QxTDEZHkg76epaaN0nNhpTgxAY3vAvRyFUnH-JikUads7D-fXitLaqw5CFQE9Pfuynac80Iwnd3pn9zuGbqBzThtFtSOKi5UzotmGzkAV7JK5J7nAj5u97pq9tIJwarvT5SBG8Y94bz75vGI9nDyoSEIyVhZKHw_VVEzIAsdOVNWUk4zO5FWk"/><span class="font-headline-sm text-headline-sm text-inverse-on-surface tracking-wide">Asma Parnianfard</span></div><p class="font-headline-sm text-headline-sm text-inverse-primary italic">Bridging Languages. Connecting Cultures.</p><p class="font-body-sm text-body-sm text-tertiary-fixed leading-relaxed max-w-sm">Prestigious English-to-Persian literary localization and high-stakes commercial translation consultancy. Operating with academic rigor and cultural mastery.</p><div class="flex flex-col gap-1 text-tertiary-fixed font-body-sm text-body-sm"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-inverse-primary">location_on</span>Mashhad, Razavi Khorasan, Iran</span><span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-inverse-primary">school</span>M.A. in Translation Studies (Azad University)</span></div><div class="pt-2"><a class="inline-flex items-center gap-2 px-space-md py-space-xs rounded-full bg-tertiary text-on-tertiary font-body-sm text-body-sm hover:bg-inverse-primary hover:text-on-primary-fixed transition-colors" href="https://www.linkedin.com/in/asma-parnianfard-a11b69433" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">link</span><span>LinkedIn Profile</span></a></div></div><div class="lg:col-span-2 flex flex-col gap-space-sm"><h4 class="font-label-md text-label-md uppercase tracking-wider text-inverse-primary">Navigation</h4><ul class="flex flex-col gap-2 font-body-sm text-body-sm text-tertiary-fixed"><li><a class="hover:text-inverse-on-surface transition-colors" data-path="home" href="#">Home Overview</a></li><li><a class="hover:text-inverse-on-surface transition-colors" data-path="about" href="#">Curriculum Vitae</a></li><li><a class="hover:text-inverse-on-surface transition-colors" data-path="portfolio" href="#">Bilingual Folio</a></li><li><a class="hover:text-inverse-on-surface transition-colors" data-path="blog" href="#">Translation Journal</a></li><li><a class="hover:text-inverse-on-surface transition-colors" data-path="persian-edition" dir="rtl" href="#">بخش زبان فارسی</a></li><li><a class="hover:text-inverse-on-surface transition-colors" data-path="contact" href="#">Direct Advisory</a></li></ul></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><h4 class="font-label-md text-label-md uppercase tracking-wider text-inverse-primary">Practice Areas</h4><ul class="flex flex-col gap-2 font-body-sm text-body-sm text-tertiary-fixed"><li><a class="hover:text-inverse-on-surface transition-colors" data-path="services-financial" href="#">Financial Statements &amp; Audit</a></li><li><a class="hover:text-inverse-on-surface transition-colors" data-path="services-commercial" href="#">Corporate Contracts &amp; Charters</a></li><li><a class="hover:text-inverse-on-surface transition-colors" data-path="services-proofreading" href="#">Academic Proofreading</a></li><li><a class="hover:text-inverse-on-surface transition-colors" data-path="services-localization" href="#">Nuanced Cultural Transcreation</a></li><li><a class="hover:text-inverse-on-surface transition-colors" data-path="request-a-quote" href="#">Expedited Localization Quotes</a></li></ul></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><h4 class="font-label-md text-label-md uppercase tracking-wider text-inverse-primary">Practice Standards</h4><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-tertiary-fixed"><div class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-inverse-primary shrink-0">verified_user</span><span>Strict Non-Disclosure &amp; Corporate Privacy Guarantee</span></div><div class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-inverse-primary shrink-0">psychology</span><span>100% Certified Human-Only Translation Process</span></div><div class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-inverse-primary shrink-0">spellcheck</span><span>Precision Corpus &amp; Terminological Consistency</span></div></div><div class="pt-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline-variant block mb-1">Confidential Inquiry</span><div class="flex items-center gap-1"><input class="w-full px-space-sm py-2 rounded-full bg-surface-container-highest/20 text-inverse-on-surface placeholder:text-outline-variant font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="Your business email" type="email"/><button class="px-space-md py-2 rounded-full bg-primary-container text-on-primary font-body-sm text-body-sm hover:bg-primary transition-colors shrink-0" type="button">Send</button></div></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-outline-variant"><div class="flex flex-wrap items-center gap-space-md"><span>© 2025 Asma Parnianfard. All Rights Reserved.</span><span>Academic Translation &amp; Cross-Cultural Consulting</span></div><div class="flex items-center gap-space-sm"><span class="px-space-sm py-0.5 rounded-full bg-surface-container-highest/20 font-label-sm text-label-sm text-inverse-primary tracking-widest uppercase">EN / FA Bilateral Certified</span></div></div></div></footer></body></html>
