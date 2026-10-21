@@ -40,9 +40,9 @@ export default function QuotePage() {
 
           <p className="text-base sm:text-lg text-[#22272B]/80 font-sans leading-relaxed">
             {lang === 'fa' ? (
-              'اسناد یا پیش‌نویس متن خود را جهت ارزیابی حجم واژگان، سطح تخصصی و زمان‌بندی تحویل بارگذاری فرمایید. پیش‌فاکتور دقیق به همراه تعهدنامه عدم افشا ظرف ۴ ساعت برای شما ارسال می‌شود.'
+              'اسناد یا پیش‌نویس متن خود را جهت ارزیابی حجم واژگان، سطح تخصصی و زمان‌بندی تحویل بارگذاری فرمایید. پیش‌فاکتور دقیق به همراه زمان‌بندی تحویل به صورت منظم برای شما ارسال خواهد شد.'
             ) : (
-              'Upload your source files for a confidential volume appraisal, terminology complexity review, and delivery schedule. Binding proposals dispatched within 4 business hours.'
+              'Upload your source files for a confidential volume appraisal, terminology complexity review, and delivery schedule. Detailed proposals and turnaround projections dispatched promptly upon review.'
             )}
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function QuotePage() {
                 </div>
                 <div>
                   <h2 className="font-serif text-base font-bold text-[#22272B]">
-                    {lang === 'fa' ? 'ضمانت‌های اختصاصی آتلیه' : 'Institutional Guarantees'}
+                    {lang === 'fa' ? 'استانداردهای حرفه‌ای آتلیه' : 'Professional Standards'}
                   </h2>
                   <span className="text-[10px] font-sans text-[#B79656] uppercase tracking-wider block">
                     {lang === 'fa' ? 'اسماء پرنیان‌فرد' : 'ASMA PARNIANFARD'}
@@ -84,32 +84,32 @@ export default function QuotePage() {
                 <li className="flex items-start gap-2.5">
                   <Lock className="w-4 h-4 text-[#788A78] flex-shrink-0 mt-0.5" />
                   <span>
-                    <strong>{lang === 'fa' ? 'حفظ محرمانگی مطلق:' : 'Non-Disclosure by Default:'}</strong>{' '}
-                    {lang === 'fa' ? 'امضای NDA پیش از بررسی فایل‌های حساس' : 'Bilateral NDAs signed before deep review.'}
+                    <strong>{lang === 'fa' ? 'رازداری و محرمانگی:' : 'Professional Confidentiality:'}</strong>{' '}
+                    {lang === 'fa' ? 'حفظ کامل حریم اسناد و امکان انعقاد قرارداد NDA' : 'Secure document privacy; mutual NDAs available upon request.'}
                   </span>
                 </li>
 
                 <li className="flex items-start gap-2.5">
                   <Clock className="w-4 h-4 text-[#B79656] flex-shrink-0 mt-0.5" />
                   <span>
-                    <strong>{lang === 'fa' ? 'پاسخگویی سریع:' : '4-Hour Response:'}</strong>{' '}
-                    {lang === 'fa' ? 'صدور پیش‌فاکتور در ساعات کاری' : 'Itemized fee schedule within hours.'}
+                    <strong>{lang === 'fa' ? 'پاسخگویی به موقع:' : 'Prompt Communication:'}</strong>{' '}
+                    {lang === 'fa' ? 'بررسی سند و صدور پیشنهاد زمان‌بندی منظم' : 'Timely evaluation of word count and project timeline.'}
                   </span>
                 </li>
 
                 <li className="flex items-start gap-2.5">
                   <Award className="w-4 h-4 text-[#22272B] flex-shrink-0 mt-0.5" />
                   <span>
-                    <strong>{lang === 'fa' ? 'عدم واگذاری به شخص ثالث:' : 'Zero Third-Party Outsourcing:'}</strong>{' '}
-                    {lang === 'fa' ? 'ترجمه منحصراً توسط اسماء پرنیان‌فرد' : 'Single-voice consistency guaranteed.'}
+                    <strong>{lang === 'fa' ? 'ارتباط مستقیم با کارشناس:' : 'Direct Practitioner Engagement:'}</strong>{' '}
+                    {lang === 'fa' ? 'ترجمه مستقیم توسط اسماء پرنیان‌فرد (کارشناس ارشد)' : 'Direct single-voice translation by Asma Parnianfard, M.A.'}
                   </span>
                 </li>
 
                 <li className="flex items-start gap-2.5">
                   <ShieldCheck className="w-4 h-4 text-[#788A78] flex-shrink-0 mt-0.5" />
                   <span>
-                    <strong>{lang === 'fa' ? 'گارانتی بازنگری ۱۴ روزه:' : '14-Day Revision Warranty:'}</strong>{' '}
-                    {lang === 'fa' ? 'پاسخگویی و اصلاحات تکمیلی رایگان' : 'Refinements with zero surcharge.'}
+                    <strong>{lang === 'fa' ? 'پشتیبانی پس از تحویل:' : 'Post-Delivery Support:'}</strong>{' '}
+                    {lang === 'fa' ? 'پاسخگویی و بازنگری اصطلاحات در صورت نیاز' : 'Refinements and terminology consultations as needed.'}
                   </span>
                 </li>
               </ul>

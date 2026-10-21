@@ -241,7 +241,7 @@ export default function AboutPage() {
             <span>{lang === 'fa' ? 'اصول اخلاق حرفه‌ای' : 'Institutional Code of Ethics'}</span>
           </div>
           <h2 className="text-3xl font-serif text-[#22272B]">
-            {lang === 'fa' ? 'تعهدات خدشه‌ناپذیر در قبال اسناد کارفرما' : 'Guarantees That Protect Your Organization'}
+            {lang === 'fa' ? 'تعهدات حرفه‌ای در قبال اسناد کارفرما' : 'Professional Practice Commitments'}
           </h2>
         </div>
 
@@ -273,7 +273,7 @@ export default function AboutPage() {
           <div className="p-6 bg-white border border-[#22272B]/10 space-y-3 shadow-sm">
             <Award className="w-6 h-6 text-[#22272B]" />
             <h3 className="font-serif text-lg font-semibold text-[#22272B]">
-              {lang === 'fa' ? 'ضمانت بازنگری ۱۴ روزه' : '14-Day Post-Delivery Warranty'}
+              {lang === 'fa' ? 'پشتیبانی و بازنگری پس از تحویل' : 'Post-Delivery Linguistic Support'}
             </h3>
             <p className="text-xs sm:text-sm text-[#22272B]/70 leading-relaxed font-sans">
               {lang === 'fa'
@@ -293,8 +293,8 @@ export default function AboutPage() {
             </h2>
             <p className="text-white/70 text-xs sm:text-sm font-sans">
               {lang === 'fa' 
-                ? 'پیش‌فاکتور دقیق به همراه زمان‌بندی شفاف ظرف ۴ ساعت برای شما ارسال خواهد شد.'
-                : 'Receive a confidential, itemized quote and turnaround projection within 4 business hours.'}
+                ? 'پیش‌فاکتور دقیق به همراه زمان‌بندی شفاف به موقع تقدیم شما خواهد شد.'
+                : 'Receive a confidential, itemized quote and turnaround projection promptly.'}
             </p>
           </div>
 

@@ -5,9 +5,9 @@ import { useLanguage } from '../i18n/LanguageContext';
 export interface BrandIdentityProps {
   /**
    * Layout presentation:
-   * - 'header': Horizontal layout optimized for top navigation bar
+   * - 'header': Horizontal layout with responsive mobile compaction
    * - 'footer': Horizontal layout with richer styling for footer
-   * - 'mobile': Compact horizontal layout for mobile drawer
+   * - 'mobile': Clean layout for inside mobile drawer
    * - 'admin': Horizontal atelier branding for admin header
    * - 'stacked': Centered vertical layout (monogram on top, name and subtitle centered)
    * - 'inline': Compact horizontal inline layout
@@ -96,22 +96,22 @@ export const BrandIdentity: React.FC<BrandIdentityProps> = ({
   // Medallion Sizes
   const medallionSizeClasses = {
     sm: 'w-8 h-8 p-1',
-    md: 'w-10 h-10 p-1.5',
-    lg: 'w-12 h-12 sm:w-14 sm:h-14 p-2',
-    xl: 'w-16 h-16 sm:w-20 sm:h-20 p-2.5',
+    md: variant === 'header' ? 'w-9 h-9 sm:w-10 sm:h-10 p-1 sm:p-1.5' : 'w-10 h-10 p-1.5',
+    lg: 'w-12 h-12 sm:w-14 sm:h-14 p-1.5 sm:p-2',
+    xl: 'w-16 h-16 sm:w-20 sm:h-20 p-2 sm:p-2.5',
   }[size];
 
   // Typography Sizes
   const nameSizeClasses = {
-    sm: 'text-sm sm:text-base lg:text-lg',
-    md: variant === 'header' ? 'text-base sm:text-xl lg:text-[22px]' : 'text-base sm:text-xl',
+    sm: 'text-xs xs:text-sm sm:text-base',
+    md: variant === 'header' ? 'text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl' : 'text-sm sm:text-lg lg:text-xl',
     lg: 'text-xl sm:text-2xl lg:text-3xl',
     xl: 'text-2xl sm:text-3xl lg:text-4xl',
   }[size];
 
   const subtitleSizeClasses = {
-    sm: 'text-[8.5px] sm:text-[9.5px]',
-    md: 'text-[9px] sm:text-[10px] lg:text-[11px]',
+    sm: 'text-[7.5px] sm:text-[9px]',
+    md: variant === 'header' ? 'hidden sm:block text-[8px] sm:text-[9.5px] lg:text-[10.5px]' : 'text-[8.5px] sm:text-[10px] lg:text-[11px]',
     lg: 'text-[10px] sm:text-[11px] lg:text-xs',
     xl: 'text-xs sm:text-sm',
   }[size];
@@ -138,10 +138,10 @@ export const BrandIdentity: React.FC<BrandIdentityProps> = ({
   const isStacked = variant === 'stacked';
   const layoutClasses = isStacked
     ? 'flex flex-col items-center text-center gap-3'
-    : 'flex items-center gap-3 sm:gap-3.5';
+    : 'flex items-center gap-2 sm:gap-3';
 
   const content = (
-    <div className={`group inline-flex ${layoutClasses} ${className}`}>
+    <div className={`group inline-flex items-center ${layoutClasses} min-w-0 max-w-full ${className}`}>
       {/* Golden AP Monogram Medallion */}
       <div
         className={`relative rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${medallionSizeClasses} ${medallionThemeClasses}`}
@@ -156,14 +156,19 @@ export const BrandIdentity: React.FC<BrandIdentityProps> = ({
         <div className="absolute inset-0 rounded-full pointer-events-none ring-1 ring-inset ring-[#B79656]/20 group-hover:ring-[#E6C27D]/40 transition-colors" />
       </div>
 
+      {/* Optional Thin Gold Vertical Separator (desktop only, for header) */}
+      {variant === 'header' && (
+        <div className="hidden lg:block w-[1px] h-6 bg-[#B79656]/30 self-center" aria-hidden="true" />
+      )}
+
       {/* Brand Typography Wordmark */}
       {!monogramOnly && (
-        <div className={`flex flex-col leading-none ${isStacked ? 'items-center' : 'justify-center'}`}>
+        <div className={`flex flex-col leading-none min-w-0 ${isStacked ? 'items-center' : 'justify-center'}`}>
           <span
-            className={`transition-colors font-bold whitespace-nowrap ${nameSizeClasses} ${nameThemeClasses} ${
+            className={`transition-colors font-bold truncate whitespace-nowrap ${nameSizeClasses} ${nameThemeClasses} ${
               isFa
                 ? 'font-persian tracking-normal'
-                : 'font-serif uppercase tracking-[0.07em]'
+                : 'font-serif uppercase tracking-[0.04em] sm:tracking-[0.06em]'
             }`}
           >
             {brandName}
@@ -171,10 +176,10 @@ export const BrandIdentity: React.FC<BrandIdentityProps> = ({
 
           {showSubtitle && (
             <span
-              className={`mt-1 sm:mt-1.5 transition-colors font-medium whitespace-nowrap ${subtitleSizeClasses} ${subtitleThemeClasses} ${
+              className={`mt-0.5 sm:mt-1 transition-colors font-medium whitespace-nowrap ${subtitleSizeClasses} ${subtitleThemeClasses} ${
                 isFa
                   ? 'font-persian tracking-normal'
-                  : 'font-sans uppercase tracking-[0.22em]'
+                  : 'font-sans uppercase tracking-[0.16em] sm:tracking-[0.22em]'
               }`}
             >
               {subtitle}
@@ -190,7 +195,7 @@ export const BrandIdentity: React.FC<BrandIdentityProps> = ({
       <Link
         to={linkTo}
         onClick={onClick}
-        className="focus:outline-none focus:ring-1 focus:ring-[#B79656] rounded-sm shrink-0"
+        className="focus:outline-none focus:ring-1 focus:ring-[#B79656] rounded-sm shrink min-w-0"
         aria-label="ASMA PARNIANFARD — Translation & Localization"
       >
         {content}
@@ -198,7 +203,7 @@ export const BrandIdentity: React.FC<BrandIdentityProps> = ({
     );
   }
 
-  return <div className="shrink-0">{content}</div>;
+  return <div className="shrink min-w-0">{content}</div>;
 };
 
 export default BrandIdentity;

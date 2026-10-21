@@ -198,7 +198,7 @@ export default function PortfolioDetailPage() {
                 {lang === 'fa' ? 'سندی با ویژگی‌های مشابه در دست ترجمه دارید؟' : 'Have a similar high-stakes document for translation?'}
               </h3>
               <p className="text-xs sm:text-sm text-white/70 font-sans">
-                {lang === 'fa' ? 'پیش‌فاکتور رسمی و محرمانه ظرف ۴ ساعت کاری صادر خواهد شد.' : 'Receive an itemized quote and turnaround projection within 4 hours.'}
+                {lang === 'fa' ? 'پیش‌فاکتور رسمی و برآورد زمان‌بندی به موقع تقدیم شما خواهد شد.' : 'Receive an itemized quote and turnaround projection promptly.'}
               </p>
             </div>
           </div>

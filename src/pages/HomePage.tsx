@@ -120,10 +120,10 @@ export default function HomePage() {
     },
     {
       step: '04',
-      title: lang === 'fa' ? 'تحویل محرمانه و ضمانت ۱۴ روزه' : 'Encrypted Handover & Warranty',
+      title: lang === 'fa' ? 'تحویل امن و بازنگری دقیق' : 'Encrypted Handover & Clarification',
       desc: lang === 'fa'
-        ? 'تحویل ایمن در قالب فایل اصلی و تضمین اعمال اصلاحات تکمیلی طی ۱۴ روز بدون هزینه اضافی.'
-        : 'Secure delivery in original formatting accompanied by a 14-day post-delivery refinement guarantee.',
+        ? 'تحویل ایمن در قالب فایل اصلی به همراه پشتیبانی و اعمال اصلاحات تکمیلی بدون هزینه اضافی.'
+        : 'Secure delivery in original formatting accompanied by dedicated post-delivery refinement and clarification.',
     },
   ];
 
@@ -135,10 +135,10 @@ export default function HomePage() {
         : 'Financial statements and commercial agreements carry immense legal and regulatory liabilities. Translating nuanced terms like "Depreciation" versus "Amortization", or "Provision" versus "Contingent Liability", requires precise domain concordance with IFRS and local statutory frameworks. My M.A. in Translation ensures rigorous conceptual alignment.',
     },
     {
-      q: lang === 'fa' ? 'چگونه از محرمانگی اسناد تجاری و مالی اطمینان حاصل می‌شود؟' : 'How is client and document confidentiality guaranteed?',
+      q: lang === 'fa' ? 'چگونه از محرمانگی اسناد تجاری و مالی اطمینان حاصل می‌شود؟' : 'How is client and document confidentiality maintained?',
       a: lang === 'fa'
-        ? 'تمام پروژه‌ها تحت موافقت‌نامه رسمی عدم افشا (Bilateral NDA) انجام می‌پذیرد. اسناد شما هرگز در سرویس‌های ابری عمومی یا مترجم‌های هوش مصنوعی بارگذاری نمی‌شوند و تمامی داده‌ها پس از تحویل نهایی بر اساس درخواست شما بایگانی یا معدوم می‌گردند.'
-        : 'Every engagement is governed by a legally binding bilateral Non-Disclosure Agreement (NDA). Your proprietary source texts are never processed through unencrypted public cloud AI engines. Files are stored on encrypted offline storage and permanently expunged upon project closure if requested.',
+        ? 'تمام پروژه‌ها با رعایت کامل اصول رازداری حرفه‌ای انجام می‌پذیرد. اسناد شما در بسترهای ناامن بارگذاری نمی‌شوند و امکان انعقاد توافق‌نامه عدم افشا (NDA) نیز در صورت نیاز فراهم است.'
+        : 'All projects are handled with strict professional discretion and confidentiality. Proprietary source texts are securely handled offline, and bilateral Non-Disclosure Agreements (NDAs) can be executed upon request.',
     },
     {
       q: lang === 'fa' ? 'آیا امکان همکاری با آژانس‌های بین‌المللی و شرکت‌های خارجی وجود دارد؟' : 'Can you collaborate remotely with international translation agencies?',
@@ -149,8 +149,8 @@ export default function HomePage() {
     {
       q: lang === 'fa' ? 'زمان تحویل سفارش‌ها معمولاً چقدر است؟' : 'What is your typical turnaround time?',
       a: lang === 'fa'
-        ? 'ظرفیت استاندارد روزانه بین ۱۵۰۰ تا ۲۵۰۰ کلمه تخصصی همراه با بازبینی است. برای پروژه‌های فوری امکان برنامه‌ریزی فشرده با اولویت بالا وجود دارد.'
-        : 'Standard throughput is 1,500 to 2,500 curated words per business day including the mandatory cross-audit. Expedited 24-to-48-hour delivery is available for time-sensitive commercial filings and tender bids.',
+        ? 'ظرفیت استاندارد روزانه بین ۱۵۰۰ تا ۲۰۰۰ کلمه تخصصی همراه با بازبینی تطبیقی است. برای متون فوری، اولویت‌بندی زمانی با هماهنگی قبلی امکان‌پذیر است.'
+        : 'Standard throughput is 1,500 to 2,000 curated words per business day including comparative review. For time-sensitive files, priority scheduling can be arranged.',
     },
   ];
 
@@ -182,7 +182,7 @@ export default function HomePage() {
 
               {/* Editorial Headline */}
               <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#22272B] tracking-tight leading-[1.15]">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-[#22272B] tracking-tight leading-[1.2]">
                   {lang === 'fa' ? (
                     <>
                       ترجمه تخصصی <span className="italic text-[#B79656]">انگلیسی به فارسی</span> برای کسب‌وکار و بازارهای مالی.
@@ -208,20 +208,20 @@ export default function HomePage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-2 border-y border-[#22272B]/10 text-sm">
                 <div className="flex items-center gap-2 text-[#22272B]/90">
                   <ShieldCheck className="w-4 h-4 text-[#788A78] flex-shrink-0" />
-                  <span>{lang === 'fa' ? 'تضمین محرمانگی با NDA' : 'Strict Bilateral NDA'}</span>
+                  <span>{lang === 'fa' ? 'رعایت محرمانگی اسناد' : 'Confidential Document Handling'}</span>
                 </div>
                 <div className="flex items-center gap-2 text-[#22272B]/90">
                   <FileCheck className="w-4 h-4 text-[#B79656] flex-shrink-0" />
-                  <span>{lang === 'fa' ? 'انطباق با استانداردهای IFRS' : 'IFRS & INAS Concordance'}</span>
+                  <span>{lang === 'fa' ? 'اصطلاح‌شناسی تخصصی مالی' : 'Financial & Legal Terminology'}</span>
                 </div>
                 <div className="flex items-center gap-2 text-[#22272B]/90">
                   <Clock className="w-4 h-4 text-[#22272B] flex-shrink-0" />
-                  <span>{lang === 'fa' ? 'تحویل دقیق و زمان‌بندی منظم' : 'Punctual Global Delivery'}</span>
+                  <span>{lang === 'fa' ? 'ارتباط مستقیم با کارشناس ترجمه' : 'Direct Translator Engagement'}</span>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <Link
                   to="/quote"
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#22272B] text-white hover:bg-[#B79656] transition-all duration-300 font-medium text-sm tracking-wide shadow-md group"
@@ -244,7 +244,7 @@ export default function HomePage() {
 
               {/* Quick Contact & Presence */}
               <div className="flex items-center gap-4 text-xs text-[#22272B]/60 pt-2">
-                <span>{lang === 'fa' ? 'پاسخگویی سریع به استعلام‌ها ظرف حداکثر ۴ ساعت' : 'Fast quote turnaround within 4 business hours'}</span>
+                <span>{lang === 'fa' ? 'پاسخگویی به موقع به استعلام‌ها و درخواست‌های ترجمه' : 'Prompt response to project inquiries & evaluations'}</span>
                 <span>•</span>
                 <a 
                   href="https://www.linkedin.com/in/asma-parnianfard-a11b69433" 
@@ -262,7 +262,7 @@ export default function HomePage() {
               <div className="relative w-full max-w-md">
                 
                 {/* Decorative border frame */}
-                <div className="absolute -inset-3 border border-[#B79656]/30 translate-x-2 translate-y-2 pointer-events-none" />
+                <div className="hidden sm:block absolute -inset-3 border border-[#B79656]/30 translate-x-2 translate-y-2 pointer-events-none" />
                 
                 {/* Main Portrait Card */}
                 <div className="relative bg-white p-3 shadow-xl border border-[#22272B]/10">
@@ -498,7 +498,7 @@ export default function HomePage() {
               <p className="text-[#22272B]/75 text-sm sm:text-base leading-relaxed">
                 {lang === 'fa'
                   ? 'تعداد کلمات سند خود را انتخاب کنید تا زمان‌بندی واقع‌بینانه تحویل و محدوده قیمت تخمینی را مشاهده فرمایید. سپس سند خود را برای ارزیابی نهایی ارسال کنید.'
-                  : 'Select your source volume to examine turnaround benchmarks and indicative pricing ranges. All official quotes are confirmed within 4 hours.'}
+                  : 'Select your source volume to examine turnaround benchmarks and indicative pricing ranges. All official quotes are confirmed promptly.'}
               </p>
               
               <div className="space-y-3 pt-2 text-xs text-[#22272B]/70">
@@ -579,7 +579,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <Link
                   to="/about"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#22272B] text-white text-xs font-medium hover:bg-[#B79656] transition-colors"
@@ -672,7 +672,7 @@ export default function HomePage() {
           <p className="text-sm sm:text-base text-white/70 max-w-2xl mx-auto font-sans leading-relaxed">
             {lang === 'fa'
               ? 'فایل‌های خود را به صورت امن ارسال کنید تا پیش‌فاکتور دقیق به همراه زمان‌بندی و شرایط عدم افشا برای شما ارسال شود.'
-              : 'Submit your source materials for a comprehensive linguistic evaluation and fixed quotation. Complete confidentiality guaranteed.'}
+              : 'Submit your source materials for a comprehensive linguistic evaluation and fixed quotation. Strict confidentiality maintained.'}
           </p>
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">

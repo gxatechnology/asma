@@ -33,9 +33,9 @@ export default function ThankYouPage() {
         </h1>
         <p className="text-sm sm:text-base text-[#22272B]/75 font-sans max-w-xl mx-auto leading-relaxed">
           {lang === 'fa' ? (
-            `اسناد شما به طور ایمن دریافت شد. پیش‌فاکتور رسمی به همراه زمان‌بندی دقیق و توافق‌نامه عدم افشا ظرف ۴ ساعت کاری به نشانی ${email} ارسال خواهد شد.`
+            `اسناد شما به طور ایمن دریافت شد. پیش‌فاکتور رسمی به همراه زمان‌بندی دقیق و توافق‌نامه عدم افشا در اسرع وقت به نشانی ${email} ارسال خواهد شد.`
           ) : (
-            `Your source documentation has been received securely. An itemized proposal, turnaround projection, and mutual NDA will be dispatched to ${email} within 4 business hours.`
+            `Your source documentation has been received securely. An itemized proposal, turnaround projection, and mutual NDA will be dispatched to ${email} promptly within one business day.`
           )}
         </p>
       </div>
@@ -56,7 +56,7 @@ export default function ThankYouPage() {
       {/* Next Steps Timeline */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left max-w-xl mx-auto pt-4 text-xs text-[#22272B]/80 font-sans" style={{ textAlign: isRTL ? 'right' : 'left' }}>
         <div className="p-4 bg-[#F8F6F1] border border-[#22272B]/10 space-y-1">
-          <span className="font-mono text-[#B79656] font-bold block">1. Within 4 Hours</span>
+          <span className="font-mono text-[#B79656] font-bold block">1. Initial Review</span>
           <span className="font-semibold text-[#22272B] block">{lang === 'fa' ? 'بررسی تخصصی سند' : 'Linguistic Review'}</span>
           <p className="text-[#22272B]/60 text-[11px]">{lang === 'fa' ? 'محاسبه دقیق کلمات و درجه پیچیدگی' : 'Word count & terminology analysis'}</p>
         </div>

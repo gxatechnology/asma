@@ -111,7 +111,7 @@ export const EstimateCalculator: React.FC = () => {
           <span>
             {language === 'fa'
               ? 'امضای قرارداد رازداری دوجانبه (NDA) پیش از دریافت نهایی فایل‌ها'
-              : 'Includes binding bilateral Non-Disclosure Agreement (NDA) guarantee'}
+              : 'Includes binding bilateral Non-Disclosure Agreement (NDA) on request'}
           </span>
         </div>
 

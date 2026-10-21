@@ -12,7 +12,7 @@ export default function TermsOfServicePage() {
           {lang === 'fa' ? 'شرایط و ضوابط همکاری' : 'Professional Terms of Engagement'}
         </span>
         <h1 className="text-3xl sm:text-4xl font-serif text-[#22272B]">
-          {lang === 'fa' ? 'شرایط عمومی ارائه خدمات ترجمه و ویرایش' : 'Standard Terms of Practice & Revision Warranty'}
+          {lang === 'fa' ? 'شرایط عمومی ارائه خدمات ترجمه و ویرایش' : 'Standard Terms of Practice & Revision Policy'}
         </h1>
         <p className="text-xs font-mono text-[#22272B]/60">
           ASMA PARNIANFARD Atelier • Independent Linguistic Practice
@@ -35,7 +35,7 @@ export default function TermsOfServicePage() {
         <section className="space-y-3">
           <h2 className="text-xl font-serif font-bold text-[#22272B] flex items-center gap-2">
             <CheckCircle2 className="w-5 h-5 text-[#788A78]" />
-            {lang === 'fa' ? '۲. ضمانت بازنگری و اصلاحات رایگان (۱۴ روز)' : '2. 14-Day Revision & Clarification Guarantee'}
+            {lang === 'fa' ? '۲. شرایط بازنگری و اصلاحات تکمیلی (۱۴ روز)' : '2. 14-Day Revision & Clarification Policy'}
           </h2>
           <p>
             {lang === 'fa'

@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
 
             <p className="text-xs text-[#D1C5B4] leading-relaxed max-w-sm">
               {language === 'fa'
-                ? 'ارائه خدمات ممتاز ترجمه متون مالی، قراردادهای تجاری و بومی‌سازی وب‌سایت با رویکردی کاملاً انسانی، دقت واژگانی آکادمیک و تعهد به عدم افشای اطلاعات.'
+                ? 'ارائه خدمات ممتاز ترجمه متون مالی، قراردادهای تجاری و بومی‌سازی وب‌سایت با رویکردی کاملاً انسانی، دقت واژگانی آکادمیک و تعهد به حفظ محرمانگی.'
                 : 'Prestigious English-to-Persian literary localization and high-stakes commercial translation consultancy. Operating with academic rigor and cultural mastery.'}
             </p>
 
@@ -111,12 +111,17 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Practice Areas */}
+          {/* Column 3: Practice Areas (All 6 disciplines linked directly) */}
           <div className="lg:col-span-3 flex flex-col gap-3">
             <h4 className="text-xs uppercase tracking-widest text-[#E6C27D] font-bold">
               {language === 'fa' ? 'حوزه‌های تخصصی' : 'Practice Disciplines'}
             </h4>
             <ul className="flex flex-col gap-2 text-xs text-[#D1C5B4]">
+              <li>
+                <Link to="/services/translation" className="hover:text-white transition-colors">
+                  {language === 'fa' ? 'ترجمه انگلیسی به فارسی' : 'English-to-Persian Translation'}
+                </Link>
+              </li>
               <li>
                 <Link to="/services/financial" className="hover:text-white transition-colors">
                   {t('serviceFinancial')}
@@ -158,15 +163,15 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col gap-2 text-xs text-[#D1C5B4]">
               <div className="flex items-start gap-2">
                 <Shield className="w-4 h-4 text-[#B79656] shrink-0 mt-0.5" />
-                <span>Strict Non-Disclosure & Corporate Privacy Guarantee</span>
+                <span>{language === 'fa' ? 'رعایت محرمانگی اسناد و داده‌ها' : 'Professional Confidentiality & Discretion'}</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-[#B79656] shrink-0 mt-0.5" />
-                <span>100% Certified Human-Only Translation Process</span>
+                <span>{language === 'fa' ? 'ترجمه دقیق و انسانی بدون ابزارهای خودکار' : 'Context-Aware Human Translation'}</span>
               </div>
               <div className="flex items-start gap-2">
                 <Award className="w-4 h-4 text-[#B79656] shrink-0 mt-0.5" />
-                <span>Precision Corpus & Terminological Consistency</span>
+                <span>{language === 'fa' ? 'اصطلاح‌شناسی دقیق و انطباق آکادمیک' : 'Scholarly Terminology Concordance'}</span>
               </div>
             </div>
 
@@ -210,7 +215,7 @@ export const Footer: React.FC = () => {
           </div>
           <div className="flex items-center gap-2">
             <span className="px-3 py-1 rounded-full bg-[#2C3238] text-[10px] uppercase tracking-widest text-[#E6C27D] font-bold border border-[#3A4248]">
-              EN / FA Bilateral Certified
+              EN / FA Bilateral Practice
             </span>
           </div>
         </div>

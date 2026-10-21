@@ -117,7 +117,7 @@ export default function ServicesOverviewPage() {
         lang === 'fa' ? 'ترجمه کامل و دقیق انسانی' : 'Full human translation by Asma Parnianfard',
         lang === 'fa' ? 'بازخوانی و تطبیق اصطلاحات' : 'Terminology harmonization & cross-audit',
         lang === 'fa' ? 'حفظ کامل قالب و جدول‌های سند اصلی' : 'Layout & spreadsheet preservation',
-        lang === 'fa' ? 'گارانتی بازنگری ۱۴ روزه' : '14-day post-delivery warranty',
+        lang === 'fa' ? 'دوره بازنگری ۱۴ روزه' : '14-day post-delivery review window',
       ],
     },
     {
@@ -137,7 +137,7 @@ export default function ServicesOverviewPage() {
       desc: lang === 'fa' ? 'برای هلدینگ‌ها و آژانس‌های بین‌المللی ترجمه' : 'Long-term partnership for multinational corporations & agencies',
       speed: 'Monthly volume allocation',
       features: [
-        lang === 'fa' ? 'تخصیص ظرفیت تضمین‌شده در هر ماه' : 'Guaranteed monthly word capacity reservation',
+        lang === 'fa' ? 'تخصیص ظرفیت توافق‌شده در هر ماه' : 'Dedicated monthly word capacity reservation',
         lang === 'fa' ? 'ایجاد و نگهداری حافظه ترجمه اختصاصی' : 'Dedicated Translation Memory (TM) & Termbase',
         lang === 'fa' ? 'صورت‌حساب ماهانه و شرایط پرداخت انعطاف‌پذیر' : 'Consolidated monthly invoicing & flexible terms',
         lang === 'fa' ? 'موافقت‌نامه دوجانبه دائمی حفظ اسرار (NDA)' : 'Master Service Agreement (MSA) with perpetual NDA',

@@ -41,7 +41,7 @@ export default function ProcessPage() {
       title: lang === 'fa' ? 'ترجمه دست‌اول و تک‌صدایی انسان' : 'Single-Voice Human Translation Craft',
       desc: lang === 'fa'
         ? 'ترجمه سطر به سطر منحصراً توسط شخص اسماء پرنیان‌فرد با پایبندی به لحن رسمی و ساختار نحوی شیوا، بدون هیچ‌گونه برون‌سپاری ناشناس.'
-        : 'Line-by-line translation executed solely by Asma Parnianfard. This guarantees stylistic consistency and complete accountability without outsourced subcontractors.',
+        : 'Line-by-line translation executed solely by Asma Parnianfard. This ensures stylistic consistency and complete accountability without outsourced subcontractors.',
       icon: Languages,
       deliverable: lang === 'fa' ? 'پیش‌نویس اولیه ترجمه کامل شده' : 'Complete Primary Persian Target Draft',
     },
@@ -65,12 +65,12 @@ export default function ProcessPage() {
     },
     {
       num: '06',
-      title: lang === 'fa' ? 'تحویل امن و ضمانت بازنگری ۱۴ روزه' : 'Encrypted Handover & 14-Day Warranty',
+      title: lang === 'fa' ? 'تحویل امن و دوره بازنگری ۱۴ روزه' : 'Encrypted Handover & 14-Day Review Period',
       desc: lang === 'fa'
         ? 'ارسال بسته نهایی از طریق پیوند محافظت‌شده. امکان درخواست بازنگری و اصلاحات تکمیلی طی ۱۴ روز بدون دریافت هزینه اضافی.'
         : 'Files are dispatched via encrypted channel. Includes full post-delivery revision support for 14 calendar days to accommodate committee or auditor queries.',
       icon: CheckCircle2,
-      deliverable: lang === 'fa' ? 'ضمانت‌نامه کیفیت و پشتیبانی پاسخگویی' : 'Warranty Certificate & Post-Delivery Support',
+      deliverable: lang === 'fa' ? 'گواهی اصالت ترجمه و پشتیبانی پاسخگویی' : 'Certificate of Translation & Post-Delivery Support',
     },
   ];
 

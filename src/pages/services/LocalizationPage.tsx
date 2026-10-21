@@ -98,7 +98,7 @@ export default function LocalizationPage() {
               {lang === 'fa' ? 'زیرساخت ابزارهای CAT' : 'CAT Toolchain & String Isolation'}
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif text-[#22272B]">
-              {lang === 'fa' ? 'ترجمه بدون آسیب به کدهای نرم‌افزاری' : 'Zero Code Breakage Guarantee'}
+              {lang === 'fa' ? 'حفظ کامل ساختار و کدهای نرم‌افزاری' : 'Syntax & Tag Integrity Assurance'}
             </h2>
             <p className="text-xs sm:text-sm text-[#22272B]/80 font-sans leading-relaxed">
               {lang === 'fa' ? (

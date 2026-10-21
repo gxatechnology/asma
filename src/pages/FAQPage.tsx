@@ -63,7 +63,7 @@ const allFaqs: FaqItem[] = [
     category: 'confidentiality',
     q: 'How long do you retain client files after project completion?',
     q_fa: 'اسناد کارفرما پس از اتمام پروژه تا چه مدت نگهداری می‌شوند؟',
-    a: 'By default, files are archived securely for the 14-day warranty period to support any post-delivery queries. Following this period, all working drafts and source files can be permanently and verifiably expunged upon your request.',
+    a: 'By default, files are archived securely for the 14-day review period to support any post-delivery queries. Following this period, all working drafts and source files can be permanently and verifiably expunged upon your request.',
     a_fa: 'به طور پیش‌فرض، فایل‌ها برای مدت ۱۴ روز دوره گارانتی جهت پاسخگویی به ممیزان ذخیره می‌مانند و پس از آن در صورت تمایل کارفرما به صورت برگشت‌ناپذیر پاکسازی و معدوم خواهند شد.',
   },
 
@@ -86,10 +86,10 @@ const allFaqs: FaqItem[] = [
   // Category: Quality & Revisions
   {
     category: 'quality',
-    q: 'What is included in the 14-day revision warranty?',
-    q_fa: 'گارانتی بازنگری ۱۴ روزه شامل چه مواردی است؟',
-    a: 'During the 14 days following delivery, any stylistic refinements, corporate nomenclature preferences, or auditor clarification queries are addressed swiftly at zero additional charge.',
-    a_fa: 'طی ۱۴ روز پس از تحویل، هرگونه پیشنهاد اصلاحی، یکدست‌سازی واژگان مطابق نظر ممیزان یا اصلاحات نگارشی بدون دریافت هیچ‌گونه وجه اضافی انجام می‌پذیرد.',
+    q: 'What is included in the post-delivery revision support?',
+    q_fa: 'پشتیبانی و بازنگری پس از تحویل شامل چه مواردی است؟',
+    a: 'Following delivery, any stylistic refinements, corporate nomenclature preferences, or auditor clarification queries are addressed swiftly.',
+    a_fa: 'پس از تحویل پروژه، هرگونه پیشنهاد اصلاحی، یکدست‌سازی واژگان مطابق نظر ممیزان یا اصلاحات نگارشی با دقت پیگیری می‌گردد.',
   },
   {
     category: 'quality',
@@ -111,7 +111,7 @@ export default function FAQPage() {
     { id: 'pricing', label: lang === 'fa' ? 'قیمت و نحوه پرداخت' : 'Pricing & Payment' },
     { id: 'confidentiality', label: lang === 'fa' ? 'محرمانگی و NDA' : 'Confidentiality & NDA' },
     { id: 'turnaround', label: lang === 'fa' ? 'زمان‌بندی و فوریت' : 'Turnaround & Deadlines' },
-    { id: 'quality', label: lang === 'fa' ? 'کیفیت و ضمانت' : 'Quality & Warranty' },
+    { id: 'quality', label: lang === 'fa' ? 'کیفیت و استانداردها' : 'Quality & Standards' },
   ];
 
   const filtered = allFaqs.filter((item) => {
@@ -145,7 +145,7 @@ export default function FAQPage() {
             ) : (
               <>
                 Comprehensive Practice Inquiries <br />
-                <span className="italic text-[#B79656]">Pricing, NDA Protocol & Delivery Guarantees.</span>
+                <span className="italic text-[#B79656]">Pricing, Confidentiality & Delivery Standards.</span>
               </>
             )}
           </h1>
@@ -235,7 +235,7 @@ export default function FAQPage() {
               {lang === 'fa' ? 'پرسشی دارید که در اینجا پاسخ داده نشده است؟' : 'Have a question not listed here?'}
             </h3>
             <p className="text-xs sm:text-sm text-white/70 font-sans">
-              {lang === 'fa' ? 'با ما به صورت مستقیم در ارتباط باشید؛ ظرف چند ساعت پاسخگوی شما خواهیم بود.' : 'Connect directly with the atelier. Inquiries answered within 4 hours.'}
+              {lang === 'fa' ? 'با ما به صورت مستقیم در ارتباط باشید؛ در اسرع وقت پاسخگوی شما خواهیم بود.' : 'Connect directly with the atelier. Inquiries answered promptly during business hours.'}
             </p>
           </div>
 

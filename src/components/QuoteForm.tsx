@@ -352,7 +352,7 @@ export const QuoteForm: React.FC = () => {
           />
           <label htmlFor="quote-consent" className="text-xs text-[#3A4248] leading-relaxed cursor-pointer">
             <span className="font-semibold text-[#22272B] block mb-0.5">
-              {language === 'fa' ? 'تضمین محرمانگی و پروتکل رازداری آکادمیک' : 'Strict Non-Disclosure & Corporate Privacy Guarantee'}
+              {language === 'fa' ? 'پروتکل رازداری و حفظ محرمانگی اسناد' : 'Strict Non-Disclosure & Confidentiality Protocol'}
             </span>
             {t('privacyConsent')}
           </label>
