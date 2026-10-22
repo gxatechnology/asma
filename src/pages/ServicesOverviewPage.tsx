@@ -1,19 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Calculator, 
-  FileCheck, 
-  Building2, 
-  FileText, 
-  Globe2, 
-  Languages, 
-  ArrowRight, 
-  Clock, 
-  ShieldCheck, 
-  Layers, 
-  Check, 
+import {
+  Languages,
+  BookOpen,
+  FileText,
+  ArrowRight,
+  Clock,
+  ShieldCheck,
+  Check,
   ChevronRight,
-  FileSpreadsheet
+  Calculator
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import EstimateCalculator from '../components/EstimateCalculator';
@@ -23,124 +19,77 @@ export default function ServicesOverviewPage() {
 
   const services = [
     {
-      id: 'financial',
-      slug: '/services/financial',
-      title: lang === 'fa' ? 'ترجمه مالی و استانداردهای بین‌المللی IFRS' : 'Financial & IFRS Translation',
-      subtitle: lang === 'fa' ? 'صورت‌های مالی اساسی و گزارش‌های حسابرسی' : 'Financial Statements, Footnotes & Investor Prospectuses',
-      icon: Calculator,
-      deliverables: [
-        lang === 'fa' ? 'ترازنامه و صورت سود و زیان جامع' : 'Statements of Financial Position & Comprehensive Income',
-        lang === 'fa' ? 'یادداشت‌های توضیحی همراه صورت‌های مالی' : 'Auditor Footnotes & Significant Accounting Policies',
-        lang === 'fa' ? 'گزارش‌های تحلیل جریان وجوه نقد (IAS 7)' : 'Cash Flow Analysis & Liquidity Disclosures (IAS 7)',
-        lang === 'fa' ? 'امیدنامه و گزارش‌های عرضه اولیه سهام (IPO)' : 'Securities Offerings & Capital Market Dossiers',
-      ],
-      turnaround: '1,800 - 2,500 words / day',
-    },
-    {
-      id: 'accounting',
-      slug: '/services/accounting',
-      title: lang === 'fa' ? 'ترجمه تخصصی حسابداری و اسناد مالیاتی' : 'Accounting & Statutory Audit Translation',
-      subtitle: lang === 'fa' ? 'انطباق با استانداردهای سازمان حسابرسی ایران و جهان' : 'Statutory Audits, Ledgers, Tax Filings & Transfer Pricing',
-      icon: FileCheck,
-      deliverables: [
-        lang === 'fa' ? 'گزارش‌های حسابرس مستقل و بازرس قانونی' : 'Independent Auditor’s Reports & Statutory Opinions',
-        lang === 'fa' ? 'اسناد مستندسازی قیمت‌گذاری انتقالی' : 'Transfer Pricing Documentation & Master Files',
-        lang === 'fa' ? 'دفاتر کل و اسناد تطبیق حساب‌های بین‌المللی' : 'General Ledger Schedules & Intercompany Reconciliations',
-        lang === 'fa' ? 'اظهارنامه‌های مالیاتی و اسناد مالیاتی مضاعف' : 'Tax Compliance Returns & Double Taxation Treaties',
-      ],
-      turnaround: '1,800 - 2,200 words / day',
-    },
-    {
-      id: 'business',
-      slug: '/services/business',
-      title: lang === 'fa' ? 'ترجمه بازرگانی و قراردادهای بین‌المللی' : 'Commercial & Business Translation',
-      subtitle: lang === 'fa' ? 'اسناد شرکت‌ها، توافق‌نامه‌ها و مناقصات تجاری' : 'Corporate Charters, Joint Ventures & Tender Dossiers',
-      icon: Building2,
-      deliverables: [
-        lang === 'fa' ? 'اساسنامه، اظهارنامه ثبت شرکت و صورتجلسات هیئت مدیره' : 'Articles of Association, Charters & Board Minutes',
-        lang === 'fa' ? 'قراردادهای جوینت ونچر (JV) و شراکت تجاری' : 'Cross-Border Joint Venture & Shareholder Pacts',
-        lang === 'fa' ? 'اسناد مناقصات بین‌المللی و ضمانت‌نامه‌ها' : 'International Tender Dossiers & Commercial Bids',
-        lang === 'fa' ? 'توافق‌نامه‌های عدم افشا (NDA) و نمایندگی انحصاری' : 'Bilateral NDAs & Exclusive Distribution Pacts',
-      ],
-      turnaround: '2,000 - 2,800 words / day',
-    },
-    {
-      id: 'proofreading',
-      slug: '/services/proofreading',
-      title: lang === 'fa' ? 'ویرایش و بازخوانی تخصصی متن' : 'Academic & Editorial Proofreading',
-      subtitle: lang === 'fa' ? 'پالایش نثر، اصطلاح‌شناسی و مقایسه دوسویه' : 'Substantive Editing, Stylistic Polish & Cross-Audits',
-      icon: FileText,
-      deliverables: [
-        lang === 'fa' ? 'ویرایش تطبیقی متن انگلیسی و ترجمه فارسی' : 'Bilingual Source-to-Target Cross-Verification',
-        lang === 'fa' ? 'پالایش نگارشی و دستوری مقالات دانشگاهی و ISI' : 'Scholarly Treatise Polish & Reference Harmonization',
-        lang === 'fa' ? 'یکدست‌سازی لحن گزارش‌های سازمانی و سالنامه' : 'Corporate Annual Report Stylistic Harmonization',
-        lang === 'fa' ? 'کنترل نهایی نشانه‌گذاری و رسم‌الخط استاندارد' : 'Standard Persian Orthography & Typography Check',
-      ],
-      turnaround: '4,000 - 6,000 words / day',
-    },
-    {
-      id: 'localization',
-      slug: '/services/localization',
-      title: lang === 'fa' ? 'بومی‌سازی وب‌سایت، نرم‌افزار و اپلیکیشن' : 'Website & Software Localization',
-      subtitle: lang === 'fa' ? 'تنظیم رابط‌های کاربری برای ساختار راست‌به‌چپ (RTL)' : 'Bidirectional Layout Engineering & String Catalog Translation',
-      icon: Globe2,
-      deliverables: [
-        lang === 'fa' ? 'ترجمه رشته‌های متنی (JSON, XLIFF, PO, YAML)' : 'String Extraction & Localization in Structured Formats',
-        lang === 'fa' ? 'ارزیابی تجربه کاربری راست‌به‌چپ (RTL UX Audit)' : 'RTL Visual Calibration & Element Mirroring Consultation',
-        lang === 'fa' ? 'بومی‌سازی اصطلاحات برای کاربران ایرانی' : 'Cultural Idiomatic Calibration for Persian Audiences',
-        lang === 'fa' ? 'مدیریت حافظه ترجمه (TM) و پایگاه اصطلاحات' : 'Translation Memory (TMX) & Termbase Curation',
-      ],
-      turnaround: '1,500 - 2,200 words / day',
-    },
-    {
       id: 'translation',
-      slug: '/services/translation',
-      title: lang === 'fa' ? 'ترجمه جامع انگلیسی به فارسی' : 'Specialized English-to-Persian Translation',
-      subtitle: lang === 'fa' ? 'نثر فاخر، انتخاب واژگان دقیق و وفاداری به مبدا' : 'High-Register Prose, Nuanced Pragmatics & Cultural Adaptation',
+      title: lang === 'fa' ? 'ترجمه متون انگلیسی به فارسی' : 'English-to-Persian Translation',
+      subtitle: lang === 'fa' ? 'ترجمه کتبی با توجه به معانی، شفافیت و کاربرد طبیعی زبان' : 'Professional written translation from English into Persian',
+      description: lang === 'fa'
+        ? 'ترجمه کتبی و حرفه‌ای از انگلیسی به فارسی با توجه عمیق به معانی، بافتار متن، شفافیت و کاربرد طبیعی زبان.'
+        : 'Professional written translation from English into Persian, with attention to meaning, clarity, context, and natural language.',
       icon: Languages,
       deliverables: [
-        lang === 'fa' ? 'ترجمه متون مدیریتی و خط‌مشی‌های سازمانی' : 'Corporate Governance Guidelines & Code of Ethics',
-        lang === 'fa' ? 'ترجمه کتب تخصصی، متون اقتصادی و بازاریابی B2B' : 'Economics Monographs & High-Level B2B Marketing',
-        lang === 'fa' ? 'انتقال دقیق اصطلاحات فنی با استانداردهای فرهنگستان' : 'Lexical Precision Aligned with Language Academy Standards',
-        lang === 'fa' ? 'تنظیم لحن رسمی متناسب با مخاطب هدف' : 'Register Customization for Senior Executive Audiences',
+        lang === 'fa' ? 'انتقال دقیق پیام نویسنده بدون انحراف معنایی' : 'Faithful meaning transfer preserving conceptual integrity',
+        lang === 'fa' ? 'رعایت شیوایی و ساختار نحوی طبیعی زبان فارسی' : 'Natural Persian syntax and smooth linguistic flow',
+        lang === 'fa' ? 'رعایت رسم‌الخط معیار، علائم نگارشی و نیم‌فاصله‌ها' : 'Standard Persian typography, orthography, and punctuation',
+        lang === 'fa' ? 'ترجمه یکدست و تک‌صدایی بدون برون‌سپاری' : 'Consistent single-voiced translation without outsourcing',
       ],
-      turnaround: '2,000 - 2,500 words / day',
+      turnaround: lang === 'fa' ? 'زمان‌بندی توافقی بر اساس حجم و محتوای متن' : 'Timeline agreed upon review of text and volume',
+    },
+    {
+      id: 'article',
+      title: lang === 'fa' ? 'ترجمه مقالات' : 'Article Translation',
+      subtitle: lang === 'fa' ? 'ترجمه مقالات و محتواهای نوشتاری برای مخاطبان فارسی‌زبان' : 'English-to-Persian translation of articles and written content',
+      description: lang === 'fa'
+        ? 'ترجمه مقالات و محتواهای نوشتاری از انگلیسی به فارسی، با حفظ دقیق پیام نویسنده و ساختاری خوانا و روان برای مخاطبان فارسی‌زبان.'
+        : 'English-to-Persian translation of articles and written content, preserving the original meaning and ensuring readability for Persian-speaking audiences.',
+      icon: BookOpen,
+      deliverables: [
+        lang === 'fa' ? 'حفظ لحن استدلالی، آموزشی یا تحلیلی متن اصلی' : 'Preservation of authorial register and argumentation flow',
+        lang === 'fa' ? 'پیوستگی منطقی میان بندها و خوانایی بالا' : 'Logical paragraph transitions and enhanced readability',
+        lang === 'fa' ? 'یکپارچگی در انتخاب واژگان کلیدی در سرتاسر مقاله' : 'Terminology harmonization across all sections of the paper',
+        lang === 'fa' ? 'تنظیم پانویس‌ها، مراجع و اصطلاحات تخصصی' : 'Accurate handling of citations, footnotes, and specialized terms',
+      ],
+      turnaround: lang === 'fa' ? 'زمان‌بندی توافقی بر اساس حجم و محتوای متن' : 'Timeline agreed upon review of text and volume',
+    },
+    {
+      id: 'general',
+      title: lang === 'fa' ? 'ترجمه متون عمومی' : 'General Text Translation',
+      subtitle: lang === 'fa' ? 'ترجمه انواع متون نوشتاری با توجه به زمینه و بیانی سلیس' : 'Translation of general written materials from English into Persian',
+      description: lang === 'fa'
+        ? 'ترجمه انواع متون عمومی از زبان انگلیسی به فارسی با دقت در معادل‌یابی، درک بافت متن و بیانی سلیس.'
+        : 'Translation of general written materials from English into Persian, with careful attention to context, terminology, and natural expression.',
+      icon: FileText,
+      deliverables: [
+        lang === 'fa' ? 'درک دقیق بافت متن و زمینه کاربردی آن' : 'Context-sensitive interpretation tailored to document purpose',
+        lang === 'fa' ? 'پرهیز از معادل‌یابی تحت‌اللفظی و ترجمه‌زدگی' : 'Avoidance of awkward word-for-word literal phrasing',
+        lang === 'fa' ? 'ارائه متنی شیوا، روشن و ملموس برای خواننده' : 'Clear, accessible, and reader-friendly Persian prose',
+        lang === 'fa' ? 'حفظ کامل قالب و ساختار سند مبدا' : 'Preservation of original formatting and document layout',
+      ],
+      turnaround: lang === 'fa' ? 'زمان‌بندی توافقی بر اساس حجم و محتوای متن' : 'Timeline agreed upon review of text and volume',
     },
   ];
 
   const deliveryTiers = [
     {
-      name: lang === 'fa' ? 'استاندارد' : 'Standard Delivery',
-      desc: lang === 'fa' ? 'ایده‌آل برای پروژه‌های معمولی با زمان‌بندی طبیعی' : 'Ideal for scheduled filings and standard project schedules',
-      speed: '1,800 - 2,500 words / day',
+      name: lang === 'fa' ? 'تحویل استاندارد' : 'Standard Delivery',
+      desc: lang === 'fa' ? 'مناسب برای پروژه‌های عادی با زمان‌بندی طبیعی' : 'Ideal for scheduled projects with regular turnaround',
+      speed: lang === 'fa' ? 'زمان‌بندی توافقی بر اساس حجم' : 'Scheduled based on document volume',
       features: [
-        lang === 'fa' ? 'ترجمه کامل و دقیق انسانی' : 'Full human translation by Asma Parnianfard',
-        lang === 'fa' ? 'بازخوانی و تطبیق اصطلاحات' : 'Terminology harmonization & cross-audit',
-        lang === 'fa' ? 'حفظ کامل قالب و جدول‌های سند اصلی' : 'Layout & spreadsheet preservation',
-        lang === 'fa' ? 'دوره بازنگری ۱۴ روزه' : '14-day post-delivery review window',
+        lang === 'fa' ? 'ترجمه کامل و دقیق انسانی توسط اسماء پرنیان‌فرد' : 'Full human translation by Asma Parnianfard',
+        lang === 'fa' ? 'بازخوانی تطبیقی سطر به سطر متن مبدا و مقصد' : 'Side-by-side comparative review and quality check',
+        lang === 'fa' ? 'حفظ قالب‌بندی و ساختار فایل اصلی' : 'Original file layout and formatting preservation',
+        lang === 'fa' ? 'پاسخگویی و هماهنگی جهت بازنگری و اصلاحات پس از تحویل' : 'Post-delivery review and clarification support',
       ],
     },
     {
-      name: lang === 'fa' ? 'فوری / اولویت‌دار' : 'Priority / Urgent',
-      desc: lang === 'fa' ? 'برای مناقصات بین‌المللی و مهلت‌های ضرب‌الاجل' : 'Dedicated acceleration for tender bids & board meetings',
-      speed: '3,000 - 4,500 words / day',
+      name: lang === 'fa' ? 'تحویل فوری و با اولویت' : 'Priority / Expedited',
+      desc: lang === 'fa' ? 'برای متون نیازمند تحویل سریع با هماهنگی قبلی' : 'Dedicated acceleration for time-sensitive materials',
+      speed: lang === 'fa' ? 'زمان‌بندی فشرده با هماهنگی قبلی' : 'Expedited scheduling on consultation',
       highlight: true,
       features: [
-        lang === 'fa' ? 'اولویت‌دهی در صف کاری آتلیه' : 'Dedicated priority queue in translation atelier',
-        lang === 'fa' ? 'پشتیبانی در روزهای تعطیل در صورت لزوم' : 'Weekend & evening working sessions if required',
-        lang === 'fa' ? 'تحویل مرحله‌ای بخش‌های ترجمه شده' : 'Staged milestone deliveries for large volumes',
-        lang === 'fa' ? 'پاسخگویی سریع در تمام مراحل' : 'Direct dedicated communication channel',
-      ],
-    },
-    {
-      name: lang === 'fa' ? 'همکاری سازمانی و مستمر' : 'Enterprise Retainer',
-      desc: lang === 'fa' ? 'برای هلدینگ‌ها و آژانس‌های بین‌المللی ترجمه' : 'Long-term partnership for multinational corporations & agencies',
-      speed: 'Monthly volume allocation',
-      features: [
-        lang === 'fa' ? 'تخصیص ظرفیت توافق‌شده در هر ماه' : 'Dedicated monthly word capacity reservation',
-        lang === 'fa' ? 'ایجاد و نگهداری حافظه ترجمه اختصاصی' : 'Dedicated Translation Memory (TM) & Termbase',
-        lang === 'fa' ? 'صورت‌حساب ماهانه و شرایط پرداخت انعطاف‌پذیر' : 'Consolidated monthly invoicing & flexible terms',
-        lang === 'fa' ? 'موافقت‌نامه دوجانبه دائمی حفظ اسرار (NDA)' : 'Master Service Agreement (MSA) with perpetual NDA',
+        lang === 'fa' ? 'اولویت‌دهی در صف کاری مترجم' : 'Dedicated priority scheduling in translation queue',
+        lang === 'fa' ? 'هماهنگی اختصاصی زمان‌بندی برای تحویل به موقع' : 'Custom deadline scheduling for urgent commitments',
+        lang === 'fa' ? 'امکان تحویل مرحله‌ای در پروژه‌های حجیم‌تر' : 'Staged milestone deliveries for larger documents',
+        lang === 'fa' ? 'ارتباط مستقیم و پیوسته در تمام مراحل کار' : 'Direct, responsive communication throughout the process',
       ],
     },
   ];
@@ -152,91 +101,86 @@ export default function ServicesOverviewPage() {
         <div className="max-w-3xl space-y-4">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#B79656]">
             <span className="w-8 h-[1px] bg-[#B79656]"></span>
-            <span>{lang === 'fa' ? 'دامنه خدمات' : 'Comprehensive Service Portfolio'}</span>
+            <span>{lang === 'fa' ? 'خدمات ترجمه کتبی' : 'Translation Services'}</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-serif text-[#22272B] leading-tight">
             {lang === 'fa' ? (
               <>
-                خدمات تخصصی ترجمه، ویرایش و بومی‌سازی <br />
-                <span className="italic text-[#B79656]">با تضمین انطباق مفهومی و اصطلاحی.</span>
+                خدمات ترجمه <br />
+                <span className="italic text-[#B79656]">انگلیسی به فارسی</span> با تکیه بر دقت و روانی کلام.
               </>
             ) : (
               <>
-                Linguistic Services Engineered for <br />
-                <span className="italic text-[#B79656]">Corporate, Financial & Global Rigor.</span>
+                English-to-Persian <br />
+                <span className="italic text-[#B79656]">Written Translation Services</span>
               </>
             )}
           </h1>
 
           <p className="text-base sm:text-lg text-[#22272B]/80 font-sans leading-relaxed">
             {lang === 'fa' ? (
-              'ارائه ۶ شاخه تخصصی ترجمه انگلیسی به فارسی با تکیه بر دانش دانشگاهی، دسترسی به منابع معتبر اصطلاح‌شناسی و فرایند کنترل کیفیت چند لایه.'
+              'ارائه خدمات ترجمه متون نوشتاری، مقالات و متون عمومی از زبان انگلیسی به فارسی با توجه عمیق به معانی، وضوح، بافتار متن و بیانی طبیعی در زبان فارسی.'
             ) : (
-              'Discover six dedicated practice disciplines—each executed with deep subject-matter comprehension, institutional glossaries, and strict human verification.'
+              'Specialized written translation services from English into Persian, focusing on articles, informational materials, and general written texts with attention to meaning, context, clarity, and natural language.'
             )}
           </p>
         </div>
       </section>
 
-      {/* DETAILED SERVICE CARDS */}
+      {/* 3 SERVICES CARDS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((svc) => {
             const Icon = svc.icon;
             return (
               <div
                 key={svc.id}
-                className="bg-white border border-[#22272B]/10 p-8 space-y-6 shadow-sm hover:border-[#B79656] transition-all duration-300 flex flex-col justify-between"
+                id={svc.id}
+                className="bg-white border border-[#22272B]/10 p-8 shadow-sm hover:border-[#B79656] transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 bg-[#F8F6F1] flex items-center justify-center border border-[#22272B]/10">
-                      <Icon className="w-6 h-6 text-[#22272B]" />
-                    </div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#788A78] font-semibold bg-[#788A78]/10 px-2.5 py-1">
-                      {svc.turnaround}
-                    </span>
+                <div className="space-y-6">
+                  <div className="w-12 h-12 bg-[#F8F6F1] flex items-center justify-center border border-[#22272B]/10">
+                    <Icon className="w-6 h-6 text-[#22272B]" />
                   </div>
 
-                  <div>
-                    <h2 className="text-2xl font-serif font-bold text-[#22272B]">
+                  <div className="space-y-2">
+                    <h2 className="text-2xl font-serif font-semibold text-[#22272B]">
                       {svc.title}
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#B79656] font-medium mt-1">
+                    <p className="text-xs font-mono text-[#B79656] font-medium">
                       {svc.subtitle}
+                    </p>
+                    <p className="text-sm text-[#22272B]/75 font-sans leading-relaxed pt-2">
+                      {svc.description}
                     </p>
                   </div>
 
-                  <div className="space-y-2 pt-2 border-t border-[#22272B]/10">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#22272B]/50 block">
-                      {lang === 'fa' ? 'سرفصل‌های تحت پوشش:' : 'Scope of Deliverables:'}
+                  <div className="space-y-3 pt-4 border-t border-[#22272B]/10">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#22272B]/60 block">
+                      {lang === 'fa' ? 'ویژگی‌های کلیدی این خدمت:' : 'Key Service Highlights:'}
                     </span>
-                    <ul className="space-y-2 text-xs sm:text-sm text-[#22272B]/80 font-sans">
-                      {svc.deliverables.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Check className="w-4 h-4 text-[#788A78] flex-shrink-0 mt-0.5" />
-                          <span>{item}</span>
+                    <ul className="space-y-2 text-xs text-[#22272B]/80 font-sans">
+                      {svc.deliverables.map((d, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className="w-3.5 h-3.5 text-[#788A78] flex-shrink-0 mt-0.5" />
+                          <span>{d}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-[#22272B]/10 flex items-center justify-between">
+                <div className="pt-8 mt-6 border-t border-[#22272B]/10 flex items-center justify-between">
+                  <span className="text-xs font-mono text-[#22272B]/60">
+                    {svc.turnaround}
+                  </span>
                   <Link
-                    to={svc.slug}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#22272B] hover:text-[#B79656] transition-colors"
+                    to={`/quote?service=${svc.id}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#B79656] hover:text-[#22272B] transition-colors"
                   >
-                    <span>{lang === 'fa' ? 'مشاهده جزییات، نمونه‌ها و نمونه کارها' : 'Detailed practice specifications & samples'}</span>
+                    <span>{lang === 'fa' ? 'استعلام قیمت این خدمت' : 'Request Quote'}</span>
                     <ChevronRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
-                  </Link>
-
-                  <Link
-                    to="/quote"
-                    className="text-xs font-medium text-[#B79656] hover:underline"
-                  >
-                    {lang === 'fa' ? 'استعلام قیمت این خدمت' : 'Quote this service'} →
                   </Link>
                 </div>
               </div>
@@ -245,99 +189,69 @@ export default function ServicesOverviewPage() {
         </div>
       </section>
 
-      {/* DELIVERY TIERS MATRIX */}
-      <section className="bg-white py-16 border-y border-[#22272B]/10">
+      {/* DELIVERY TIERS */}
+      <section className="bg-white py-16 md:py-24 border-y border-[#22272B]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#B79656]">
-              {lang === 'fa' ? 'زمان‌بندی و سطوح تحویل' : 'Turnaround & Capacity Matrix'}
+          <div className="max-w-3xl space-y-3">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#B79656] block">
+              {lang === 'fa' ? 'زمان‌بندی و اولویت تحویل' : 'Turnaround & Scheduling'}
             </span>
-            <h2 className="text-3xl font-serif text-[#22272B]">
-              {lang === 'fa' ? 'برنامه‌ریزی شفاف بر اساس فوریت پروژه' : 'Transparent Timelines Tailored to Your Schedule'}
+            <h2 className="text-3xl sm:text-4xl font-serif text-[#22272B]">
+              {lang === 'fa' ? 'زمان‌بندی شفاف، متناسب با نیاز پروژه' : 'Realistic Timelines for Quality Translation'}
             </h2>
+            <p className="text-[#22272B]/75 text-sm sm:text-base leading-relaxed">
+              {lang === 'fa'
+                ? 'زمان‌بندی تحویل بر اساس حجم متن، میزان تخصصی بودن موضوع و اولویت زمانی پروژه با کارفرما هماهنگ می‌گردد.'
+                : 'Turnaround schedules are agreed upon in advance, ensuring sufficient time for thoughtful translation and comparative review.'}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
             {deliveryTiers.map((tier, idx) => (
               <div
                 key={idx}
-                className={`p-8 border flex flex-col justify-between ${
+                className={`p-8 border rounded-none relative flex flex-col justify-between ${
                   tier.highlight
-                    ? 'border-[#B79656] bg-[#F8F6F1] shadow-lg relative'
-                    : 'border-[#22272B]/10 bg-white'
+                    ? 'border-[#B79656] bg-[#FDFCF9] shadow-md'
+                    : 'border-[#22272B]/10 bg-[#F8F6F1]'
                 }`}
               >
-                {tier.highlight && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#B79656] text-white text-[10px] font-mono uppercase px-3 py-0.5 tracking-wider font-semibold">
-                    Most Popular
-                  </span>
-                )}
-
                 <div className="space-y-4">
-                  <div>
-                    <h3 className="text-xl font-serif font-bold text-[#22272B]">
-                      {tier.name}
-                    </h3>
-                    <p className="text-xs text-[#22272B]/70 mt-1 font-sans">
-                      {tier.desc}
-                    </p>
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-serif text-xl font-bold text-[#22272B]">{tier.name}</h3>
+                    {tier.highlight && (
+                      <span className="px-2.5 py-1 bg-[#B79656] text-white text-[10px] font-mono uppercase tracking-wider">
+                        {lang === 'fa' ? 'اولویت ویژه' : 'Priority Track'}
+                      </span>
+                    )}
                   </div>
-
-                  <div className="py-2 border-y border-[#22272B]/10 text-xs font-mono font-semibold text-[#B79656]">
+                  <p className="text-xs text-[#22272B]/70 font-sans">{tier.desc}</p>
+                  <div className="text-sm font-mono text-[#B79656] font-semibold py-1">
                     {tier.speed}
                   </div>
 
-                  <ul className="space-y-2.5 text-xs text-[#22272B]/80 font-sans pt-2">
-                    {tier.features.map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2">
+                  <ul className="space-y-2.5 pt-4 border-t border-[#22272B]/10 text-xs text-[#22272B]/80 font-sans">
+                    {tier.features.map((f, i) => (
+                      <li key={i} className="flex items-start gap-2">
                         <Check className="w-3.5 h-3.5 text-[#788A78] flex-shrink-0 mt-0.5" />
-                        <span>{feat}</span>
+                        <span>{f}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-[#22272B]/10">
+                <div className="pt-8">
                   <Link
                     to="/quote"
-                    className={`w-full py-2.5 text-center text-xs font-semibold block transition-colors ${
+                    className={`w-full py-3 px-4 text-xs font-semibold text-center block transition-colors ${
                       tier.highlight
-                        ? 'bg-[#22272B] text-white hover:bg-[#B79656]'
-                        : 'bg-white border border-[#22272B]/20 text-[#22272B] hover:border-[#B79656] hover:text-[#B79656]'
+                        ? 'bg-[#B79656] text-white hover:bg-[#22272B]'
+                        : 'bg-[#22272B] text-white hover:bg-[#B79656]'
                     }`}
                   >
-                    {lang === 'fa' ? 'انتخاب و ارسال سند' : 'Select Tier for Quote'}
+                    {lang === 'fa' ? 'انتخاب و استعلام قیمت' : 'Inquire for this Track'}
                   </Link>
                 </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* FILE FORMATS & COMPATIBILITY */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#E9E2D7]/40 border border-[#22272B]/10 p-8 md:p-12 space-y-8">
-          <div className="max-w-3xl space-y-2">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#B79656]">
-              {lang === 'fa' ? 'پشتیبانی فنی از فرمت‌ها' : 'Technical File Formats'}
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif text-[#22272B]">
-              {lang === 'fa' ? 'پشتیبانی از انواع فایل‌های متنی و ساختاریافته' : 'Preserving Original Formatting & Complex Layouts'}
-            </h2>
-            <p className="text-xs sm:text-sm text-[#22272B]/75 leading-relaxed font-sans">
-              {lang === 'fa'
-                ? 'فایل‌های شما بدون به هم ریختگی جدول‌ها، نمودارها و فرمول‌های محاسباتی تحویل داده می‌شوند. ما با فرمت‌های استانداردی همچون DOCX، XLSX، PDF، InDesign IDML، XLIFF و JSON کار می‌کنیم.'
-                : 'Your deliverables match the visual structure of your source assets—tables, footnotes, and calculations remain intact. Full compatibility with Microsoft Office, Adobe InDesign, CAT packages, and JSON catalogs.'}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 text-center">
-            {['Microsoft Word (.docx)', 'Microsoft Excel (.xlsx)', 'Adobe PDF / InDesign', 'Structured JSON / YAML', 'XLIFF / PO Catalog', 'PowerPoint (.pptx)'].map((fmt, idx) => (
-              <div key={idx} className="bg-white p-3 border border-[#22272B]/10 text-xs font-mono text-[#22272B]/80 font-medium">
-                {fmt}
               </div>
             ))}
           </div>
@@ -346,19 +260,53 @@ export default function ServicesOverviewPage() {
 
       {/* CALCULATOR EMBED */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-4">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#B79656] block">
+              {lang === 'fa' ? 'بررسی مقیاس و حجم پروژه' : 'Volume & Scope Guide'}
+            </span>
             <h2 className="text-3xl font-serif text-[#22272B]">
-              {lang === 'fa' ? 'محاسبه فوری زمان و هزینه' : 'Instant Estimation Calculator'}
+              {lang === 'fa' ? 'ارزیابی حجم متن و نیازمندی‌های پروژه' : 'Evaluate Project Volume & Scope'}
             </h2>
-            <p className="text-sm text-[#22272B]/80 font-sans leading-relaxed">
+            <p className="text-sm text-[#22272B]/80 leading-relaxed font-sans">
               {lang === 'fa'
-                ? 'برای آگاهی از زمان تقریبی تحویل و محدوده قیمت، حجم سند خود را در اسلایدر مشخص کنید.'
-                : 'Calibrate your source word count to observe realistic turnaround expectations and estimate price bands.'}
+                ? 'تعداد تقریبی کلمات متن خود را انتخاب فرمایید تا مقیاس پروژه را مشاهده نمایید. زمان‌بندی دقیق تحویل پس از بررسی متن و میزان فشردگی کار توافق خواهد شد.'
+                : 'Select your approximate word count to examine project scale benchmarks. Accurate timelines and schedules are agreed upon review of the text and its complexity.'}
             </p>
           </div>
           <div className="lg:col-span-7">
             <EstimateCalculator />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA BANNER */}
+      <section className="bg-[#22272B] text-white py-14">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="space-y-2 text-center md:text-left" style={{ textAlign: isRTL ? 'right' : undefined }}>
+            <h2 className="text-2xl sm:text-3xl font-serif">
+              {lang === 'fa' ? 'متن خود را برای برآورد هزینه و زمان ارسال کنید' : 'Ready to start your translation project?'}
+            </h2>
+            <p className="text-white/70 text-xs sm:text-sm font-sans">
+              {lang === 'fa'
+                ? 'بررسی محرمانه و صدور پیش‌فاکتور شفاف در اسرع وقت انجام می‌گیرد.'
+                : 'Confidential review and transparent turnaround quotes provided promptly.'}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-4 flex-shrink-0">
+            <Link
+              to="/quote"
+              className="px-6 py-3 bg-[#B79656] text-white hover:bg-white hover:text-[#22272B] transition-colors font-medium text-xs sm:text-sm"
+            >
+              {lang === 'fa' ? 'درخواست استعلام قیمت' : 'Request Official Quote'}
+            </Link>
+            <Link
+              to="/contact"
+              className="px-6 py-3 border border-white/30 text-white hover:border-white transition-colors text-xs sm:text-sm"
+            >
+              {lang === 'fa' ? 'تماس با مترجم' : 'Contact Translator'}
+            </Link>
           </div>
         </div>
       </section>

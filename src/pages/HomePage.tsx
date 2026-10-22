@@ -1,156 +1,118 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowRight, 
+import {
+  ArrowRight,
   ArrowLeft,
-  ShieldCheck, 
-  Award, 
-  FileText, 
-  Building2, 
-  Calculator, 
-  FileCheck, 
-  Languages, 
-  Globe2, 
-  Sparkles, 
-  ChevronRight, 
+  ShieldCheck,
+  Award,
+  FileText,
+  Languages,
+  BookOpen,
+  Sparkles,
+  ChevronRight,
   ExternalLink,
   Lock,
   Clock,
   CheckCircle2,
-  HelpCircle
+  HelpCircle,
+  Calculator
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
-import BilingualComparison from '../components/BilingualComparison';
 import EstimateCalculator from '../components/EstimateCalculator';
 
 export default function HomePage() {
   const { lang, t, isRTL } = useLanguage();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
-  const specializations = [
-    {
-      id: 'financial',
-      slug: '/services/financial',
-      title: lang === 'fa' ? 'ترجمه مالی و گزارشگری IFRS' : 'Financial & IFRS Translation',
-      description: lang === 'fa' 
-        ? 'ترازنامه‌ها، صورت‌های سود و زیان، یادداشت‌های توضیحی حسابرسی، گزارش‌های ارزیابی ریسک و اسناد بازارهای سرمایه.'
-        : 'Balance sheets, comprehensive income statements, auditor footnotes, risk disclosures, and capital market prospectuses.',
-      icon: Calculator,
-      metric: 'IFRS & INAS Compliant',
-      metric_fa: 'مطابق با IFRS و استانداردهای حسابداری ایران',
-    },
-    {
-      id: 'accounting',
-      slug: '/services/accounting',
-      title: lang === 'fa' ? 'ترجمه تخصصی حسابداری و حسابرسی' : 'Accounting & Statutory Audit',
-      description: lang === 'fa'
-        ? 'گزارش‌های حسابرسی قانونی، دفاتر کل، اسناد قیمت‌گذاری انتقالی و اظهارنامه‌های مالیاتی بین‌المللی.'
-        : 'Statutory audit opinions, general ledgers, transfer pricing studies, and international tax compliance filings.',
-      icon: FileCheck,
-      metric: 'Auditor-Verified Concordance',
-      metric_fa: 'انطباق تایید شده توسط مراجع حسابرسی',
-    },
-    {
-      id: 'business',
-      slug: '/services/business',
-      title: lang === 'fa' ? 'ترجمه بازرگانی و قراردادهای تجاری' : 'Commercial & Business Translation',
-      description: lang === 'fa'
-        ? 'اساسنامه‌ها، موافقت‌نامه‌های سرمایه‌گذاری مشترک (JV)، اسناد مناقصات بین‌المللی و تفاهم‌نامه‌های عدم افشا (NDA).'
-        : 'Corporate charters, cross-border joint venture agreements, commercial tender dossiers, and bilateral NDAs.',
-      icon: Building2,
-      metric: 'Contractual Rigor',
-      metric_fa: 'دقت حقوقی و ساختار قراردادی',
-    },
-    {
-      id: 'proofreading',
-      slug: '/services/proofreading',
-      title: lang === 'fa' ? 'ویرایش و بازخوانی تخصصی متن' : 'Academic & Editorial Proofreading',
-      description: lang === 'fa'
-        ? 'پالایش متون دانشگاهی، مقالات ISI، گزارش‌های سازمانی و مقایسه تطبیقی متن مبدا و مقصد جهت رفع هرگونه ابهام.'
-        : 'Rigorous substantive editing of academic treatises, corporate monographs, executive reports, and register calibration.',
-      icon: FileText,
-      metric: 'Bilingual Cross-Audit',
-      metric_fa: 'بازبینی تطبیقی دوطرفه',
-    },
-    {
-      id: 'localization',
-      slug: '/services/localization',
-      title: lang === 'fa' ? 'بومی‌سازی وب‌سایت و نرم‌افزار' : 'Website & Software Localization',
-      description: lang === 'fa'
-        ? 'تطبیق کامل رابط‌های کاربری با جهت راست‌به‌چپ (RTL)، استخراج رشته‌های ترجمه (JSON, XLIFF, PO) و بومی‌سازی تجربه کاربری.'
-        : 'Flawless RTL layout engineering, bidirectional UX calibration, and context-aware localization of string catalogs.',
-      icon: Globe2,
-      metric: 'Native RTL Calibration',
-      metric_fa: 'تنظیم تخصصی ساختار راست‌به‌چپ',
-    },
+  // The 3 Confirmed Services
+  const confirmedServices = [
     {
       id: 'translation',
-      slug: '/services/translation',
-      title: lang === 'fa' ? 'ترجمه عمومی و تخصصی انگلیسی به فارسی' : 'English-to-Persian Translation',
+      title: lang === 'fa' ? 'ترجمه متون انگلیسی به فارسی' : 'English-to-Persian Translation',
       description: lang === 'fa'
-        ? 'ترجمه عمیق با حفظ لحن نگارش، انتخاب واژگان دقیق بر اساس فرهنگستان زبان و ادب فارسی و ساختارهای استاندارد نثر فاخر.'
-        : 'Nuanced stylistic fidelity, tone adaptation, and linguistic rigor rooted in Master’s level translation studies.',
+        ? 'ترجمه کتبی و حرفه‌ای از انگلیسی به فارسی با توجه عمیق به معانی، بافتار متن، شفافیت و کاربرد طبیعی زبان.'
+        : 'Professional written translation from English into Persian, with attention to meaning, clarity, context, and natural language.',
       icon: Languages,
-      metric: 'Human-Only Craftsmanship',
-      metric_fa: 'ترجمه کاملاً انسانی بدون دخالت ماشین',
+      metric: 'Meaning & Flow',
+      metric_fa: 'دقت در مفهوم و روانی کلام',
+    },
+    {
+      id: 'article',
+      title: lang === 'fa' ? 'ترجمه مقالات' : 'Article Translation',
+      description: lang === 'fa'
+        ? 'ترجمه مقالات و محتواهای نوشتاری از انگلیسی به فارسی، با حفظ دقیق پیام نویسنده و ساختاری خوانا و روان برای مخاطبان فارسی‌زبان.'
+        : 'English-to-Persian translation of articles and written content, preserving the original meaning and ensuring readability for Persian-speaking audiences.',
+      icon: BookOpen,
+      metric: 'Reader Engagement',
+      metric_fa: 'خوانایی بالا برای مخاطب',
+    },
+    {
+      id: 'general',
+      title: lang === 'fa' ? 'ترجمه متون عمومی' : 'General Text Translation',
+      description: lang === 'fa'
+        ? 'ترجمه انواع متون عمومی از زبان انگلیسی به فارسی با دقت در معادل‌یابی، درک بافت متن و بیانی سلیس.'
+        : 'Translation of general written materials from English into Persian, with careful attention to context, terminology, and natural expression.',
+      icon: FileText,
+      metric: 'Contextual Accuracy',
+      metric_fa: 'تناسب بافتار و واژگان',
     },
   ];
 
   const assuranceSteps = [
     {
       step: '01',
-      title: lang === 'fa' ? 'واکاوی و استخراج اصطلاحات' : 'Terminology Harmonization',
-      desc: lang === 'fa' 
-        ? 'بررسی پیشینه سند، تطبیق با استانداردهای سازمان حسابرسی و تهیه واژه‌نامه تخصصی پیش از آغاز کار.'
-        : 'Pre-flight corpus extraction, glossary construction, and regulatory alignment with official Iranian Audit Organization standards.',
+      title: lang === 'fa' ? 'بررسی متن و درک زمینه موضوعی' : 'Reading & Context Review',
+      desc: lang === 'fa'
+        ? 'مطالعه دقیق متن مبدا، شناخت هدف نویسنده و انتخاب اصطلاحات متناسب با زمینه موضوع.'
+        : 'Careful analysis of source materials, understanding core intent, context, and key terminology.',
     },
     {
       step: '02',
-      title: lang === 'fa' ? 'ترجمه یکدست انسانی' : 'Single-Voiced Human Translation',
+      title: lang === 'fa' ? 'ترجمه دقیق و روان انسانی' : 'Thoughtful Human Translation',
       desc: lang === 'fa'
-        ? 'ترجمه تمام متن منحصراً توسط اسماء پرنیان‌فرد با تکیه بر دانش تخصصی کارشناسی ارشد ترجمه.'
-        : 'Translating line-by-line with uncompromising register fidelity—no outsourced subcontractors, no uncurated machine translation.',
+        ? 'ترجمه خط به خط منحصراً توسط شخص اسماء پرنیان‌فرد با رعایت شیوایی نثر فارسی و انتقال دقیق بار معنایی.'
+        : 'Translating line by line with fidelity to meaning, clear phrasing, and natural Persian rhythm.',
     },
     {
       step: '03',
-      title: lang === 'fa' ? 'بازخوانی تطبیقی دوسویه' : 'Substantive Bilingual Cross-Audit',
+      title: lang === 'fa' ? 'بازخوانی تطبیقی و رفع ابهام' : 'Bilingual Review & Verification',
       desc: lang === 'fa'
-        ? 'بررسی سطر به سطر متن ترجمه در برابر مبدا انگلیسی، اطمینان از صحت اعداد مالی و ساختار دستوری.'
-        : 'Line-by-line verification against source English text to ensure zero omissions, numeral integrity, and flawless Persian syntax.',
+        ? 'بررسی موازی متن مبدا و مقصد جهت اطمینان از صحت جملات، عدم افتادگی و انسجام متن.'
+        : 'Side-by-side comparative review verifying completeness, terminology consistency, and accurate meaning.',
     },
     {
       step: '04',
-      title: lang === 'fa' ? 'تحویل امن و بازنگری دقیق' : 'Encrypted Handover & Clarification',
+      title: lang === 'fa' ? 'ویرایش نهایی و تحویل' : 'Final Polish & Delivery',
       desc: lang === 'fa'
-        ? 'تحویل ایمن در قالب فایل اصلی به همراه پشتیبانی و اعمال اصلاحات تکمیلی بدون هزینه اضافی.'
-        : 'Secure delivery in original formatting accompanied by dedicated post-delivery refinement and clarification.',
+        ? 'بررسی صفحه‌آرایی، علائم نگارشی فارسی و پاسخگویی به هرگونه سوال یا نیاز به بازنگری تکمیلی.'
+        : 'Final formatting review, Persian typography check, and post-delivery clarification support.',
     },
   ];
 
   const faqs = [
     {
-      q: lang === 'fa' ? 'چرا ترجمه تخصصی مالی نیازمند دانش دانشگاهی ترجمه است؟' : 'Why does financial translation require academic translation expertise?',
+      q: lang === 'fa' ? 'تمرکز اصلی شما بر چه نوع متونی است؟' : 'What types of texts do you primarily translate?',
       a: lang === 'fa'
-        ? 'صورت‌های مالی و اسناد بازرگانی دارای بار حقوقی سنگین هستند. یک اشتباه در ترجمه اصطلاحاتی چون "Depreciation" در برابر "Amortization" یا "Provision" در برابر "Contingent Liability" می‌تواند ساختار حقوقی شرکت را به خطر بیندازد. تخصص کارشناسی ارشد من در ترجمه، ضامن رعایت دقیق‌ترین استانداردهای معادل‌گزینی است.'
-        : 'Financial statements and commercial agreements carry immense legal and regulatory liabilities. Translating nuanced terms like "Depreciation" versus "Amortization", or "Provision" versus "Contingent Liability", requires precise domain concordance with IFRS and local statutory frameworks. My M.A. in Translation ensures rigorous conceptual alignment.',
+        ? 'تمرکز من بر ترجمه متون نوشتاری از زبان انگلیسی به فارسی است، به‌ویژه مقالات، گزارش‌ها و متون عمومی. در تمام پروژه‌ها تلاش می‌کنم علاوه بر امانتداری در انتقال پیام، متنی روان و خوش‌خوان به زبان فارسی ارائه دهم.'
+        : 'My primary focus is on written English-to-Persian translation, particularly articles and general written texts. In all projects, I aim to preserve the original meaning while ensuring the translated content reads naturally in Persian.',
     },
     {
-      q: lang === 'fa' ? 'چگونه از محرمانگی اسناد تجاری و مالی اطمینان حاصل می‌شود؟' : 'How is client and document confidentiality maintained?',
+      q: lang === 'fa' ? 'چگونه از محرمانگی متن ارسالی اطمینان حاصل می‌شود؟' : 'How is document confidentiality maintained?',
       a: lang === 'fa'
-        ? 'تمام پروژه‌ها با رعایت کامل اصول رازداری حرفه‌ای انجام می‌پذیرد. اسناد شما در بسترهای ناامن بارگذاری نمی‌شوند و امکان انعقاد توافق‌نامه عدم افشا (NDA) نیز در صورت نیاز فراهم است.'
-        : 'All projects are handled with strict professional discretion and confidentiality. Proprietary source texts are securely handled offline, and bilateral Non-Disclosure Agreements (NDAs) can be executed upon request.',
+        ? 'تمام فایل‌ها و پیش‌نویس‌های ارسالی با رعایت کامل اصول رازداری حرفه‌ای بررسی می‌شوند. متون شما در بسترهای ناامن بارگذاری نخواهند شد و در صورت تمایل، امکان انعقاد توافق‌نامه محرمانگی (NDA) نیز وجود دارد.'
+        : 'All materials are handled with strict professional discretion and confidentiality. Source texts are reviewed in an offline environment, and a bilateral non-disclosure agreement can be provided upon request.',
     },
     {
-      q: lang === 'fa' ? 'آیا امکان همکاری با آژانس‌های بین‌المللی و شرکت‌های خارجی وجود دارد؟' : 'Can you collaborate remotely with international translation agencies?',
+      q: lang === 'fa' ? 'زمان تحویل سفارش‌ها چگونه تعیین می‌شود؟' : 'How is project turnaround determined?',
       a: lang === 'fa'
-        ? 'بله، من به طور مستمر با آژانس‌های معتبر اروپایی و بین‌المللی بر روی پروژه‌های بزرگ سازمانی و بسته‌های نرم‌افزاری همکاری می‌کنم و با بسترهای استاندارد CAT مانند SDL Trados، memoQ و فرمت‌های XLIFF کاملاً مسلط هستم.'
-        : 'Yes. I regularly partner with reputable international translation agencies and global corporations for high-volume enterprise localization, using industry-standard CAT toolchains (Trados, memoQ) and structured formats (XLIFF, PO, JSON).',
+        ? 'زمان‌بندی تحویل بر اساس حجم کلمات، زمینه موضوعی و میزان فشردگی کار توافق می‌شود تا فرصت کافی برای ترجمه دقیق و بازخوانی تطبیقی متن فراهم باشد.'
+        : 'Turnaround is evaluated based on document volume, subject matter, and text complexity, ensuring sufficient time for attentive translation and thorough comparative review.',
     },
     {
-      q: lang === 'fa' ? 'زمان تحویل سفارش‌ها معمولاً چقدر است؟' : 'What is your typical turnaround time?',
+      q: lang === 'fa' ? 'آیا پس از تحویل امکان بازنگری و اصلاح وجود دارد؟' : 'Do you provide post-delivery review support?',
       a: lang === 'fa'
-        ? 'ظرفیت استاندارد روزانه بین ۱۵۰۰ تا ۲۰۰۰ کلمه تخصصی همراه با بازبینی تطبیقی است. برای متون فوری، اولویت‌بندی زمانی با هماهنگی قبلی امکان‌پذیر است.'
-        : 'Standard throughput is 1,500 to 2,000 curated words per business day including comparative review. For time-sensitive files, priority scheduling can be arranged.',
+        ? 'بله، پس از تحویل متن، امکان بررسی، طرح پرسش‌ها و اعمال اصلاحات یا بازنگری‌های تکمیلی مد نظر کارفرما فراهم است.'
+        : 'Yes. Post-delivery communication is maintained to address questions, discuss nuances, and accommodate reasonable stylistic refinements.',
     },
   ];
 
@@ -160,11 +122,11 @@ export default function HomePage() {
       <section className="relative pt-8 pb-16 md:pt-14 md:pb-24 overflow-hidden border-b border-[#22272B]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
+
             {/* Left/Right Text Column */}
             <div className="lg:col-span-7 space-y-8">
-              
-              {/* Institutional Credential Bar */}
+
+              {/* Professional Credential Bar */}
               <div className="flex flex-wrap items-center gap-3 text-xs md:text-sm text-[#22272B]/75 font-medium">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#B79656]/10 text-[#B79656] border border-[#B79656]/30 font-semibold tracking-wide uppercase text-[11px]">
                   <Award className="w-3.5 h-3.5" />
@@ -185,21 +147,27 @@ export default function HomePage() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-[#22272B] tracking-tight leading-[1.2]">
                   {lang === 'fa' ? (
                     <>
-                      ترجمه تخصصی <span className="italic text-[#B79656]">انگلیسی به فارسی</span> برای کسب‌وکار و بازارهای مالی.
+                      ترجمه <span className="italic text-[#B79656]">انگلیسی به فارسی</span>
                     </>
                   ) : (
                     <>
-                      Bridging Languages. <br />
-                      <span className="italic font-serif text-[#B79656]">Connecting Cultures</span> with Precision.
+                      English-to-Persian <br />
+                      <span className="italic font-serif text-[#B79656]">Translation</span>
                     </>
                   )}
                 </h1>
-                
-                <p className="text-lg sm:text-xl text-[#22272B]/80 font-sans leading-relaxed max-w-2xl">
+
+                <p className="text-xl sm:text-2xl font-serif text-[#B79656] font-medium">
+                  {lang === 'fa'
+                    ? 'ترجمه متون نوشتاری با دقت، روانی و وفاداری به مفهوم'
+                    : 'Clear, Natural, and Thoughtful Written Translation'}
+                </p>
+
+                <p className="text-base sm:text-lg text-[#22272B]/80 font-sans leading-relaxed max-w-2xl">
                   {lang === 'fa' ? (
-                    'خدمات ممتاز ترجمه، ویرایش و بومی‌سازی تخصصی برای اسناد مالی IFRS، ترازنامه‌ها، قراردادهای تجاری و سیستم‌های نرم‌افزاری توسط اسماء پرنیان‌فرد، کارشناس ارشد مطالعات ترجمه.'
+                    'من اسماء پرنیان‌فرد، مترجم مستقل متون انگلیسی به فارسی هستم و تمرکز من بر ترجمه مقالات و متون عمومی است. هدف من انتقال دقیق مفاهیم همگام با ارائه متنی روان، رسا و طبیعی به زبان فارسی است.'
                   ) : (
-                    'Master’s level English-to-Persian translation, financial report localization, and commercial contract editing. Crafted exclusively for multinational enterprises, corporate legal counsel, and premier translation agencies.'
+                    "I'm Asma Parnianfard, an independent English-to-Persian translator specializing in articles and general written texts. I focus on conveying meaning accurately while ensuring the translated content reads naturally in Persian."
                   )}
                 </p>
               </div>
@@ -208,15 +176,15 @@ export default function HomePage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-2 border-y border-[#22272B]/10 text-sm">
                 <div className="flex items-center gap-2 text-[#22272B]/90">
                   <ShieldCheck className="w-4 h-4 text-[#788A78] flex-shrink-0" />
-                  <span>{lang === 'fa' ? 'رعایت محرمانگی اسناد' : 'Confidential Document Handling'}</span>
+                  <span>{lang === 'fa' ? 'حفظ محرمانگی متون' : 'Document Confidentiality'}</span>
                 </div>
                 <div className="flex items-center gap-2 text-[#22272B]/90">
-                  <FileCheck className="w-4 h-4 text-[#B79656] flex-shrink-0" />
-                  <span>{lang === 'fa' ? 'اصطلاح‌شناسی تخصصی مالی' : 'Financial & Legal Terminology'}</span>
+                  <FileText className="w-4 h-4 text-[#B79656] flex-shrink-0" />
+                  <span>{lang === 'fa' ? 'ترجمه دقیق و روان انسانی' : 'Thoughtful Human Translation'}</span>
                 </div>
                 <div className="flex items-center gap-2 text-[#22272B]/90">
                   <Clock className="w-4 h-4 text-[#22272B] flex-shrink-0" />
-                  <span>{lang === 'fa' ? 'ارتباط مستقیم با کارشناس ترجمه' : 'Direct Translator Engagement'}</span>
+                  <span>{lang === 'fa' ? 'همکاری مستقیم با مترجم' : 'Direct Collaboration'}</span>
                 </div>
               </div>
 
@@ -226,7 +194,7 @@ export default function HomePage() {
                   to="/quote"
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#22272B] text-white hover:bg-[#B79656] transition-all duration-300 font-medium text-sm tracking-wide shadow-md group"
                 >
-                  <span>{lang === 'fa' ? 'درخواست استعلام قیمت فوری' : 'Request a Project Quote'}</span>
+                  <span>{lang === 'fa' ? 'استعلام قیمت و سفارش' : 'Request a Quote'}</span>
                   {isRTL ? (
                     <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                   ) : (
@@ -235,20 +203,20 @@ export default function HomePage() {
                 </Link>
 
                 <Link
-                  to="/portfolio"
+                  to="/services"
                   className="inline-flex items-center gap-2 px-6 py-3.5 bg-white border border-[#22272B]/20 text-[#22272B] hover:border-[#B79656] hover:text-[#B79656] transition-all duration-300 font-medium text-sm"
                 >
-                  <span>{lang === 'fa' ? 'مشاهده نمونه کارهای تطبیقی' : 'View Bilingual Portfolio'}</span>
+                  <span>{lang === 'fa' ? 'مشاهده خدمات ترجمه' : 'Explore Services'}</span>
                 </Link>
               </div>
 
-              {/* Quick Contact & Presence */}
+              {/* Quick Profile Link */}
               <div className="flex items-center gap-4 text-xs text-[#22272B]/60 pt-2">
-                <span>{lang === 'fa' ? 'پاسخگویی به موقع به استعلام‌ها و درخواست‌های ترجمه' : 'Prompt response to project inquiries & evaluations'}</span>
+                <span>{lang === 'fa' ? 'ارتباط مستقیم با خود مترجم' : 'Direct communication with the translator'}</span>
                 <span>•</span>
-                <a 
-                  href="https://www.linkedin.com/in/asma-parnianfard-a11b69433" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/asma-parnianfard-a11b69433"
+                  target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1 text-[#B79656] hover:underline"
                 >
@@ -260,10 +228,10 @@ export default function HomePage() {
             {/* Right Column: Authentic Editorial Photo of Asma Parnianfard */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <div className="relative w-full max-w-md">
-                
+
                 {/* Decorative border frame */}
                 <div className="hidden sm:block absolute -inset-3 border border-[#B79656]/30 translate-x-2 translate-y-2 pointer-events-none" />
-                
+
                 {/* Main Portrait Card */}
                 <div className="relative bg-white p-3 shadow-xl border border-[#22272B]/10">
                   {/* Golden AP Monogram Official Seal */}
@@ -278,30 +246,30 @@ export default function HomePage() {
                   <div className="aspect-[4/5] overflow-hidden bg-[#E9E2D7]">
                     <img
                       src="/assets/asma-parnianfard-portrait.png"
-                      alt="ASMA PARNIANFARD, Professional English-to-Persian Translator"
+                      alt="ASMA PARNIANFARD, Independent English-to-Persian Translator"
                       className="w-full h-full object-cover object-top filter contrast-[1.02]"
                       loading="eager"
                     />
                   </div>
 
-                  {/* Caption & Authentic Identification */}
+                  {/* Caption & Identification */}
                   <div className="pt-4 pb-1 px-2 space-y-1">
                     <div className="flex items-center justify-between">
                       <h2 className="font-serif text-lg text-[#22272B] font-bold tracking-wide">
                         {lang === 'fa' ? 'اسماء پرنیان‌فرد' : 'ASMA PARNIANFARD'}
                       </h2>
                       <span className="text-[11px] font-mono uppercase text-[#B79656] font-semibold">
-                        Lead Translator
+                        {lang === 'fa' ? 'مترجم مستقل' : 'Independent Translator'}
                       </span>
                     </div>
                     <p className="text-xs text-[#22272B]/70 font-sans">
-                      {lang === 'fa' 
-                        ? 'کارشناسی ارشد مترجمی زبان انگلیسی • دانشگاه آزاد اسلامی مشهد' 
+                      {lang === 'fa'
+                        ? 'کارشناسی ارشد مترجمی زبان انگلیسی • دانشگاه آزاد اسلامی مشهد'
                         : 'M.A., Language Interpretation & Translation • Islamic Azad University'}
                     </p>
                     <div className="pt-2 flex items-center justify-between text-[11px] text-[#22272B]/60 border-t border-[#22272B]/10 mt-2">
                       <span className="flex items-center gap-1">
-                        <Lock className="w-3 h-3 text-[#788A78]" /> Independent Practitioner
+                        <Lock className="w-3 h-3 text-[#788A78]" /> {lang === 'fa' ? 'مترجم زبان انگلیسی' : 'Independent Practice'}
                       </span>
                       <span>Mashhad, Iran</span>
                     </div>
@@ -315,27 +283,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SPECIALIZATIONS OVERVIEW */}
+      {/* CONFIRMED SERVICES OVERVIEW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#B79656]">
             <span className="w-8 h-[1px] bg-[#B79656]"></span>
-            <span>{lang === 'fa' ? 'حوزه‌های تخصصی' : 'Core Disciplines'}</span>
+            <span>{lang === 'fa' ? 'خدمات ترجمه' : 'Primary Services'}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif text-[#22272B]">
-            {lang === 'fa' 
-              ? 'ترجمه متون حساس با دقت حقوقی و شفافیت نگارش' 
-              : 'Precision Translation for High-Stakes Documentation'}
+            {lang === 'fa'
+              ? 'ترجمه متون نوشتاری با توجه به زمینه، وضوح و شیوایی زبان'
+              : 'Clear, Accurate, and Readable English-to-Persian Translation'}
           </h2>
           <p className="text-[#22272B]/75 leading-relaxed">
             {lang === 'fa'
-              ? 'بر خلاف متون عمومی، اسناد مالی و قراردادهای تجاری نیازمند درک عمیق ساختار، واژه‌شناسی مصوب و یکدستی لحن هستند.'
-              : 'Financial audits, corporate bylaws, and software UI require deep domain context, regulatory fidelity, and terminology harmony.'}
+              ? 'ارائه خدمات ترجمه کتبی متون انگلیسی به زبان فارسی، با تاکید بر درک صحیح پیام نویسنده و بیان روان در زبان مقصد.'
+              : 'Dedicated to faithful meaning transfer and natural phrasing for articles, informational materials, and written communications.'}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-12">
-          {specializations.map((spec) => {
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12">
+          {confirmedServices.map((spec) => {
             const Icon = spec.icon;
             return (
               <div
@@ -362,10 +330,10 @@ export default function HomePage() {
 
                 <div className="pt-6 mt-6 border-t border-[#22272B]/10 flex items-center justify-between">
                   <Link
-                    to={spec.slug}
+                    to="/services"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#22272B] group-hover:text-[#B79656] transition-colors"
                   >
-                    <span>{lang === 'fa' ? 'بررسی جزییات و استانداردهای این حوزه' : 'Explore practice area'}</span>
+                    <span>{lang === 'fa' ? 'اطلاعات بیشتر درباره این خدمت' : 'Learn more about this service'}</span>
                     <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isRTL ? 'group-hover:-translate-x-1 rotate-180' : 'group-hover:translate-x-1'}`} />
                   </Link>
                 </div>
@@ -379,74 +347,32 @@ export default function HomePage() {
             to="/services"
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#B79656] hover:text-[#22272B] transition-colors border-b border-[#B79656]/50 pb-1"
           >
-            <span>{lang === 'fa' ? 'مشاهده تمامی خدمات و زمان‌بندی‌های تحویل' : 'View complete services matrix and delivery tiers'}</span>
+            <span>{lang === 'fa' ? 'مشاهده توضیحات کامل خدمات و زمان‌بندی تحویل' : 'View complete services overview and delivery details'}</span>
             <ChevronRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
           </Link>
         </div>
       </section>
 
-      {/* INTERACTIVE BILINGUAL COMPARISON SHOWCASE */}
-      <section className="bg-white py-16 md:py-24 border-y border-[#22272B]/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="max-w-3xl space-y-3">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#B79656]">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>{lang === 'fa' ? 'نمونه مقایسه‌ای موازی' : 'Linguistic Concordance'}</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#22272B]">
-              {lang === 'fa' ? 'بررسی تطبیقی متن مبدا و ترجمه فارسی' : 'Parallel Bilingual Text Examination'}
-            </h2>
-            <p className="text-[#22272B]/75 leading-relaxed text-sm sm:text-base">
-              {lang === 'fa'
-                ? 'نمونه‌هایی از متون مالی، اساسنامه شرکت‌ها و رشته‌های نرم‌افزاری ترجمه شده را به صورت سطر به سطر با متن انگلیسی تطبیق دهید.'
-                : 'Inspect the meticulous sentence-by-sentence calibration across financial reports, corporate bylaws, and software localization catalogs.'}
-            </p>
-          </div>
-
-          {/* Bilingual comparison component */}
-          <BilingualComparison />
-
-          <div className="p-4 bg-[#F8F6F1] border border-[#22272B]/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#22272B]/80">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-[#788A78] flex-shrink-0" />
-              <span>
-                {lang === 'fa'
-                  ? 'تمامی نمونه‌های ارائه شده بر اساس اسناد استاندارد شده و با رعایت کامل حریم خصوصی تنظیم گردیده‌اند.'
-                  : 'All client identifiers and proprietary figures have been synthesized to preserve institutional confidentiality.'}
-              </span>
-            </div>
-            <Link
-              to="/portfolio"
-              className="font-semibold text-[#B79656] hover:underline flex-shrink-0"
-            >
-              {lang === 'fa' ? 'مشاهده همه نمونه کارهای مستند' : 'Explore all case studies'} →
-            </Link>
-          </div>
-
-        </div>
-      </section>
-
-      {/* RIGOROUS 4-STAGE HUMAN TRANSLATION PROTOCOL */}
+      {/* 4-STAGE QUALITY PROCESS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           <div className="lg:col-span-4 space-y-6">
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#B79656]">
               <ShieldCheck className="w-4 h-4" />
-              <span>{lang === 'fa' ? 'کنترل کیفیت چهار مرحله‌ای' : 'Rigorous QA Protocol'}</span>
+              <span>{lang === 'fa' ? 'فرآیند ۴ مرحله‌ای ترجمه' : 'Quality Process'}</span>
             </div>
-            
+
             <h2 className="text-3xl sm:text-4xl font-serif text-[#22272B] leading-tight">
-              {lang === 'fa' 
-                ? 'چرا در ترجمه تخصصی هیچ جایگزینی برای انسان وجود ندارد؟' 
-                : 'Why High-Value Texts Demand Dedicated Human Authorship'}
+              {lang === 'fa'
+                ? 'رویکردی ساختاریافته در ترجمه و بازخوانی متون'
+                : 'A Methodical, Context-Aware Translation Approach'}
             </h2>
 
             <p className="text-[#22272B]/75 text-sm sm:text-base leading-relaxed">
               {lang === 'fa'
-                ? 'مترجم‌های ماشینی ساختار گرامری را ترجمه می‌کنند، اما از بار حقوقی، اصطلاحات مصوب حسابداری و بافتار اقتصادی غافلند. روش من تضمین می‌کند سند نهایی همانند یک متن اصیل تالیف شده به نظر برسد.'
-                : 'Automated engines parse literal grammar but consistently fail on regulatory liability, Persian syntactic rhythm, and domain-specific terminology. Every document follows a strict multi-pass process.'}
+                ? 'ترجمه متون نوشتاری نیازمند درک بافت متن، ظرافت‌های ساختاری و انتخاب دقیق واژگان است تا اثر نهایی برای خواننده فارسی‌زبان کاملاً رسا و طبیعی باشد.'
+                : 'Effective translation involves more than replacing words. It requires understanding the message and expressing it in a way that feels clear and appropriate to the target audience.'}
             </p>
 
             <div className="pt-2">
@@ -454,7 +380,7 @@ export default function HomePage() {
                 to="/process"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[#22272B] hover:text-[#B79656] transition-colors border-b border-[#22272B]/30 pb-1"
               >
-                <span>{lang === 'fa' ? 'مشاهده گام‌به‌گام فرایند سفارش تا تحویل' : 'Explore full 6-stage workflow'}</span>
+                <span>{lang === 'fa' ? 'مشاهده مراحل کامل فرآیند کار' : 'Explore full translation workflow'}</span>
                 <ChevronRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
               </Link>
             </div>
@@ -462,7 +388,7 @@ export default function HomePage() {
 
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {assuranceSteps.map((item) => (
-              <div 
+              <div
                 key={item.step}
                 className="bg-white p-7 border border-[#22272B]/10 relative space-y-4 shadow-sm"
               >
@@ -482,37 +408,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* INSTANT WORD COUNT & TIMELINE CALCULATOR */}
+      {/* ESTIMATE CALCULATOR */}
       <section className="bg-white py-16 md:py-24 border-y border-[#22272B]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <div className="lg:col-span-5 space-y-6">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#B79656]">
                 <Calculator className="w-4 h-4" />
-                <span>{lang === 'fa' ? 'برآورد شفاف زمان و هزینه' : 'Transparent Estimation'}</span>
+                <span>{lang === 'fa' ? 'بررسی مقیاس و حجم پروژه' : 'Volume & Scope Guide'}</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-serif text-[#22272B]">
-                {lang === 'fa' ? 'محاسبه تخمینی زمان تحویل و هزینه پروژه' : 'Instant Word Count & Delivery Estimator'}
+                {lang === 'fa' ? 'بررسی حجم متن و نیازمندی‌های پروژه' : 'Evaluate Project Volume & Scope'}
               </h2>
               <p className="text-[#22272B]/75 text-sm sm:text-base leading-relaxed">
                 {lang === 'fa'
-                  ? 'تعداد کلمات سند خود را انتخاب کنید تا زمان‌بندی واقع‌بینانه تحویل و محدوده قیمت تخمینی را مشاهده فرمایید. سپس سند خود را برای ارزیابی نهایی ارسال کنید.'
-                  : 'Select your source volume to examine turnaround benchmarks and indicative pricing ranges. All official quotes are confirmed promptly.'}
+                  ? 'تعداد تقریبی کلمات متن خود را مشخص فرمایید تا مقیاس پروژه را مشاهده نمایید. زمان‌بندی دقیق تحویل پس از بررسی متن و میزان فشردگی کار توافق خواهد شد.'
+                  : 'Select your source volume to examine project scale benchmarks. Accurate turnaround schedules are agreed upon review of the text.'}
               </p>
-              
+
               <div className="space-y-3 pt-2 text-xs text-[#22272B]/70">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#788A78]" />
-                  <span>{lang === 'fa' ? 'تخفیف حجمی برای متون بیش از ۱۰،۰۰۰ کلمه' : 'Volume pricing discounts for projects exceeding 10,000 words'}</span>
+                  <span>{lang === 'fa' ? 'بررسی دقیق و توافق زمان‌بندی شفاف' : 'Detailed review & transparent scheduling'}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#788A78]" />
-                  <span>{lang === 'fa' ? 'امکان تحویل فوری ۲۴ تا ۴۸ ساعته' : 'Urgent turnaround available for critical deadlines'}</span>
+                  <span>{lang === 'fa' ? 'امکان هماهنگی برای متون با اولویت تحویل' : 'Priority turnaround scheduling available'}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#788A78]" />
-                  <span>{lang === 'fa' ? 'بدون هزینه‌های پنهان یا کارمزدهای غیرمنتظره' : 'Clear fixed-quote pricing—no hidden post-delivery surcharges'}</span>
+                  <span>{lang === 'fa' ? 'پاسخگویی مستقیم توسط خود مترجم' : 'Direct communication with the translator'}</span>
                 </div>
               </div>
             </div>
@@ -525,11 +451,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MEET YOUR TRANSLATOR — SCHOLARLY BACKGROUND */}
+      {/* MEET YOUR TRANSLATOR */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#E9E2D7]/40 border border-[#22272B]/10 p-8 md:p-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
-            
+
             <div className="md:col-span-4 flex justify-center">
               <div className="relative w-full max-w-xs">
                 <div className="aspect-[4/5] bg-white p-2 shadow-md border border-[#22272B]/10 relative">
@@ -565,16 +491,16 @@ export default function HomePage() {
               <div className="space-y-4 text-sm sm:text-base text-[#22272B]/80 leading-relaxed font-sans">
                 <p>
                   {lang === 'fa' ? (
-                    'من دانش‌آموخته مقطع کارشناسی ارشد در رشته مترجمی زبان انگلیسی از دانشگاه آزاد اسلامی مشهد هستم. تمرکز حرفه‌ای من در سال‌های اخیر بر ترجمه دقیق گزارش‌های مالی، صورت‌های اساسی حسابداری و اسناد راهبردی تجاری متمرکز بوده است.'
+                    'من اسماء پرنیان‌فرد، مترجم مستقل متون انگلیسی به فارسی هستم. تمرکز اصلی من بر ترجمه مقالات و متون عمومی است که با دقت فراوان در درک مفهوم، زمینه متن، شفافیت بیان و روانی نگارش زبان فارسی انجام می‌گیرد.'
                   ) : (
-                    'Holding a Master of Arts in Language Interpretation and Translation from Islamic Azad University, I specialize in translating complex financial statements, statutory audits, and commercial agreements from English to Persian. Operating from Mashhad, Razavi Khorasan, Iran, I serve corporate clients, legal departments, and international translation agencies requiring uncompromising accuracy.'
+                    "I'm Asma Parnianfard, an independent translator working from English into Persian. My main focus is translating articles and general written texts with careful attention to meaning, context, clarity, and natural Persian expression."
                   )}
                 </p>
                 <p>
                   {lang === 'fa' ? (
-                    'در رویکرد کاری من، اصل بر امانتداری مفهومی، وفاداری به اصطلاحات تخصصی نهادهای مرجع و حفظ لحن فاخر زبان فارسی است. هر متن تحت نظارت مستقیم شخص من و بدون واسطه ترجمه و ویرایش می‌شود.'
+                    'باور دارم که ترجمه موثر فراتر از جایگزینی ساده کلمات میان دو زبان است؛ بلکه نیازمند درک عمیق پیام و بازآفرینی آن به گونه‌ای است که برای مخاطب فارسی‌زبان کاملاً رسا، ملموس و شایسته باشد.'
                   ) : (
-                    'My practice is rooted in rigorous terminology governance, direct client consultation, and complete independence. You work directly with me—ensuring that confidential corporate communications never pass through anonymous third-party networks.'
+                    'I believe effective translation involves more than replacing words between languages. It requires understanding the message and expressing it in a way that feels clear and appropriate to the target audience.'
                   )}
                 </p>
               </div>
@@ -584,7 +510,7 @@ export default function HomePage() {
                   to="/about"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#22272B] text-white text-xs font-medium hover:bg-[#B79656] transition-colors"
                 >
-                  <span>{lang === 'fa' ? 'مطالعه بیوگرافی و مدارک تحصیلی' : 'Read Full Professional Biography'}</span>
+                  <span>{lang === 'fa' ? 'مطالعه بیشتر درباره من' : 'Read Full Biography'}</span>
                   <ChevronRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
 
@@ -605,7 +531,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ ACCORDION PREVIEW */}
+      {/* FAQ SECTION */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-3">
           <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#B79656]">
@@ -613,7 +539,7 @@ export default function HomePage() {
             <span>{lang === 'fa' ? 'پرسش‌های متداول' : 'Frequently Asked Questions'}</span>
           </div>
           <h2 className="text-3xl font-serif text-[#22272B]">
-            {lang === 'fa' ? 'پاسخ به سوالات مهم در مورد همکاری' : 'Key Inquiries & Terms of Practice'}
+            {lang === 'fa' ? 'پاسخ به سوالات متداول' : 'Key Inquiries & Terms of Practice'}
           </h2>
         </div>
 
@@ -651,7 +577,7 @@ export default function HomePage() {
             to="/faq"
             className="text-xs font-semibold text-[#B79656] hover:text-[#22272B] underline"
           >
-            {lang === 'fa' ? 'مشاهده تمامی پرسش‌ها درباره قیمت، قرارداد و محرمانگی' : 'View all 20+ detailed answers in the complete FAQ section'} →
+            {lang === 'fa' ? 'مشاهده تمامی پرسش‌ها و پاسخ‌ها' : 'View all questions in the FAQ section'} →
           </Link>
         </div>
       </section>
@@ -660,19 +586,19 @@ export default function HomePage() {
       <section className="bg-[#22272B] text-white py-16 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <span className="text-xs font-mono uppercase tracking-widest text-[#B79656] block">
-            {lang === 'fa' ? 'همکاری حرفه‌ای و پایدار' : 'Direct Professional Engagement'}
+            {lang === 'fa' ? 'همکاری حرفه‌ای و مستقیم' : 'Direct Professional Engagement'}
           </span>
-          
+
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif leading-tight">
-            {lang === 'fa' 
-              ? 'آماده‌اید اسناد بین‌المللی خود را با بالاترین کیفیت ترجمه کنید؟' 
-              : 'Ready to localise your high-stakes documentation for Persian-speaking markets?'}
+            {lang === 'fa'
+              ? 'آماده‌اید پروژه ترجمه خود را بررسی کنیم؟'
+              : 'Ready to translate your articles and written texts?'}
           </h2>
 
           <p className="text-sm sm:text-base text-white/70 max-w-2xl mx-auto font-sans leading-relaxed">
             {lang === 'fa'
-              ? 'فایل‌های خود را به صورت امن ارسال کنید تا پیش‌فاکتور دقیق به همراه زمان‌بندی و شرایط عدم افشا برای شما ارسال شود.'
-              : 'Submit your source materials for a comprehensive linguistic evaluation and fixed quotation. Strict confidentiality maintained.'}
+              ? 'متن خود را ارسال نمایید تا برآورد شفاف هزینه و زمان تحویل برای شما ارسال گردد.'
+              : 'Submit your materials for a transparent quotation and realistic turnaround projection.'}
           </p>
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
@@ -680,7 +606,7 @@ export default function HomePage() {
               to="/quote"
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#B79656] text-white hover:bg-white hover:text-[#22272B] transition-all duration-300 font-medium text-sm tracking-wide shadow-lg"
             >
-              <span>{lang === 'fa' ? 'ثبت سفارش ترجمه' : 'Request Official Quotation'}</span>
+              <span>{lang === 'fa' ? 'استعلام قیمت و سفارش' : 'Request a Quote'}</span>
               <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
             </Link>
 
@@ -688,7 +614,7 @@ export default function HomePage() {
               to="/contact"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-transparent border border-white/30 text-white hover:border-white transition-all duration-300 font-medium text-sm"
             >
-              <span>{lang === 'fa' ? 'مشاوره و تماس مستقیم' : 'Contact Translator Atelier'}</span>
+              <span>{lang === 'fa' ? 'تماس و ارسال پیام' : 'Contact Direct'}</span>
             </Link>
           </div>
         </div>

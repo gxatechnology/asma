@@ -90,7 +90,7 @@ export const BrandIdentity: React.FC<BrandIdentityProps> = ({
 
   // Official Brand Texts
   const brandName = isFa ? 'اسماء پرنیان‌فرد' : 'ASMA PARNIANFARD';
-  const defaultSubtitle = isFa ? 'ترجمه و بومی‌سازی تخصصی' : 'TRANSLATION & LOCALIZATION';
+  const defaultSubtitle = isFa ? 'مترجم مستقل انگلیسی به فارسی' : 'ENGLISH-TO-PERSIAN TRANSLATION';
   const subtitle = customSubtitle || defaultSubtitle;
 
   // Medallion Sizes

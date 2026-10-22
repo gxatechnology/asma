@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { 
-  ArrowLeft, 
-  ArrowRight, 
-  Calendar, 
-  Clock, 
-  Share2, 
-  Tag, 
-  BookOpen, 
-  Award, 
-  ExternalLink 
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calendar,
+  Clock,
+  Tag,
+  BookOpen,
+  Award,
+  ExternalLink
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { BlogPost } from '../types';
@@ -31,17 +30,29 @@ export default function BlogPostPage() {
         setLoading(false);
       })
       .catch(() => {
-        // Fallback search in hardcoded list
-        fetch('/api/blog')
-          .then(r => r.json())
-          .then((list: BlogPost[]) => {
-            const found = list.find(x => x.slug === slug);
-            if (found) {
-              setPost(found);
-            }
-            setLoading(false);
-          })
-          .catch(() => setLoading(false));
+        // Fallback default article
+        const fallback: BlogPost = {
+          id: 'post-1',
+          slug: slug || 'translating-english-articles-into-natural-persian',
+          title: 'Translating English Articles into Natural Persian: Preserving Flow and Meaning',
+          title_fa: 'ترجمه مقالات انگلیسی به فارسی روان: حفظ پیوستگی معنایی و لحن نویسنده',
+          category: 'Article Translation',
+          excerpt: 'A practical look at how article translators balance source fidelity with Persian stylistic elegance, avoiding common translation artifacts.',
+          excerpt_fa: 'بررسی کاربردی چگونگی برقراری تعادل میان امانتداری به متن اصلی و شیوایی نثر فارسی در ترجمه مقالات پژوهشی و تحلیلی.',
+          content: '',
+          content_fa: '',
+          readTime: '6 min read',
+          author: {
+            name: 'Asma Parnianfard, M.A.',
+            role: 'Independent English-to-Persian Translator',
+            avatar: '/assets/asma-parnianfard-portrait.png',
+          },
+          publishedAt: '2026-09-28',
+          tags: ['Article Translation', 'Persian Syntax', 'Natural Phrasing', 'Readability'],
+          featured: true,
+        };
+        setPost(fallback);
+        setLoading(false);
       });
   }, [slug]);
 
@@ -97,99 +108,66 @@ export default function BlogPostPage() {
           {lang === 'fa' ? post.title_fa : post.title}
         </h1>
 
-        <p className="text-base sm:text-lg text-[#22272B]/80 font-sans leading-relaxed italic border-l-2 border-[#B79656] pl-4 my-4" style={{ borderLeftWidth: isRTL ? 0 : 2, borderRightWidth: isRTL ? 2 : 0, paddingRight: isRTL ? '1rem' : 0 }}>
+        <p
+          className="text-base sm:text-lg text-[#22272B]/80 font-sans leading-relaxed italic border-l-2 border-[#B79656] pl-4 my-4"
+          style={{
+            borderLeftWidth: isRTL ? 0 : 2,
+            borderRightWidth: isRTL ? 2 : 0,
+            paddingRight: isRTL ? '1rem' : 0,
+            paddingLeft: isRTL ? 0 : '1rem'
+          }}
+        >
           {lang === 'fa' ? post.excerpt_fa : post.excerpt}
         </p>
-
-        {/* AUTHOR CARD */}
-        <div className="flex items-center justify-between py-4 border-y border-[#22272B]/10">
-          <div className="flex items-center gap-3">
-            <img
-              src={post.author.avatar || '/assets/asma-parnianfard-portrait.png'}
-              alt={post.author.name}
-              className="w-10 h-10 rounded-full object-cover border border-[#22272B]/10"
-            />
-            <div>
-              <span className="font-serif font-bold text-sm text-[#22272B] block">
-                {post.author.name}
-              </span>
-              <span className="text-xs text-[#22272B]/60 font-sans">
-                {post.author.role}
-              </span>
-            </div>
-          </div>
-
-          <a
-            href="https://www.linkedin.com/in/asma-parnianfard-a11b69433"
-            target="_blank"
-            rel="noreferrer"
-            className="text-xs font-medium text-[#B79656] hover:underline inline-flex items-center gap-1"
-          >
-            LinkedIn Profile <ExternalLink className="w-3 h-3" />
-          </a>
-        </div>
       </header>
 
       {/* ARTICLE BODY */}
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 font-sans text-[#22272B]/85 text-base sm:text-lg leading-relaxed space-y-6">
-        {post.content ? (
-          <div className="prose max-w-none space-y-4">
-            {post.content.split('\n\n').map((para, idx) => (
-              <p key={idx}>{para}</p>
-            ))}
+        <div className="space-y-6">
+          <p>
+            {lang === 'fa' ? (
+              'ترجمه مقالات و متون نوشتاری از زبان انگلیسی به فارسی همواره با چالشی ظریف همراه است: چگونه می‌توان پیام دقیق، استدلال و لحن نویسنده اصلی را حفظ کرد بدون آنکه متن در زبان فارسی مصنوعی، خشک یا ترجمه‌زده به نظر برسد؟'
+            ) : (
+              'Translating English articles into Persian involves a subtle balance: how can a translator faithfully render the author\'s exact argument and tone while ensuring that the text reads naturally and engagingly in Persian?'
+            )}
+          </p>
+
+          <p>
+            {lang === 'fa' ? (
+              'در زبان انگلیسی، ساختارهای نحوی بلندی با استفاده از جملات واره‌ای (relative clauses) شکل می‌گیرد که اگر مستقیماً به فارسی برگردانده شوند، ابهام و سنگینی ناخواسته‌ای در متن ایجاد می‌کنند. یک ترجمه دقیق انسانی، پیام کلی جمله را استخراج کرده و آن را در قالب ساختارهای مانوس و ریتم طبیعی زبان فارسی بازآفرینی می‌نماید.'
+            ) : (
+              'English syntax frequently relies on nested clauses and passive constructions that, if translated literally, produce heavy and awkward Persian phrasing. Thoughtful human translation extracts the core proposition and reconstructs it using natural Persian sentence patterns and clear connective transitions.'
+            )}
+          </p>
+
+          <div className="p-6 bg-[#F8F6F1] border border-[#22272B]/10 space-y-3 text-sm">
+            <h3 className="font-serif font-bold text-[#22272B] text-base">
+              {lang === 'fa' ? 'اصول کلیدی در ترجمه مقالات:' : 'Key Principles in Article Translation:'}
+            </h3>
+            <ul className="space-y-2 text-[#22272B]/80 font-sans">
+              <li>
+                <strong>{lang === 'fa' ? '۱. درک پیام پیش از معادل‌یابی:' : '1. Comprehending Before Translating:'}</strong>{' '}
+                {lang === 'fa' ? 'شناخت بافتار متن و ایده مرکزی نویسنده مبنای هر انتخاب واژگانی است.' : 'Grasping the overarching thesis shapes individual vocabulary decisions.'}
+              </li>
+              <li>
+                <strong>{lang === 'fa' ? '۲. روانی در زبان مقصد:' : '2. Target Language Fluency:'}</strong>{' '}
+                {lang === 'fa' ? 'متن فارسی باید روان باشد و خواننده احساس نکند با کلماتی بی‌روح روبه‌رو است.' : 'The Persian rendering must read smoothly and convincingly.'}
+              </li>
+              <li>
+                <strong>{lang === 'fa' ? '۳. یکدستی اصطلاحات:' : '3. Terminology Consistency:'}</strong>{' '}
+                {lang === 'fa' ? 'اصطلاحات کلیدی در سرتاسر مقاله با واژگانی هماهنگ ترجمه شوند.' : 'Key concepts must maintain consistent terminology throughout.'}
+              </li>
+            </ul>
           </div>
-        ) : (
-          <div className="space-y-6">
-            <p>
-              {lang === 'fa' ? (
-                'در ترجمه اسناد تخصصی مالی و گزارش‌های مبتنی بر استانداردهای بین‌المللی گزارشگری مالی (IFRS)، یکی از رایج‌ترین اشتباهات رخ‌داده توسط مترجمان عمومی، اشتباه گرفتن مفاهیم بنیادین حسابداری است. برای نمونه، در استاندارد بین‌المللی حسابداری شماره ۳۷ (IAS 37)، سه مفهوم با یکدیگر تمایز جدی دارند:'
-              ) : (
-                'In specialized financial translation and corporate reporting under International Financial Reporting Standards (IFRS), one of the most perilous traps is conceptual conflation. Under International Accounting Standard 37 (IAS 37), three specific categories are distinct in both legal liability and balance sheet presentation:'
-              )}
-            </p>
 
-            <div className="p-6 bg-[#F8F6F1] border border-[#22272B]/10 space-y-3 text-sm">
-              <h3 className="font-serif font-bold text-[#22272B] text-base">
-                1. Provisions (تعهدات برآوردی یا ذخایر تعهددار)
-              </h3>
-              <p className="text-[#22272B]/80 font-sans">
-                {lang === 'fa'
-                  ? 'بدهی‌هایی با زمان‌بندی یا مبلغ نامعین که وجود تعهد فعلی ناشی از رویداد گذشته در آن‌ها محرز است و خروج منافع اقتصادی محتمل است.'
-                  : 'Liabilities of uncertain timing or amount where a present obligation from past events is probable and can be reliably estimated.'}
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#F8F6F1] border border-[#22272B]/10 space-y-3 text-sm">
-              <h3 className="font-serif font-bold text-[#22272B] text-base">
-                2. Contingent Liabilities (بدهی‌های احتمالی)
-              </h3>
-              <p className="text-[#22272B]/80 font-sans">
-                {lang === 'fa'
-                  ? 'تعهداتی که وجود آن‌ها تنها با وقوع رویدادهای آتی تایید می‌شود؛ در متن ترازنامه شناسایی نمی‌شوند بلکه در یادداشت‌های توضیحی افشا می‌گردند.'
-                  : 'Possible obligations whose existence will be confirmed only by uncertain future events; never recognized in the balance sheet itself, only disclosed in notes.'}
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#F8F6F1] border border-[#22272B]/10 space-y-3 text-sm">
-              <h3 className="font-serif font-bold text-[#22272B] text-base">
-                3. Capital Reserves (اندوخته‌های سرمایه‌ای و قانونی)
-              </h3>
-              <p className="text-[#22272B]/80 font-sans">
-                {lang === 'fa'
-                  ? 'بخشی از حقوق مالکانه شرکت که بر اساس قانون تجارت یا مصوبه مجمع تفکیک شده و ارتباطی با بدهی‌های شرکت ندارد.'
-                  : 'Components of equity segregated under statutory commercial code mandates or board resolutions; completely distinct from liabilities.'}
-              </p>
-            </div>
-
-            <p>
-              {lang === 'fa' ? (
-                'هنگامی که مترجم ناآشنا این هر سه را به واژه عام «ذخیره» ترجمه می‌کند، ممیزان مالیاتی و سرمایه‌گذاران خارجی دچار ابهام شده و شفافیت گزارشگری سازمان مخدوش می‌گردد. رعایت این ظرافت‌هاست که ترجمه دانشگاهی و تخصصی را متمایز می‌سازد.'
-              ) : (
-                'When an untrained translator renders all three under a generic term like "reserve", external auditors and credit rating agencies face ambiguity regarding the firm’s actual liquidity risks. Rigorous academic translation ensures that statutory definitions remain intact.'
-              )}
-            </p>
-          </div>
-        )}
+          <p>
+            {lang === 'fa' ? (
+              'باور دارم که هنر ترجمه در همین توجه به جزئیات است؛ جایی که کلمات پلی برای ارتباط فکری میان دو فرهنگ می‌شوند و خواننده فارسی‌زبان از خواندن متنی منسجم و شفاف بهره‌مند می‌گردد.'
+            ) : (
+              'Careful translation bridges linguistic divides by honoring both the integrity of the source message and the stylistic richness of the Persian language.'
+            )}
+          </p>
+        </div>
 
         {/* TAGS */}
         <div className="pt-6 border-t border-[#22272B]/10 flex flex-wrap items-center gap-2">
@@ -230,8 +208,8 @@ export default function BlogPostPage() {
             </h3>
             <p className="text-xs sm:text-sm text-[#22272B]/75 font-sans leading-relaxed">
               {lang === 'fa'
-                ? 'کارشناس ارشد مترجمی زبان انگلیسی از دانشگاه آزاد اسلامی مشهد. پژوهشگر و مترجم تخصصی در زمینه متون مالی، حسابرسی قانونی و قراردادهای بازرگانی.'
-                : 'Holding an M.A. in Translation Studies from Islamic Azad University, Asma specializes in high-stakes financial, commercial, and technical English-to-Persian translation.'}
+                ? 'کارشناس ارشد مترجمی زبان انگلیسی از دانشگاه آزاد اسلامی مشهد. مترجم مستقل زبان انگلیسی به فارسی با تمرکز بر ترجمه مقالات و متون عمومی.'
+                : 'Independent English-to-Persian translator specializing in articles and general written texts. M.A. in Translation Studies from Islamic Azad University.'}
             </p>
           </div>
         </div>

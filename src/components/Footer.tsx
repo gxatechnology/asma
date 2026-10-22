@@ -19,8 +19,8 @@ export const Footer: React.FC = () => {
         body: JSON.stringify({
           fullName: 'Prospective Client',
           email: inquiryEmail,
-          subject: 'Confidential Inquiry via Footer',
-          message: 'Client requested direct callback or consultation prospectus.',
+          subject: 'Direct Inquiry via Footer',
+          message: 'Client requested consultation or quote information.',
           consent: true,
         }),
       });
@@ -50,8 +50,8 @@ export const Footer: React.FC = () => {
 
             <p className="text-xs text-[#D1C5B4] leading-relaxed max-w-sm">
               {language === 'fa'
-                ? 'ارائه خدمات ممتاز ترجمه متون مالی، قراردادهای تجاری و بومی‌سازی وب‌سایت با رویکردی کاملاً انسانی، دقت واژگانی آکادمیک و تعهد به حفظ محرمانگی.'
-                : 'Prestigious English-to-Persian literary localization and high-stakes commercial translation consultancy. Operating with academic rigor and cultural mastery.'}
+                ? 'ارائه خدمات ترجمه متون نوشتاری، مقالات و متون عمومی از زبان انگلیسی به فارسی با دقت، شیوایی و تعهد به حفظ محرمانگی.'
+                : 'Independent English-to-Persian translation focused on articles and general written texts. Clear, natural, and context-aware written translation.'}
             </p>
 
             <div className="flex flex-col gap-2 text-xs text-[#D1C5B4] pt-2">
@@ -78,7 +78,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: Navigation Links */}
+          {/* Column 2: Navigation Links (Portfolio removed) */}
           <div className="lg:col-span-2 flex flex-col gap-3">
             <h4 className="text-xs uppercase tracking-widest text-[#E6C27D] font-bold">
               {language === 'fa' ? 'ناوبری سایت' : 'Navigation'}
@@ -92,9 +92,6 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/services" className="hover:text-white transition-colors">{t('navServices')}</Link>
-              </li>
-              <li>
-                <Link to="/portfolio" className="hover:text-white transition-colors">{t('navPortfolio')}</Link>
               </li>
               <li>
                 <Link to="/process" className="hover:text-white transition-colors">{t('navProcess')}</Link>
@@ -111,45 +108,30 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Practice Areas (All 6 disciplines linked directly) */}
+          {/* Column 3: Confirmed Translation Services */}
           <div className="lg:col-span-3 flex flex-col gap-3">
             <h4 className="text-xs uppercase tracking-widest text-[#E6C27D] font-bold">
-              {language === 'fa' ? 'حوزه‌های تخصصی' : 'Practice Disciplines'}
+              {language === 'fa' ? 'خدمات ترجمه' : 'Translation Services'}
             </h4>
             <ul className="flex flex-col gap-2 text-xs text-[#D1C5B4]">
               <li>
-                <Link to="/services/translation" className="hover:text-white transition-colors">
-                  {language === 'fa' ? 'ترجمه انگلیسی به فارسی' : 'English-to-Persian Translation'}
+                <Link to="/services" className="hover:text-white transition-colors">
+                  {t('serviceTranslation')}
                 </Link>
               </li>
               <li>
-                <Link to="/services/financial" className="hover:text-white transition-colors">
-                  {t('serviceFinancial')}
+                <Link to="/services" className="hover:text-white transition-colors">
+                  {t('serviceArticle')}
                 </Link>
               </li>
               <li>
-                <Link to="/services/accounting" className="hover:text-white transition-colors">
-                  {t('serviceAccounting')}
+                <Link to="/services" className="hover:text-white transition-colors">
+                  {t('serviceGeneral')}
                 </Link>
               </li>
-              <li>
-                <Link to="/services/business" className="hover:text-white transition-colors">
-                  {t('serviceBusiness')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/proofreading" className="hover:text-white transition-colors">
-                  {t('serviceProofreading')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/localization" className="hover:text-white transition-colors">
-                  {t('serviceLocalization')}
-                </Link>
-              </li>
-              <li>
+              <li className="pt-2">
                 <Link to="/quote" className="text-[#E6C27D] hover:underline font-medium">
-                  {language === 'fa' ? 'درخواست استعلام قیمت فوری ←' : 'Expedited Quotation Request →'}
+                  {language === 'fa' ? 'درخواست استعلام قیمت و زمان‌بندی ←' : 'Request a Project Quote →'}
                 </Link>
               </li>
             </ul>
@@ -158,20 +140,20 @@ export const Footer: React.FC = () => {
           {/* Column 4: Practice Standards & Quick Inquiry */}
           <div className="lg:col-span-3 flex flex-col gap-3">
             <h4 className="text-xs uppercase tracking-widest text-[#E6C27D] font-bold">
-              {language === 'fa' ? 'استانداردهای حرفه‌ای' : 'Practice Standards'}
+              {language === 'fa' ? 'رویکرد حرفه‌ای' : 'Professional Approach'}
             </h4>
             <div className="flex flex-col gap-2 text-xs text-[#D1C5B4]">
               <div className="flex items-start gap-2">
                 <Shield className="w-4 h-4 text-[#B79656] shrink-0 mt-0.5" />
-                <span>{language === 'fa' ? 'رعایت محرمانگی اسناد و داده‌ها' : 'Professional Confidentiality & Discretion'}</span>
+                <span>{language === 'fa' ? 'رعایت رازداری و محرمانگی اسناد' : 'Document Confidentiality & Discretion'}</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-[#B79656] shrink-0 mt-0.5" />
-                <span>{language === 'fa' ? 'ترجمه دقیق و انسانی بدون ابزارهای خودکار' : 'Context-Aware Human Translation'}</span>
+                <span>{language === 'fa' ? 'ترجمه دقیق و روان انسانی' : 'Thoughtful Human Translation'}</span>
               </div>
               <div className="flex items-start gap-2">
                 <Award className="w-4 h-4 text-[#B79656] shrink-0 mt-0.5" />
-                <span>{language === 'fa' ? 'اصطلاح‌شناسی دقیق و انطباق آکادمیک' : 'Scholarly Terminology Concordance'}</span>
+                <span>{language === 'fa' ? 'انتقال دقیق مفهوم و لحن مناسب' : 'Fidelity to Meaning & Register'}</span>
               </div>
             </div>
 
@@ -181,7 +163,7 @@ export const Footer: React.FC = () => {
               </span>
               {inquirySent ? (
                 <div className="p-2.5 rounded-lg bg-[#2C3238] text-[#E6C27D] text-xs">
-                  {language === 'fa' ? 'پیام شما دریافت گردید. سپاسگزاریم.' : 'Inquiry received. We will respond promptly.'}
+                  {language === 'fa' ? 'پیام شما دریافت گردید. سپاسگزاریم.' : 'Inquiry received. Thank you.'}
                 </div>
               ) : (
                 <form onSubmit={handleQuickInquiry} className="flex items-center gap-1.5">
@@ -190,7 +172,7 @@ export const Footer: React.FC = () => {
                     required
                     value={inquiryEmail}
                     onChange={(e) => setInquiryEmail(e.target.value)}
-                    placeholder="name@organization.com"
+                    placeholder="email@example.com"
                     className="w-full px-3 py-2 rounded-full bg-[#2C3238] border border-[#3A4248] text-xs text-white placeholder-[#78828A] focus:outline-none focus:border-[#B79656]"
                   />
                   <button
@@ -205,17 +187,17 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Bilateral Certification */}
+        {/* Bottom Bar: Copyright */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#A69E90]">
           <div className="flex flex-wrap items-center gap-4 text-center md:text-left">
             <span>© 2026 ASMA PARNIANFARD. All Rights Reserved.</span>
-            <span>Academic Translation & Cross-Cultural Consulting</span>
+            <span>Independent English-to-Persian Translator</span>
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
           <div className="flex items-center gap-2">
             <span className="px-3 py-1 rounded-full bg-[#2C3238] text-[10px] uppercase tracking-widest text-[#E6C27D] font-bold border border-[#3A4248]">
-              EN / FA Bilateral Practice
+              EN → FA Written Translation
             </span>
           </div>
         </div>

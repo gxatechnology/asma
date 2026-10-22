@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
 import { ServiceCategory } from '../types';
-import { Upload, CheckCircle2, AlertCircle, FileText, X, Lock, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Upload, AlertCircle, FileText, X, ShieldCheck, ArrowRight, ExternalLink } from 'lucide-react';
 
 export const QuoteForm: React.FC = () => {
   const { language, t } = useLanguage();
@@ -12,11 +12,11 @@ export const QuoteForm: React.FC = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [organization, setOrganization] = useState('');
-  const [service, setService] = useState<ServiceCategory>('financial');
+  const [service, setService] = useState<ServiceCategory>('translation');
   const [sourceLanguage, setSourceLanguage] = useState('English');
   const [targetLanguage, setTargetLanguage] = useState('Persian');
-  const [documentType, setDocumentType] = useState('Audited Balance Sheet & P&L');
-  const [wordCount, setWordCount] = useState<number>(3500);
+  const [documentType, setDocumentType] = useState('Article / Essay');
+  const [wordCount, setWordCount] = useState<number>(3000);
   const [deadline, setDeadline] = useState('');
   const [urgency, setUrgency] = useState<'standard' | 'urgent' | 'enterprise'>('standard');
   const [message, setMessage] = useState('');
@@ -25,6 +25,7 @@ export const QuoteForm: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [submissionFailed, setSubmissionFailed] = useState(false);
 
   // Initialize from query param if available
   useEffect(() => {
@@ -37,7 +38,11 @@ export const QuoteForm: React.FC = () => {
     }
     const qService = searchParams.get('service') as ServiceCategory | null;
     if (qService) {
-      setService(qService);
+      if (['translation', 'article', 'general'].includes(qService)) {
+        setService(qService);
+      } else {
+        setService('translation');
+      }
     }
   }, [searchParams]);
 
@@ -56,15 +61,18 @@ export const QuoteForm: React.FC = () => {
     e.preventDefault();
     if (!fullName || !email) {
       setErrorMessage(language === 'fa' ? 'لطفاً نام و آدرس ایمیل خود را وارد نمایید.' : 'Please provide your full name and email.');
+      setSubmissionFailed(false);
       return;
     }
     if (!consent) {
-      setErrorMessage(language === 'fa' ? 'لطفاً موافقت با پروتکل محرمانگی را تأیید نمایید.' : 'Please acknowledge the privacy and confidentiality agreement.');
+      setErrorMessage(language === 'fa' ? 'لطفاً موافقت با حفظ محرمانگی را تأیید نمایید.' : 'Please acknowledge the confidentiality agreement.');
+      setSubmissionFailed(false);
       return;
     }
 
     setIsSubmitting(true);
     setErrorMessage(null);
+    setSubmissionFailed(false);
 
     try {
       const formData = new FormData();
@@ -90,16 +98,24 @@ export const QuoteForm: React.FC = () => {
         body: formData,
       });
 
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to submit quote request');
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !data?.quoteId) {
+        throw new Error(data?.error || 'Server did not accept quote intake.');
       }
 
-      // Navigate to confirmation page
-      navigate(`/thank-you?id=${data.quoteId}&name=${encodeURIComponent(fullName)}&type=quote`);
+      // Navigate to confirmation page ONLY with verified backend quoteId
+      navigate('/thank-you', {
+        state: { referenceId: data.quoteId, type: 'quote', email: email },
+      });
     } catch (err: any) {
-      console.error(err);
-      setErrorMessage(err.message || 'Error transmitting quote request. Please try again or reach out directly.');
+      console.warn('Quote submission error or server offline:', err);
+      // Strictly avoid fabricating fake reference codes or false thank-you states
+      setSubmissionFailed(true);
+      setErrorMessage(
+        language === 'fa'
+          ? 'سامانه آنلاین ارسال استعلام با خطا مواجه شد و فایل شما در سرور ذخیره نگردید. لطفاً برای ارزیابی متن و دریافت برآورد قیمت، مستقیماً از طریق پروفایل رسمی لینکدین با اسماء پرنیان‌فرد در تماس باشید.'
+          : 'Unable to deliver quote request: the automated intake server is currently offline or unreachable. Your submission has not been recorded. Please share your project details directly with Asma Parnianfard via LinkedIn.'
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -110,7 +126,7 @@ export const QuoteForm: React.FC = () => {
       <div className="mb-8">
         <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold text-[#B79656] mb-2">
           <ShieldCheck className="w-4 h-4 text-[#788A78]" />
-          <span>{language === 'fa' ? 'سامانه امن و محرمانه استعلام قیمت' : 'Secure Encrypted Intake'}</span>
+          <span>{language === 'fa' ? 'بررسی محرمانه اسناد و استعلام قیمت' : 'Confidential Intake & Quotation'}</span>
         </div>
         <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#22272B] mb-2">
           {t('quoteFormTitle')}
@@ -121,9 +137,24 @@ export const QuoteForm: React.FC = () => {
       </div>
 
       {errorMessage && (
-        <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-center gap-2">
-          <AlertCircle className="w-4 h-4 shrink-0" />
-          <span>{errorMessage}</span>
+        <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs space-y-2">
+          <div className="flex items-start gap-2">
+            <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+            <span className="leading-relaxed">{errorMessage}</span>
+          </div>
+          {submissionFailed && (
+            <div className="pt-2">
+              <a
+                href="https://www.linkedin.com/in/asma-parnianfard-a11b69433"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#22272B] hover:bg-[#B79656] text-white text-xs font-semibold transition-colors"
+              >
+                <span>{language === 'fa' ? 'مکاتبه مستقیم در لینکدین' : 'Message on LinkedIn'}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          )}
         </div>
       )}
 
@@ -139,8 +170,8 @@ export const QuoteForm: React.FC = () => {
               required
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              placeholder="e.g. Dr. Arash Rafiee"
-              className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656] focus:ring-1 focus:ring-[#B79656]"
+              placeholder="e.g. Zahra Alavi"
+              className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656]"
             />
           </div>
 
@@ -153,8 +184,8 @@ export const QuoteForm: React.FC = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="corporate@institution.com"
-              className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656] focus:ring-1 focus:ring-[#B79656]"
+              placeholder="client@example.com"
+              className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656]"
             />
           </div>
 
@@ -166,68 +197,93 @@ export const QuoteForm: React.FC = () => {
               type="text"
               value={organization}
               onChange={(e) => setOrganization(e.target.value)}
-              placeholder="e.g. Alborz Holdings P.J.S.C."
-              className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656] focus:ring-1 focus:ring-[#B79656]"
+              placeholder={language === 'fa' ? 'دانشگاه، مرکز یا ناشر (اختیاری)' : 'University or Publisher (Optional)'}
+              className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656]"
             />
           </div>
         </div>
 
-        {/* Translation Disciplines & Languages */}
+        {/* Translation Service & Category Selection */}
+        <div className="space-y-3">
+          <label className="block text-xs uppercase tracking-wider font-semibold text-[#22272B]">
+            {t('serviceSelect')} *
+          </label>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              {
+                id: 'translation' as ServiceCategory,
+                title: language === 'fa' ? 'ترجمه متون انگلیسی به فارسی' : 'English-to-Persian Translation',
+                desc: language === 'fa' ? 'ترجمه کتبی با تکیه بر روانی و درک مفهوم' : 'Written translation with natural phrasing',
+              },
+              {
+                id: 'article' as ServiceCategory,
+                title: language === 'fa' ? 'ترجمه مقالات' : 'Article Translation',
+                desc: language === 'fa' ? 'ترجمه مقالات و متون ترویجی و تحلیلی' : 'Articles, essays, and written content',
+              },
+              {
+                id: 'general' as ServiceCategory,
+                title: language === 'fa' ? 'ترجمه متون عمومی' : 'General Text Translation',
+                desc: language === 'fa' ? 'ترجمه انواع متون نوشتاری عمومی و کاربردی' : 'General written materials & communications',
+              },
+            ].map((s) => (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => setService(s.id)}
+                className={`p-4 rounded-xl border text-left transition-all ${
+                  service === s.id
+                    ? 'border-[#B79656] bg-[#F8F6F1] ring-1 ring-[#B79656]'
+                    : 'border-[#E8E2D5] bg-[#FDFCF9] hover:border-[#B79656]/50'
+                }`}
+                style={{ textAlign: language === 'fa' ? 'right' : 'left' }}
+              >
+                <div className="font-semibold text-xs text-[#22272B] mb-1">{s.title}</div>
+                <div className="text-[11px] text-[#78828A] leading-relaxed">{s.desc}</div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Language Direction & Document Category */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div>
             <label className="block text-xs uppercase tracking-wider font-semibold text-[#22272B] mb-1.5">
-              {t('serviceSelect')} *
+              {t('sourceLang')}
             </label>
-            <select
-              value={service}
-              onChange={(e) => setService(e.target.value as ServiceCategory)}
-              className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656]"
-            >
-              <option value="financial">Financial Translation (IFRS & Statements)</option>
-              <option value="accounting">Accounting & Statutory Audit</option>
-              <option value="business">Commercial & Business Contracts</option>
-              <option value="proofreading">Academic Proofreading & Editorial</option>
-              <option value="localization">Website & Software Localization</option>
-              <option value="translation">General English-to-Persian Translation</option>
-            </select>
+            <input
+              type="text"
+              readOnly
+              value={language === 'fa' ? 'انگلیسی (مبدا)' : 'English (Source)'}
+              className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#EAE2D6]/30 text-sm text-[#22272B] cursor-not-allowed font-medium"
+            />
           </div>
 
           <div>
             <label className="block text-xs uppercase tracking-wider font-semibold text-[#22272B] mb-1.5">
-              {t('sourceLang')} / {t('targetLang')}
+              {t('targetLang')}
             </label>
-            <div className="grid grid-cols-2 gap-2">
-              <input
-                type="text"
-                value={sourceLanguage}
-                onChange={(e) => setSourceLanguage(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-xs text-[#22272B] text-center"
-              />
-              <input
-                type="text"
-                value={targetLanguage}
-                onChange={(e) => setTargetLanguage(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-xs text-[#22272B] text-center"
-              />
-            </div>
+            <input
+              type="text"
+              readOnly
+              value={language === 'fa' ? 'فارسی (مقصد)' : 'Persian (Target)'}
+              className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#EAE2D6]/30 text-sm text-[#22272B] cursor-not-allowed font-medium"
+            />
           </div>
 
           <div>
             <label className="block text-xs uppercase tracking-wider font-semibold text-[#22272B] mb-1.5">
-              Document Category
+              {t('docType')}
             </label>
             <select
               value={documentType}
               onChange={(e) => setDocumentType(e.target.value)}
               className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656]"
             >
-              <option>Audited Balance Sheet & P&L</option>
-              <option>Annual Corporate Disclosures / MD&A</option>
-              <option>Cross-Border Commercial Contract</option>
-              <option>Independent Auditor Report</option>
-              <option>Academic Journal Paper / Monograph</option>
-              <option>Software Strings (JSON / XLIFF)</option>
-              <option>Other Executive Correspondence</option>
+              <option>{language === 'fa' ? 'مقاله یا یادداشت' : 'Article / Essay'}</option>
+              <option>{language === 'fa' ? 'مقاله موضوعی یا تخصصی' : 'Thematic / Specialized Article'}</option>
+              <option>{language === 'fa' ? 'محتوای آموزشی و رسانه‌ای' : 'Informational / Media Content'}</option>
+              <option>{language === 'fa' ? 'گزارش متنی عمومی' : 'General Written Report'}</option>
+              <option>{language === 'fa' ? 'سایر متون نوشتاری' : 'Other Written Material'}</option>
             </select>
           </div>
         </div>
@@ -240,8 +296,9 @@ export const QuoteForm: React.FC = () => {
             </label>
             <input
               type="number"
-              min="100"
-              step="100"
+              min={100}
+              max={500000}
+              step={100}
               value={wordCount}
               onChange={(e) => setWordCount(parseInt(e.target.value) || 0)}
               className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656]"
@@ -250,7 +307,7 @@ export const QuoteForm: React.FC = () => {
 
           <div>
             <label className="block text-xs uppercase tracking-wider font-semibold text-[#22272B] mb-1.5">
-              {language === 'fa' ? 'تاریخ مهلت تحویل (در صورت وجود)' : 'Target Delivery Deadline'}
+              {t('deadline')}
             </label>
             <input
               type="date"
@@ -262,78 +319,82 @@ export const QuoteForm: React.FC = () => {
 
           <div>
             <label className="block text-xs uppercase tracking-wider font-semibold text-[#22272B] mb-1.5">
-              {t('urgencySelect')}
+              {t('urgencyTier')}
             </label>
             <select
               value={urgency}
               onChange={(e) => setUrgency(e.target.value as any)}
               className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656]"
             >
-              <option value="standard">{t('standardUrgency')}</option>
-              <option value="urgent">{t('expeditedUrgency')}</option>
-              <option value="enterprise">{t('enterpriseUrgency')}</option>
+              <option value="standard">{language === 'fa' ? 'تحویل استاندارد' : 'Standard Schedule'}</option>
+              <option value="urgent">{language === 'fa' ? 'تحویل فوری (با هماهنگی)' : 'Expedited Track (Priority)'}</option>
             </select>
           </div>
         </div>
 
-        {/* Message */}
+        {/* Notes / Context */}
         <div>
           <label className="block text-xs uppercase tracking-wider font-semibold text-[#22272B] mb-1.5">
-            {t('message')}
+            {t('projectNotes')}
           </label>
           <textarea
-            rows={4}
+            rows={3}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder={
               language === 'fa'
-                ? 'توضیحات تکمیلی، سبک نگارش مورد نظر، ارجاعات خاص یا اصطلاح‌نامه‌های شرکتی خود را قید نمایید...'
-                : 'Specify terminology guidelines, target audience, formatting requirements, or background context...'
+                ? 'توضیحات تکمیلی، سبک نگارش مد نظر، یا اصطلاحات کلیدی...'
+                : 'Any contextual requirements, publication aims, or specific instructions...'
             }
-            className="w-full px-4 py-3 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656]"
+            className="w-full px-4 py-2.5 rounded-xl border border-[#D8CEBE] bg-[#FDFCF9] text-sm text-[#22272B] focus:outline-none focus:border-[#B79656]"
           />
         </div>
 
-        {/* Secure File Upload Zone */}
+        {/* File Attachments */}
         <div>
           <label className="block text-xs uppercase tracking-wider font-semibold text-[#22272B] mb-1.5">
-            {t('uploadDocument')}
+            {t('uploadDocs')}
           </label>
-          <div className="border-2 border-dashed border-[#D8CEBE] hover:border-[#B79656] rounded-2xl p-6 text-center bg-[#FDFCF9] transition-colors relative">
-            <input
-              type="file"
-              multiple
-              onChange={handleFileChange}
-              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-            />
-            <div className="flex flex-col items-center justify-center pointer-events-none">
-              <Upload className="w-8 h-8 text-[#B79656] mb-2" />
-              <p className="text-xs font-semibold text-[#22272B]">
-                {language === 'fa' ? 'فایل‌های خود را به اینجا بکشید یا برای انتخاب کلیک کنید' : 'Click to select documents or drag and drop'}
-              </p>
-              <span className="text-[11px] text-[#78828A] mt-1">
-                PDF, Word (.docx), Excel (.xlsx), XLIFF, JSON (Up to 25MB each)
-              </span>
+
+          <div className="border-2 border-dashed border-[#D8CEBE] rounded-xl p-6 text-center hover:border-[#B79656] transition-colors bg-[#FDFCF9]">
+            <Upload className="w-8 h-8 text-[#B79656] mx-auto mb-2" />
+            <div className="text-xs text-[#22272B] font-medium mb-1">
+              {language === 'fa' ? 'فایل‌های خود را اینجا بکشید یا انتخاب کنید' : 'Click to upload or drag and drop source files'}
             </div>
+            <p className="text-[11px] text-[#78828A] mb-3">
+              PDF, Word (.docx, .doc), TXT (Max 25MB total)
+            </p>
+            <label className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#22272B] text-white text-xs font-semibold cursor-pointer hover:bg-[#B79656] transition-colors">
+              <span>{language === 'fa' ? 'انتخاب فایل از دستگاه' : 'Browse Local Files'}</span>
+              <input
+                type="file"
+                multiple
+                accept=".pdf,.docx,.doc,.txt,.rtf"
+                onChange={handleFileChange}
+                className="hidden"
+              />
+            </label>
           </div>
 
-          {/* Selected File Badges */}
           {files.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-2">
-              {files.map((f, idx) => (
+            <div className="mt-3 space-y-2">
+              {files.map((file, idx) => (
                 <div
                   key={idx}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#F8F6F1] border border-[#E8E2D5] text-xs text-[#22272B]"
+                  className="flex items-center justify-between p-2.5 rounded-lg bg-[#F8F6F1] border border-[#E8E2D5] text-xs"
                 >
-                  <FileText className="w-3.5 h-3.5 text-[#B79656]" />
-                  <span className="font-medium truncate max-w-[180px]">{f.name}</span>
-                  <span className="text-[10px] text-[#78828A]">({Math.round(f.size / 1024)} KB)</span>
+                  <div className="flex items-center gap-2 overflow-hidden">
+                    <FileText className="w-4 h-4 text-[#B79656] shrink-0" />
+                    <span className="truncate text-[#22272B] font-medium">{file.name}</span>
+                    <span className="text-[10px] text-[#78828A]">({(file.size / 1024).toFixed(1)} KB)</span>
+                  </div>
                   <button
                     type="button"
                     onClick={() => removeFile(idx)}
-                    className="text-red-500 hover:text-red-700 ml-1"
+                    className="text-[#78828A] hover:text-red-600 p-1"
+                    aria-label="Remove attached file"
                   >
-                    <X className="w-3.5 h-3.5" />
+                    <X className="w-4 h-4" />
                   </button>
                 </div>
               ))}
@@ -341,47 +402,41 @@ export const QuoteForm: React.FC = () => {
           )}
         </div>
 
-        {/* Privacy & NDA Consent Checkbox */}
-        <div className="p-4 rounded-xl bg-[#F8F6F1] border border-[#E8E2D5] flex items-start gap-3">
-          <input
-            type="checkbox"
-            id="quote-consent"
-            checked={consent}
-            onChange={(e) => setConsent(e.target.checked)}
-            className="mt-1 w-4 h-4 text-[#B79656] rounded border-[#D8CEBE] focus:ring-[#B79656] accent-[#B79656]"
-          />
-          <label htmlFor="quote-consent" className="text-xs text-[#3A4248] leading-relaxed cursor-pointer">
-            <span className="font-semibold text-[#22272B] block mb-0.5">
-              {language === 'fa' ? 'پروتکل رازداری و حفظ محرمانگی اسناد' : 'Strict Non-Disclosure & Confidentiality Protocol'}
+        {/* Privacy Consent Checkbox */}
+        <div className="pt-2">
+          <label className="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              className="mt-0.5 rounded border-[#D8CEBE] text-[#B79656] focus:ring-[#B79656]"
+            />
+            <span className="text-xs text-[#5A6268] leading-relaxed">
+              {t('privacyConsent')}
             </span>
-            {t('privacyConsent')}
           </label>
         </div>
 
-        {/* Submit Button */}
-        <div>
+        {/* Submit Button & Direct Alternative Link */}
+        <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full inline-flex items-center justify-center gap-2 py-4 px-8 rounded-full bg-[#B79656] hover:bg-[#C4A466] text-white text-sm font-semibold tracking-wide shadow-md transition-all duration-300 disabled:opacity-50"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#B79656] hover:bg-[#C4A466] text-white text-sm font-semibold tracking-wide shadow-md transition-colors disabled:opacity-50"
           >
-            {isSubmitting ? (
-              <span>{t('submitting')}</span>
-            ) : (
-              <>
-                <span>{t('submitQuote')}</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </>
-            )}
+            <span>{isSubmitting ? t('submitting') : t('submitQuote')}</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
-          <div className="mt-3 flex items-center justify-center gap-4 text-[11px] text-[#78828A]">
-            <span className="flex items-center gap-1">
-              <Lock className="w-3.5 h-3.5 text-[#788A78]" />
-              TLS 1.3 Air-Gapped Storage
-            </span>
-            <span>·</span>
-            <span>Response within 4 business hours</span>
-          </div>
+
+          <a
+            href="https://www.linkedin.com/in/asma-parnianfard-a11b69433"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[#78828A] hover:text-[#B79656] inline-flex items-center justify-center gap-1.5 transition-colors"
+          >
+            <span>{language === 'fa' ? 'یا ارسال مستقیم مشخصات در لینکدین' : 'Or inquire directly on LinkedIn'}</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </div>
       </form>
     </div>

@@ -56,7 +56,7 @@ export const Navbar: React.FC = () => {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#22272B]/95 backdrop-blur-md border-b border-[#343B41] text-[#F8F6F1] h-20">
         <div className="w-full max-w-[1320px] mx-auto px-3 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2 sm:gap-4 lg:gap-6">
-          
+
           {/* Zone 1: Brand Wordmark (Responsive and fluid) */}
           <div className="min-w-0 flex-1 sm:flex-initial flex items-center">
             <BrandIdentity
@@ -108,61 +108,42 @@ export const Navbar: React.FC = () => {
                 <div className={`absolute top-full ${isRTL ? 'right-0' : 'left-0'} w-72 pt-2 z-50`}>
                   <div className="bg-[#22272B] border border-[#3A4248] rounded-xl p-2 shadow-2xl space-y-1">
                     <Link
-                      to="/services/translation"
+                      to="/services"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="block px-3 py-2 rounded-lg text-xs hover:bg-[#2C3238] text-[#E0D8CB] hover:text-white transition-colors"
                     >
                       <p className="font-semibold text-white">
-                        {language === 'fa' ? 'ترجمه انگلیسی به فارسی' : 'English-to-Persian Translation'}
+                        {language === 'fa' ? 'ترجمه متون انگلیسی به فارسی' : 'English-to-Persian Translation'}
                       </p>
                       <span className="text-[11px] text-[#A69E90]">
-                        {language === 'fa' ? 'متون دانشگاهی، سازمانی و مقالات پژوهشی' : 'Scholarly, corporate & publication texts'}
+                        {language === 'fa' ? 'ترجمه کتبی متون با حفظ مفهوم و روانی' : 'Written translation with attention to meaning and clarity'}
                       </span>
                     </Link>
 
                     <Link
-                      to="/services/financial"
+                      to="/services"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="block px-3 py-2 rounded-lg text-xs hover:bg-[#2C3238] text-[#E0D8CB] hover:text-white transition-colors"
                     >
-                      <p className="font-semibold text-white">{t('serviceFinancial')}</p>
-                      <span className="text-[11px] text-[#A69E90]">IFRS, balance sheets & audit notes</span>
+                      <p className="font-semibold text-white">
+                        {language === 'fa' ? 'ترجمه مقالات' : 'Article Translation'}
+                      </p>
+                      <span className="text-[11px] text-[#A69E90]">
+                        {language === 'fa' ? 'ترجمه مقالات و محتواهای نوشتاری' : 'English-to-Persian article translation'}
+                      </span>
                     </Link>
 
                     <Link
-                      to="/services/accounting"
+                      to="/services"
                       onClick={() => setServicesDropdownOpen(false)}
                       className="block px-3 py-2 rounded-lg text-xs hover:bg-[#2C3238] text-[#E0D8CB] hover:text-white transition-colors"
                     >
-                      <p className="font-semibold text-white">{t('serviceAccounting')}</p>
-                      <span className="text-[11px] text-[#A69E90]">Auditor opinions, general ledgers & tax</span>
-                    </Link>
-
-                    <Link
-                      to="/services/business"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="block px-3 py-2 rounded-lg text-xs hover:bg-[#2C3238] text-[#E0D8CB] hover:text-white transition-colors"
-                    >
-                      <p className="font-semibold text-white">{t('serviceBusiness')}</p>
-                      <span className="text-[11px] text-[#A69E90]">Commercial agreements, charters & bylaws</span>
-                    </Link>
-
-                    <Link
-                      to="/services/proofreading"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="block px-3 py-2 rounded-lg text-xs hover:bg-[#2C3238] text-[#E0D8CB] hover:text-white transition-colors"
-                    >
-                      <p className="font-semibold text-white">{t('serviceProofreading')}</p>
-                      <span className="text-[11px] text-[#A69E90]">Substantive editing & concordance audit</span>
-                    </Link>
-
-                    <Link
-                      to="/services/localization"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="block px-3 py-2 rounded-lg text-xs hover:bg-[#2C3238] text-[#E0D8CB] hover:text-white transition-colors"
-                    >
-                      <p className="font-semibold text-white">{t('serviceLocalization')}</p>
-                      <span className="text-[11px] text-[#A69E90]">Software, web & RTL UI adaptation</span>
+                      <p className="font-semibold text-white">
+                        {language === 'fa' ? 'ترجمه متون عمومی' : 'General Text Translation'}
+                      </p>
+                      <span className="text-[11px] text-[#A69E90]">
+                        {language === 'fa' ? 'ترجمه انواع متون عمومی و کاربردی' : 'General written materials and communications'}
+                      </span>
                     </Link>
 
                     <div className="border-t border-[#3A4248] pt-1">
@@ -171,22 +152,13 @@ export const Navbar: React.FC = () => {
                         onClick={() => setServicesDropdownOpen(false)}
                         className="block px-3 py-1.5 text-[11px] text-[#E6C27D] hover:underline"
                       >
-                        {language === 'fa' ? 'مشاهده تمامی ۶ حوزه خدمات →' : 'View all 6 practice disciplines →'}
+                        {language === 'fa' ? 'مشاهده صفحه خدمات ترجمه →' : 'View Services Overview →'}
                       </Link>
                     </div>
                   </div>
                 </div>
               )}
             </div>
-
-            <Link
-              to="/portfolio"
-              className={`transition-colors py-1 hover:text-white ${
-                isActive('/portfolio') ? 'text-[#E6C27D] font-semibold' : ''
-              }`}
-            >
-              {t('navPortfolio')}
-            </Link>
 
             <Link
               to="/process"
@@ -338,68 +310,36 @@ export const Navbar: React.FC = () => {
                 {mobileServicesOpen && (
                   <div className={`space-y-1.5 pt-1 pb-2 ${isRTL ? 'pr-3 border-r-2 border-[#B79656]/40' : 'pl-3 border-l-2 border-[#B79656]/40'}`}>
                     <Link
-                      to="/services/translation"
+                      to="/services"
                       onClick={closeMenu}
                       className="block py-1.5 text-xs text-slate-300 hover:text-white"
                     >
-                      • {language === 'fa' ? 'ترجمه عمومی و تخصصی' : 'English-to-Persian Translation'}
+                      • {t('serviceTranslation')}
                     </Link>
                     <Link
-                      to="/services/financial"
+                      to="/services"
                       onClick={closeMenu}
                       className="block py-1.5 text-xs text-slate-300 hover:text-white"
                     >
-                      • {t('serviceFinancial')}
+                      • {t('serviceArticle')}
                     </Link>
                     <Link
-                      to="/services/accounting"
+                      to="/services"
                       onClick={closeMenu}
                       className="block py-1.5 text-xs text-slate-300 hover:text-white"
                     >
-                      • {t('serviceAccounting')}
-                    </Link>
-                    <Link
-                      to="/services/business"
-                      onClick={closeMenu}
-                      className="block py-1.5 text-xs text-slate-300 hover:text-white"
-                    >
-                      • {t('serviceBusiness')}
-                    </Link>
-                    <Link
-                      to="/services/proofreading"
-                      onClick={closeMenu}
-                      className="block py-1.5 text-xs text-slate-300 hover:text-white"
-                    >
-                      • {t('serviceProofreading')}
-                    </Link>
-                    <Link
-                      to="/services/localization"
-                      onClick={closeMenu}
-                      className="block py-1.5 text-xs text-slate-300 hover:text-white"
-                    >
-                      • {t('serviceLocalization')}
+                      • {t('serviceGeneral')}
                     </Link>
                     <Link
                       to="/services"
                       onClick={closeMenu}
                       className="block pt-2 text-xs text-[#E6C27D] font-semibold underline"
                     >
-                      {language === 'fa' ? 'نمای کلی همه خدمات ←' : 'View Services Overview →'}
+                      {language === 'fa' ? 'نمای کلی خدمات ترجمه ←' : 'View Services Overview →'}
                     </Link>
                   </div>
                 )}
               </div>
-
-              <Link
-                to="/portfolio"
-                onClick={closeMenu}
-                className={`flex items-center justify-between py-2 text-base font-medium border-b border-[#343B41]/50 ${
-                  isActive('/portfolio') ? 'text-[#E6C27D] font-bold' : 'text-slate-200 hover:text-white'
-                }`}
-              >
-                <span>{t('navPortfolio')}</span>
-                <ChevronRight className={`w-4 h-4 text-[#8C98A4] ${isRTL ? 'rotate-180' : ''}`} />
-              </Link>
 
               <Link
                 to="/process"

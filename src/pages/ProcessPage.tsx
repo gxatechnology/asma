@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  FileUp, 
-  ShieldCheck, 
-  Search, 
-  Languages, 
-  FileCheck, 
-  CheckCircle2, 
+import {
+  FileUp,
+  ShieldCheck,
+  Search,
+  Languages,
+  FileCheck,
+  CheckCircle2,
   ArrowRight,
   Clock,
   Lock,
@@ -20,57 +20,57 @@ export default function ProcessPage() {
   const stages = [
     {
       num: '01',
-      title: lang === 'fa' ? 'ارسال اولیه و امضای توافق‌نامه محرمانگی (NDA)' : 'Secure Intake & Mutual NDA',
+      title: lang === 'fa' ? 'دریافت اولیه و بررسی محرمانه متن' : 'Secure Intake & Initial Review',
       desc: lang === 'fa'
-        ? 'ارسال اسناد از طریق سامانه رمزگذاری‌شده. پیش از مطالعه هرگونه سند دارای بار محرمانه، قرارداد رسمی دوجانبه عدم افشا (Bilateral NDA) به امضا می‌رسد.'
-        : 'Source files are transferred via end-to-end encrypted protocol. A binding bilateral Non-Disclosure Agreement (NDA) is executed prior to examining any proprietary financial or legal records.',
+        ? 'ارسال متن یا مقاله از طریق فرم استعلام. تمامی فایل‌ها با رعایت کامل رازداری بررسی می‌شوند و در صورت تمایل کارفرما، توافق‌نامه حفظ محرمانگی (NDA) امضا خواهد شد.'
+        : 'Source files are received securely. Materials are reviewed under strict confidentiality, with mutual Non-Disclosure Agreements (NDAs) available upon request.',
       icon: Lock,
-      deliverable: lang === 'fa' ? 'پیش‌فاکتور رسمی، زمان‌بندی دقیق و NDA امضاشده' : 'Signed Bilateral NDA & Formal Itemized Quote',
+      deliverable: lang === 'fa' ? 'برآورد شفاف هزینه و زمان‌بندی دقیق' : 'Itemized Turnaround & Scope Estimate',
     },
     {
       num: '02',
-      title: lang === 'fa' ? 'واکاوی سند و استخراج اصطلاحات کلیدی' : 'Corpus Analysis & Termbase Extraction',
+      title: lang === 'fa' ? 'واکاوی متن و درک زمینه موضوعی' : 'Context & Terminology Assessment',
       desc: lang === 'fa'
-        ? 'تحلیل واژگانی متن مبدا، استخراج اصطلاحات حساس مالی و تطبیق آن‌ها با منابع رسمی نظیر سازمان حسابرسی ایران و استانداردهای بین‌المللی IFRS.'
-        : 'Automated and human corpus profiling to identify specialized terminology, industry acronyms, and statutory references. A project-specific termbase is drafted and locked.',
+        ? 'بررسی بافتار متن، درک هدف و مخاطب نوشته و انتخاب معادل‌های متناسب برای واژگان و اصطلاحات کلیدی پیش از آغاز ترجمه.'
+        : 'Detailed reading of the text to understand authorial intent, target audience, and subject-matter terminology.',
       icon: Search,
-      deliverable: lang === 'fa' ? 'واژه‌نامه مصوب پیش از آغاز ترجمه' : 'Pre-flight Concordance Glossary',
+      deliverable: lang === 'fa' ? 'تعیین لحن و هماهنگی واژگان کلیدی' : 'Stylistic & Lexical Alignment',
     },
     {
       num: '03',
-      title: lang === 'fa' ? 'ترجمه دست‌اول و تک‌صدایی انسان' : 'Single-Voice Human Translation Craft',
+      title: lang === 'fa' ? 'ترجمه دست‌اول و روان توسط مترجم' : 'Thoughtful Human Translation',
       desc: lang === 'fa'
-        ? 'ترجمه سطر به سطر منحصراً توسط شخص اسماء پرنیان‌فرد با پایبندی به لحن رسمی و ساختار نحوی شیوا، بدون هیچ‌گونه برون‌سپاری ناشناس.'
-        : 'Line-by-line translation executed solely by Asma Parnianfard. This ensures stylistic consistency and complete accountability without outsourced subcontractors.',
+        ? 'ترجمه خط به خط منحصراً توسط شخص اسماء پرنیان‌فرد، با تمرکز بر انتقال کامل مفهوم و پایبندی به ساختار نحوی شیوا و طبیعی زبان فارسی.'
+        : 'Line-by-line translation executed solely by Asma Parnianfard, ensuring consistent stylistic tone, conceptual clarity, and natural Persian phrasing.',
       icon: Languages,
-      deliverable: lang === 'fa' ? 'پیش‌نویس اولیه ترجمه کامل شده' : 'Complete Primary Persian Target Draft',
+      deliverable: lang === 'fa' ? 'پیش‌نویس اولیه ترجمه فارسی' : 'Primary Persian Target Draft',
     },
     {
       num: '04',
-      title: lang === 'fa' ? 'بازخوانی تطبیقی دوسویه و کنترل اعداد' : 'Bilingual Cross-Audit & Numerical Audit',
+      title: lang === 'fa' ? 'بازخوانی تطبیقی سطر به سطر' : 'Bilingual Comparative Audit',
       desc: lang === 'fa'
-        ? 'مقایسه موشکافانه متن ترجمه در برابر مبدا انگلیسی جهت حصول اطمینان از عدم افتادگی جملات، صحت ارقام مالی، ممیزها و ارجاعات پانویس‌ها.'
-        : 'Rigorous bilingual audit verifying source-target fidelity. Numbers, currency symbols, footnote markers, and legal covenants undergo independent validation.',
+        ? 'مقایسه موازی متن ترجمه در برابر مبدا انگلیسی جهت اطمینان از صحت جملات، عدم افتادگی و انطباق کامل با مفهوم اصلی.'
+        : 'Rigorous side-by-side verification comparing English source and Persian translation to verify completeness and faithful meaning.',
       icon: FileCheck,
-      deliverable: lang === 'fa' ? 'گزارش کنترل کیفیت و تطبیق ارقام' : 'Mathematical & Omission Verification Audit',
+      deliverable: lang === 'fa' ? 'کنترل دقت و رفع هرگونه ابهام' : 'Omission & Concordance Verification',
     },
     {
       num: '05',
-      title: lang === 'fa' ? 'قالب‌بندی و پالایش دیداری (DTP)' : 'Desktop Publishing & Layout Mirroring',
+      title: lang === 'fa' ? 'تنظیم چیدمان و رسم‌الخط فارسی' : 'Formatting & Typography Polish',
       desc: lang === 'fa'
-        ? 'تنظیم چیدمان جداول، نمودارها، سرصفحه و پانویس‌ها دقیقاً مشابه با سند مبدا، همراه با تنظیم جهت راست‌به‌چپ (RTL) متون فارسی.'
-        : 'Recreating tables, formulas, multi-column financial layouts, and graphical callouts to match the visual footprint of the original English document.',
+        ? 'تنظیم پاراگراف‌ها، علائم نگارشی فارسی، رعایت نیم‌فاصله‌ها و تطبیق ساختار فایل نهایی با فرمت فایل مبدا.'
+        : 'Polishing Persian orthography, punctuation, spacing, and formatting to deliver a clean, well-formatted document.',
       icon: Cpu,
-      deliverable: lang === 'fa' ? 'سند نهایی با فرمت اصلی (Word / Excel / PDF)' : 'Publication-Ready Deliverable in Original Format',
+      deliverable: lang === 'fa' ? 'سند نهایی در قالب استاندارد (Word / PDF)' : 'Final Formatted Document in Original Format',
     },
     {
       num: '06',
-      title: lang === 'fa' ? 'تحویل امن و دوره بازنگری ۱۴ روزه' : 'Encrypted Handover & 14-Day Review Period',
+      title: lang === 'fa' ? 'تحویل نهایی و پاسخگویی تکمیلی' : 'Final Delivery & Post-Delivery Review',
       desc: lang === 'fa'
-        ? 'ارسال بسته نهایی از طریق پیوند محافظت‌شده. امکان درخواست بازنگری و اصلاحات تکمیلی طی ۱۴ روز بدون دریافت هزینه اضافی.'
-        : 'Files are dispatched via encrypted channel. Includes full post-delivery revision support for 14 calendar days to accommodate committee or auditor queries.',
+        ? 'ارسال نسخه نهایی به همراه امکان بررسی متن توسط کارفرما و اعمال هرگونه اصلاح یا توضیح تکمیلی.'
+        : 'Delivery of final materials, accompanied by post-delivery communication to answer client questions and accommodate refinements.',
       icon: CheckCircle2,
-      deliverable: lang === 'fa' ? 'گواهی اصالت ترجمه و پشتیبانی پاسخگویی' : 'Certificate of Translation & Post-Delivery Support',
+      deliverable: lang === 'fa' ? 'پشتیبانی و اعمال اصلاحات تکمیلی' : 'Post-Delivery Linguistic Clarification Support',
     },
   ];
 
@@ -81,28 +81,28 @@ export default function ProcessPage() {
         <div className="max-w-3xl space-y-4">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#B79656]">
             <span className="w-8 h-[1px] bg-[#B79656]"></span>
-            <span>{lang === 'fa' ? 'فرایند کاری آتلیه' : 'Rigorous 6-Stage Methodology'}</span>
+            <span>{lang === 'fa' ? 'فرآیند کار' : 'Translation Workflow'}</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-serif text-[#22272B] leading-tight">
             {lang === 'fa' ? (
               <>
-                مراحل شش‌گانه تضمین کیفیت <br />
-                <span className="italic text-[#B79656]">از پذیرش محرمانه تا تحویل نهایی سند.</span>
+                مراحل گام‌به‌گام ترجمه <br />
+                <span className="italic text-[#B79656]">از بررسی اولیه متن تا تحویل نهایی.</span>
               </>
             ) : (
               <>
-                The Six-Stage Quality Protocol <br />
-                <span className="italic text-[#B79656]">From Mutual Non-Disclosure to Final Delivery.</span>
+                A Methodical Translation Process <br />
+                <span className="italic text-[#B79656]">From Initial Intake to Final Polish.</span>
               </>
             )}
           </h1>
 
           <p className="text-base sm:text-lg text-[#22272B]/80 font-sans leading-relaxed">
             {lang === 'fa' ? (
-              'در اسناد مالی و بازرگانی، هیچ مجالی برای تساهل وجود ندارد. روش‌شناسی مرحله‌ای ما خطای انسانی را به صفر رسانده و دقت محاسباتی را تضمین می‌کند.'
+              'رویکردی مرحله‌ای و سنجیده در ترجمه متون نوشتاری، برای اطمینان از انتقال صحیح مفاهیم، ساختار منسجم و شیوایی زبان فارسی.'
             ) : (
-              'In corporate financial disclosures and international joint ventures, ambiguity carries severe financial penalties. Our institutional protocol ensures multi-layered verification.'
+              'A structured, thoughtful approach to written translation ensuring conceptual fidelity, clear structure, and natural Persian expression.'
             )}
           </p>
         </div>
@@ -111,7 +111,7 @@ export default function ProcessPage() {
       {/* STAGES CHRONOLOGY */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-8">
-          {stages.map((stg, idx) => {
+          {stages.map((stg) => {
             const Icon = stg.icon;
             return (
               <div
@@ -119,10 +119,10 @@ export default function ProcessPage() {
                 className="bg-white border border-[#22272B]/10 p-8 sm:p-10 shadow-sm hover:border-[#B79656] transition-all duration-300 relative"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                  
-                  {/* Step Num & Icon */}
-                  <div className="lg:col-span-3 flex lg:flex-col items-center lg:items-start justify-between gap-4">
-                    <span className="text-4xl sm:text-5xl font-serif font-bold text-[#B79656]">
+
+                  {/* Left Stage Indicator */}
+                  <div className="lg:col-span-3 flex items-center gap-4">
+                    <span className="text-4xl sm:text-5xl font-serif font-bold text-[#B79656]/30">
                       {stg.num}
                     </span>
                     <div className="w-12 h-12 bg-[#F8F6F1] flex items-center justify-center border border-[#22272B]/10">
@@ -130,24 +130,24 @@ export default function ProcessPage() {
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="lg:col-span-9 space-y-4">
-                    <h2 className="text-2xl font-serif font-bold text-[#22272B]">
+                  {/* Center Description */}
+                  <div className="lg:col-span-6 space-y-2">
+                    <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#22272B]">
                       {stg.title}
                     </h2>
-                    
-                    <p className="text-sm sm:text-base text-[#22272B]/80 font-sans leading-relaxed">
+                    <p className="text-sm text-[#22272B]/75 leading-relaxed font-sans">
                       {stg.desc}
                     </p>
+                  </div>
 
-                    <div className="pt-3 border-t border-[#22272B]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
-                      <span className="text-[#22272B]/50 uppercase">
-                        {lang === 'fa' ? 'خروجی این مرحله:' : 'Stage Deliverable:'}
-                      </span>
-                      <span className="text-[#B79656] font-semibold">
-                        {stg.deliverable}
-                      </span>
-                    </div>
+                  {/* Right Output Pill */}
+                  <div className="lg:col-span-3 lg:text-right pt-2 lg:pt-0">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#B79656] block mb-1">
+                      {lang === 'fa' ? 'خروجی این مرحله:' : 'Stage Deliverable:'}
+                    </span>
+                    <span className="text-xs font-semibold text-[#22272B] bg-[#F8F6F1] px-3 py-1.5 border border-[#22272B]/10 inline-block">
+                      {stg.deliverable}
+                    </span>
                   </div>
 
                 </div>
@@ -157,68 +157,34 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* TECHNICAL TOOLCHAIN & SECURITY */}
-      <section className="bg-white py-16 border-y border-[#22272B]/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-2xl space-y-2">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#B79656]">
-              {lang === 'fa' ? 'ابزارها و زیرساخت فنی' : 'Technical Ecosystem & Security'}
-            </span>
-            <h2 className="text-3xl font-serif text-[#22272B]">
-              {lang === 'fa' ? 'فناوری در خدمت دقت، نه جایگزین تفکر انسان' : 'Technology in Service of Accuracy, Never Replacing Intellect'}
+      {/* CTA BANNER */}
+      <section className="bg-[#22272B] text-white py-14">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="space-y-2 text-center md:text-left" style={{ textAlign: isRTL ? 'right' : undefined }}>
+            <h2 className="text-2xl sm:text-3xl font-serif">
+              {lang === 'fa' ? 'تمایل دارید پروژه خود را مورد ارزیابی قرار دهید؟' : 'Ready to begin your translation?'}
             </h2>
+            <p className="text-white/70 text-xs sm:text-sm font-sans">
+              {lang === 'fa'
+                ? 'پیش‌فاکتور شفاف به همراه زمان‌بندی دقیق در اسرع وقت خدمت شما ارائه خواهد شد.'
+                : 'Receive a transparent turnaround projection and quotation promptly.'}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm text-[#22272B]/80 font-sans leading-relaxed">
-            <div className="p-6 bg-[#F8F6F1] border border-[#22272B]/10 space-y-2">
-              <h3 className="font-serif font-bold text-[#22272B] text-base">
-                CAT Toolchains (Trados & memoQ)
-              </h3>
-              <p>
-                {lang === 'fa'
-                  ? 'نگهداری و مدیریت پایگاه داده اصطلاحات (Termbase) برای تضمین یکدستی عبارات فنی در متون طولانی.'
-                  : 'Maintaining dedicated translation memories and terminology databases to ensure uniform wording across corporate documents.'}
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#F8F6F1] border border-[#22272B]/10 space-y-2">
-              <h3 className="font-serif font-bold text-[#22272B] text-base">
-                {lang === 'fa' ? 'امنیت و حذف داده‌ها' : 'Air-Gapped Data Handling'}
-              </h3>
-              <p>
-                {lang === 'fa'
-                  ? 'اسناد شما در دیسک‌های رمزگذاری‌شده محلی پردازش شده و پس از پایان تعهدات پروژه به صورت دائمی معدوم می‌گردند.'
-                  : 'Proprietary source texts are stored on encrypted offline media and purged permanently upon contractual sign-off.'}
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#F8F6F1] border border-[#22272B]/10 space-y-2">
-              <h3 className="font-serif font-bold text-[#22272B] text-base">
-                {lang === 'fa' ? 'رسم‌الخط مصوب فرهنگستان' : 'Persian Typographic Discipline'}
-              </h3>
-              <p>
-                {lang === 'fa'
-                  ? 'رعایت کلیه قواعد فاصله‌گذاری، نیم‌فاصله، نشانه‌گذاری استاندارد و انتخاب قلم‌های متناسب برای محیط‌های رسمی.'
-                  : 'Strict adherence to Academy of Persian Language guidelines, correct zero-width non-joiners (ZWNJ), and publication-ready typography.'}
-              </p>
-            </div>
+          <div className="flex items-center gap-4 flex-shrink-0">
+            <Link
+              to="/quote"
+              className="px-6 py-3 bg-[#B79656] text-white hover:bg-white hover:text-[#22272B] transition-colors font-medium text-xs sm:text-sm"
+            >
+              {lang === 'fa' ? 'استعلام قیمت و سفارش' : 'Request a Quote'}
+            </Link>
+            <Link
+              to="/contact"
+              className="px-6 py-3 border border-white/30 text-white hover:border-white transition-colors text-xs sm:text-sm"
+            >
+              {lang === 'fa' ? 'تماس با مترجم' : 'Contact Direct'}
+            </Link>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <h2 className="text-3xl font-serif text-[#22272B]">
-          {lang === 'fa' ? 'آماده‌اید پروژه خود را طبق این استاندارد آغاز فرمایید؟' : 'Ready to Start Your Translation Engagement?'}
-        </h2>
-        <div className="pt-2">
-          <Link
-            to="/quote"
-            className="px-8 py-3.5 bg-[#22272B] text-white hover:bg-[#B79656] transition-colors font-medium text-xs sm:text-sm inline-flex items-center gap-2"
-          >
-            <span>{lang === 'fa' ? 'ثبت سفارش و ارسال سند' : 'Request Official Project Quote'}</span>
-            <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
-          </Link>
         </div>
       </section>
     </div>

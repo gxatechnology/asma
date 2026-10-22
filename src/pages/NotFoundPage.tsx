@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Home, FileText, Mail } from 'lucide-react';
+import { Home, FileText } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import BrandIdentity from '../components/BrandIdentity';
 
@@ -19,7 +19,7 @@ export default function NotFoundPage() {
       <p className="text-sm text-[#22272B]/70 font-sans leading-relaxed">
         {lang === 'fa'
           ? 'آدرسی که وارد کرده‌اید معتبر نیست یا صفحه به نشانی دیگری منتقل شده است.'
-          : 'The page you requested could not be located. Please return to the homepage or browse the translation portfolio.'}
+          : 'The page you requested could not be located. Please return to the homepage or explore our translation services.'}
       </p>
 
       <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
@@ -31,11 +31,11 @@ export default function NotFoundPage() {
           <span>{lang === 'fa' ? 'بازگشت به صفحه اصلی' : 'Return to Home'}</span>
         </Link>
         <Link
-          to="/portfolio"
+          to="/services"
           className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#22272B]/20 text-[#22272B] hover:border-[#B79656] transition-colors text-xs font-semibold"
         >
           <FileText className="w-4 h-4" />
-          <span>{lang === 'fa' ? 'مشاهده نمونه کارها' : 'View Portfolio'}</span>
+          <span>{lang === 'fa' ? 'مشاهده خدمات' : 'View Services'}</span>
         </Link>
       </div>
     </div>

@@ -27,20 +27,20 @@ export default function TermsOfServicePage() {
           </h2>
           <p>
             {lang === 'fa'
-              ? 'خدمات ترجمه ارائه شده توسط اسماء پرنیان‌فرد با تکیه بر بالاترین استانداردهای دانشگاهی و اصطلاح‌شناسی صورت می‌گیرد. با این حال، مسئولیت صحت اولیه محتوا، محاسبات حسابداری و صحت قانونی مفاد سند مبدا بر عهده نویسنده یا سازمان صادرکننده اصلی است.'
-              : 'Translation and editing services rendered by Asma Parnianfard reflect academic rigor and authoritative terminology standards. Primary legal compliance and mathematical accuracy of the source document remain the sole responsibility of the originating entity.'}
+              ? 'خدمات ترجمه ارائه شده توسط اسماء پرنیان‌فرد با تکیه بر درک صحیح مفهوم و اصول نگارش زبان فارسی صورت می‌گیرد. با این حال، مسئولیت صحت اولیه محتوا و اصالت مفاد سند مبدا بر عهده نویسنده یا سفارش‌دهنده اصلی است.'
+              : 'Written translation services rendered by Asma Parnianfard reflect careful attention to source meaning and natural Persian syntax. The accuracy and legal standing of the source text remain the responsibility of the author or originating client.'}
           </p>
         </section>
 
         <section className="space-y-3">
           <h2 className="text-xl font-serif font-bold text-[#22272B] flex items-center gap-2">
             <CheckCircle2 className="w-5 h-5 text-[#788A78]" />
-            {lang === 'fa' ? '۲. شرایط بازنگری و اصلاحات تکمیلی (۱۴ روز)' : '2. 14-Day Revision & Clarification Policy'}
+            {lang === 'fa' ? '۲. شرایط بازنگری و اصلاحات تکمیلی' : '2. Revision & Follow-up Policy'}
           </h2>
           <p>
             {lang === 'fa'
-              ? 'کارفرما حق دارد طی مدت ۱۴ روز کاری پس از دریافت نسخه نهایی، هرگونه درخواست بازبینی، تنظیم لحن یا پاسخگویی به ابهامات ممیزان را مطرح نماید. این اصلاحات بدون هزینه اضافی اعمال خواهند شد، مشروط بر آنکه متن مبدا اولیه تغییر نکرده باشد.'
-              : 'Clients are entitled to free revisions and terminology adjustments for 14 calendar days post-delivery. Additions or revisions resulting from modified source texts are quoted separately at standard rates.'}
+              ? 'کارفرما می‌تواند پس از دریافت نسخه نهایی، درخواست بازبینی یا تنظیمات متنی خود را مطرح نماید تا در متن اعمال گردد، مشروط بر آنکه متن مبدا اولیه تغییر نکرده باشد.'
+              : 'Clients may request reasonable revisions, clarifications, and stylistic adjustments following delivery, provided the underlying source text has not been altered.'}
           </p>
         </section>
 

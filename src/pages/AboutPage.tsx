@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Award, 
-  MapPin, 
-  ShieldCheck, 
-  ExternalLink, 
-  CheckCircle2, 
-  BookOpen, 
-  Scale, 
-  Globe2, 
-  FileText, 
+import {
+  Award,
+  MapPin,
+  ShieldCheck,
+  ExternalLink,
+  CheckCircle2,
+  BookOpen,
+  Scale,
+  Globe2,
+  FileText,
   ArrowRight,
-  ArrowLeft
+  ArrowLeft,
+  Lock
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -25,28 +26,28 @@ export default function AboutPage() {
         <div className="max-w-3xl space-y-4">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#B79656]">
             <span className="w-8 h-[1px] bg-[#B79656]"></span>
-            <span>{lang === 'fa' ? 'زندگینامه و دیدگاه حرفه‌ای' : 'Curriculum Vitae & Professional Atelier'}</span>
+            <span>{lang === 'fa' ? 'درباره مترجم' : 'About the Translator'}</span>
           </div>
-          
+
           <h1 className="text-4xl sm:text-5xl font-serif text-[#22272B] leading-tight">
             {lang === 'fa' ? (
               <>
                 اسماء پرنیان‌فرد؛ <br />
-                <span className="italic text-[#B79656]">مترجم تخصصی</span> انگلیسی به فارسی در حوزه مالی و بازرگانی.
+                <span className="italic text-[#B79656]">مترجم مستقل</span> انگلیسی به فارسی
               </>
             ) : (
               <>
                 Asma Parnianfard <br />
-                <span className="italic text-[#B79656]">Independent Translator</span> & Linguistic Consultant.
+                <span className="italic text-[#B79656]">Independent Translator</span>
               </>
             )}
           </h1>
 
           <p className="text-base sm:text-lg text-[#22272B]/80 font-sans leading-relaxed">
             {lang === 'fa' ? (
-              'دارای مدرک کارشناسی ارشد در رشته مترجمی زبان انگلیسی از دانشگاه آزاد اسلامی مشهد. متخصص در ترجمه دقیق صورت‌های مالی IFRS، اسناد حقوقی شرکت‌ها و متون استراتژیک سازمانی.'
+              'من اسماء پرنیان‌فرد، مترجم مستقل متون انگلیسی به فارسی هستم. تمرکز اصلی من بر ترجمه مقالات و متون عمومی است که با دقت فراوان در درک مفهوم، زمینه متن، شفافیت بیان و روانی نگارش زبان فارسی انجام می‌گیرد.'
             ) : (
-              'Holding a Master’s degree in Language Interpretation and Translation from Islamic Azad University, Asma delivers linguistically refined, domain-accurate English-to-Persian translations for the global corporate and financial sectors.'
+              "I'm Asma Parnianfard, an independent translator working from English into Persian. My main focus is translating articles and general written texts with careful attention to meaning, context, clarity, and natural Persian expression."
             )}
           </p>
         </div>
@@ -55,11 +56,11 @@ export default function AboutPage() {
       {/* BIOGRAPHY & PORTRAIT ROW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
+
           {/* Portrait Column */}
           <div className="lg:col-span-5 space-y-6">
             <div className="relative bg-white p-4 shadow-xl border border-[#22272B]/10">
-              {/* Golden AP Monogram Official Atelier Seal */}
+              {/* Golden AP Monogram Official Seal */}
               <div className="absolute -top-3.5 -right-3.5 w-12 h-12 rounded-full border border-[#B79656]/60 bg-gradient-to-br from-[#2D3339] via-[#22272B] to-[#1A1E22] p-1.5 shadow-xl z-20 flex items-center justify-center">
                 <img
                   src="/assets/branding/ap-monogram-cropped.png"
@@ -93,7 +94,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-[#22272B]/50">{lang === 'fa' ? 'موقعیت جغرافیایی:' : 'Location:'}</span>
-                    <span className="font-medium text-[#22272B]">Mashhad, Iran (IRST / UTC+3:30)</span>
+                    <span className="font-medium text-[#22272B]">Mashhad, Iran</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-[#22272B]/50">{lang === 'fa' ? 'ارتباط مستقیم:' : 'Direct Profile:'}</span>
@@ -110,12 +111,12 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Credential Quote */}
-            <div className="p-6 bg-[#F8F6F1] border-l-2 border-[#B79656] space-y-2 text-xs sm:text-sm text-[#22272B]/80 font-sans italic">
+            {/* Translation Philosophy Quote */}
+            <div className="p-6 bg-[#F8F6F1] border-l-2 border-[#B79656] space-y-2 text-xs sm:text-sm text-[#22272B]/80 font-sans italic" style={{ borderLeftWidth: isRTL ? 0 : 2, borderRightWidth: isRTL ? 2 : 0 }}>
               <p>
                 {lang === 'fa'
-                  ? '«در اسناد مالی و حقوقی، واژه‌ها بار مالیاتی و قانونی دارند؛ ترجمه وفادار یعنی فهم ماهیت حقوقی قبل از انتخاب واژه.»'
-                  : '"In financial and legal documentation, words carry statutory liability. True translation fidelity begins with understanding the underlying accounting premise before rendering a single word."'}
+                  ? '«باور دارم که ترجمه موثر فراتر از جایگزینی ساده کلمات میان دو زبان است؛ بلکه نیازمند درک عمیق پیام و بازآفرینی آن به گونه‌ای است که برای مخاطب فارسی‌زبان کاملاً رسا، ملموس و شایسته باشد.»'
+                  : '"I believe effective translation involves more than replacing words between languages. It requires understanding the message and expressing it in a way that feels clear and appropriate to the target audience."'}
               </p>
               <span className="block font-serif font-normal not-italic text-[#B79656] text-xs">
                 — Asma Parnianfard, M.A.
@@ -125,49 +126,49 @@ export default function AboutPage() {
 
           {/* Detailed Biography Text */}
           <div className="lg:col-span-7 space-y-8 font-sans text-[#22272B]/85 text-base sm:text-lg leading-relaxed">
-            
+
             <div className="space-y-4">
               <h3 className="text-2xl font-serif text-[#22272B] font-semibold">
-                {lang === 'fa' ? 'پیشینه دانشگاهی و تخصص حرفه‌ای' : 'Academic Foundation & Domain Specialization'}
+                {lang === 'fa' ? 'پیشینه تحصیلی و دیدگاه حرفه‌ای' : 'Educational Foundation & Approach'}
               </h3>
               <p>
                 {lang === 'fa' ? (
-                  'اسماء پرنیان‌فرد پس از پایان مقطع کارشناسی، دوره کارشناسی ارشد خود را در رشته «مترجمی زبان انگلیسی» در دانشگاه آزاد اسلامی با موفقیت به پایان رساند. پژوهش‌های دانشگاهی او بر روی ساختار تطبیقی اصطلاحات فنی، استراتژی‌های معادل‌یابی در متون اقتصادی و انتقال دقیق لحن رسمی تمرکز داشته است.'
+                  'من دانش‌آموخته مقطع کارشناسی ارشد در رشته «مترجمی زبان انگلیسی» از دانشگاه آزاد اسلامی مشهد هستم. در طول دوران تحصیل، بر زبان‌شناسی مقابله‌ای، اصول معادل‌یابی و تحلیل ساختارهای متنی تمرکز داشته‌ام.'
                 ) : (
-                  'Asma Parnianfard earned her Master of Arts (M.A.) degree in Language Interpretation and Translation from Islamic Azad University. Her academic scholarship focused extensively on applied contrastive linguistics, specialized terminology extraction for economics, and register consistency in bilateral corporate communications.'
+                  'Holding a Master of Arts (M.A.) in Language Interpretation and Translation from Islamic Azad University, my background combines formal translation studies with careful attention to comparative linguistics, syntax, and natural Persian phrasing.'
                 )}
               </p>
               <p>
                 {lang === 'fa' ? (
-                  'تمرکز بر ترجمه مالی و اسناد حسابداری از یک ضرورت تجاری آغاز شد: بازار رو به رشد ارتباطات تجاری میان شرکت‌های بین‌المللی و ایرانی نیازمند تسلط بر استانداردهای گزارشگری مالی بین‌المللی (IFRS) و استانداردهای حسابداری ملی ایران (INAS) بود. ترجمه نادرست یک سرفصل در ترازنامه یا یادداشت‌های حسابرسی می‌تواند به سوءتفاهم‌های پرهزینه مالی منجر گردد.'
+                  'در فعالیت حرفه‌ای خود، تمرکز اصلی‌ام بر ترجمه کتبی متون از انگلیسی به فارسی است؛ به‌ویژه مقالات علمی و پژوهشی، متون عمومی و محتواهای نوشتاری گوناگون. هدف من همواره این است که متن ترجمه‌شده به جای داشتن لحنی مکانیکی یا ترجمه‌زده، به صورت یک نوشته اصیل و شیوا در زبان فارسی خوانده شود.'
                 ) : (
-                  'Her dedication to financial and accounting translation was born out of an acute market reality: cross-border ventures, audit committees, and international investors require absolute terminological concordance with International Financial Reporting Standards (IFRS) and national Iranian accounting codes. A mistranslated footnote or misinterpreted disclosure note can distort contractual commitments.'
-                )}
-              </p>
-            </div>
-
-            <div className="space-y-4 pt-4 border-t border-[#22272B]/10">
-              <h3 className="text-2xl font-serif text-[#22272B] font-semibold">
-                {lang === 'fa' ? 'موقعیت جغرافیایی و همکاری جهانی' : 'Geographic Anchor & Global Remote Collaboration'}
-              </h3>
-              <p>
-                {lang === 'fa' ? (
-                  'اسماء پرنیان‌فرد مقیم شهر تاریخی مشهد در استان خراسان رضوی است. از طریق بستر ارتباطی رمزنگاری‌شده و ابزارهای پیشرفته مدیریت پروژه، او با مشتریان مستقیم، موسسات مالی، شرکت‌های صادراتی-وارداتی و آژانس‌های معتبر ترجمه در اروپا، خاورمیانه و سراسر جهان همکاری پیوسته دارد.'
-                ) : (
-                  'Based in Mashhad, Razavi Khorasan, Iran, Asma operates an internationally equipped independent atelier. Leveraging high-security communication channels and industry-standard CAT toolchains, she seamlessly integrates into global workflows for translation agencies in London, Zurich, Dubai, and beyond.'
+                  'My practice focuses primarily on written English-to-Persian translation, with an emphasis on articles, informational materials, and general written texts. In every assignment, I aim to ensure that the Persian text reads like an authentic, thoughtfully composed document rather than a word-for-word substitution.'
                 )}
               </p>
             </div>
 
             <div className="space-y-4 pt-4 border-t border-[#22272B]/10">
               <h3 className="text-2xl font-serif text-[#22272B] font-semibold">
-                {lang === 'fa' ? 'فلسفه ترجمه: فراتر از ترجمه ماشینی' : 'Translation Philosophy: Precision Over Machine Fallibility'}
+                {lang === 'fa' ? 'همکاری مستقیم و مستقل' : 'Independent, Direct Practice'}
               </h3>
               <p>
                 {lang === 'fa' ? (
-                  'در عصری که ترجمه‌های ماشینی متون را به شکلی سطحی بازتولید می‌کنند، کار من بر ظرافت‌های معنایی و استانداردهای فرهنگستان زبان و ادب فارسی و سازمان حسابرسی ایران استوار است. تفاوت ماهوی میان "Impairment" و "Depreciation" یا ترجمه دقیق عبارات پیچیده اساسنامه در حوزه تخصصی انسان با تجربه معنا پیدا می‌کند.'
+                  'به عنوان یک مترجم مستقل، شما در تمامی مراحل به طور مستقیم با خود من در ارتباط خواهید بود. این امر به معنای پاسخگویی مستقیم، یکدستی لحن در کل متن و اطمینان از عدم ارجاع کار به واسطه‌هاست.'
                 ) : (
-                  'In an era flooded with generic machine translation that appears superficially coherent while hiding critical conceptual flaws, Asma’s practice is built on unyielding human rigor. Automated engines cannot appreciate why "Impairment of Assets" differs legally and procedurally from "Depreciation", nor can they calibrate Persian syntactic elegance for board-level scrutiny.'
+                  'As an independent translator, you work directly with me from initial review to final delivery. This ensures consistent style across your document, clear direct communication, and certainty that your materials are handled solely by the translator you engaged.'
+                )}
+              </p>
+            </div>
+
+            <div className="space-y-4 pt-4 border-t border-[#22272B]/10">
+              <h3 className="text-2xl font-serif text-[#22272B] font-semibold">
+                {lang === 'fa' ? 'توجه به بافتار و روانی کلام' : 'Attention to Context & Tone'}
+              </h3>
+              <p>
+                {lang === 'fa' ? (
+                  'هر متن دارای بافت، مخاطب و هدفی مشخص است. ترجمه دقیق نیازمند توجه به این عوامل است تا لحن مناسب انتخاب شود و مفاهیم پیچیده به ساده‌ترین و دقیق‌ترین شکل ممکن به خواننده فارسی‌زبان منتقل گردند.'
+                ) : (
+                  'Every text has its own purpose, tone, and audience. Accurate translation requires understanding these nuances so that the Persian text effectively conveys the original ideas with clarity, natural flow, and proper register.'
                 )}
               </p>
             </div>
@@ -177,71 +178,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ATELIER & WORKSPACE IMAGERY */}
-      <section className="bg-white py-16 border-y border-[#22272B]/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#B79656]">
-              {lang === 'fa' ? 'محیط کار و ابزارها' : 'Atelier & Methodological Infrastructure'}
-            </span>
-            <h2 className="text-3xl font-serif text-[#22272B]">
-              {lang === 'fa' ? 'دقت در هر کلمه، با تکیه بر منابع معتبر' : 'Rigorous Environment, Authentic Scholarly Tools'}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-[#F8F6F1] border border-[#22272B]/10 overflow-hidden shadow-sm">
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src="/assets/aistudio/Image_1_e154d288.jpeg"
-                  alt="Professional Translation Desk with Dictionaries and Reference Volumes"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="p-6 space-y-2">
-                <h3 className="font-serif text-lg font-semibold text-[#22272B]">
-                  {lang === 'fa' ? 'میز کار پژوهشی و منابع مرجع' : 'Curated Linguistic Reference Library'}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#22272B]/75 leading-relaxed font-sans">
-                  {lang === 'fa'
-                    ? 'فرهنگ‌های تخصصی مالی آریان‌پور، واژه‌نامه‌های مصوب سازمان حسابرسی، فرهنگ حقوقی جعفری لنگرودی و متون مرجع آکسفورد و کمبریج.'
-                    : 'Specialized accounting glossaries, Iranian Audit Organization official terminology compendiums, and bilingual contract law reference works.'}
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-[#F8F6F1] border border-[#22272B]/10 overflow-hidden shadow-sm">
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src="/assets/aistudio/Image_3_6dc99c9e.jpeg"
-                  alt="Editorial Proofreading with Fountain Pen on Print Proofs"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="p-6 space-y-2">
-                <h3 className="font-serif text-lg font-semibold text-[#22272B]">
-                  {lang === 'fa' ? 'ویرایش و بازخوانی سطر به سطر' : 'Substantive Multi-Pass Proofreading'}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#22272B]/75 leading-relaxed font-sans">
-                  {lang === 'fa'
-                    ? 'بررسی فیزیکی و تطبیق متن چاپی جهت شناسایی کوچکترین خطاهای نگارشی، تطابق ارقام ترازنامه و اطمینان از سلامت نثر فارسی.'
-                    : 'Physical proof-reading passes to verify numerical concordances, footnote linkages, and Persian typographic punctuation harmony.'}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CODE OF ETHICS & COMMITMENTS */}
+      {/* METHODOLOGICAL COMMITMENTS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-3 mb-10">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#B79656]">
             <Scale className="w-4 h-4" />
-            <span>{lang === 'fa' ? 'اصول اخلاق حرفه‌ای' : 'Institutional Code of Ethics'}</span>
+            <span>{lang === 'fa' ? 'اصول کاری' : 'Practice Commitments'}</span>
           </div>
           <h2 className="text-3xl font-serif text-[#22272B]">
-            {lang === 'fa' ? 'تعهدات حرفه‌ای در قبال اسناد کارفرما' : 'Professional Practice Commitments'}
+            {lang === 'fa' ? 'تعهدات من در قبال متون شما' : 'Core Principles of Practice'}
           </h2>
         </div>
 
@@ -249,36 +194,36 @@ export default function AboutPage() {
           <div className="p-6 bg-white border border-[#22272B]/10 space-y-3 shadow-sm">
             <ShieldCheck className="w-6 h-6 text-[#788A78]" />
             <h3 className="font-serif text-lg font-semibold text-[#22272B]">
-              {lang === 'fa' ? 'محرمانگی کامل و قرارداد NDA' : 'Strict Non-Disclosure'}
+              {lang === 'fa' ? 'حفظ کامل محرمانگی' : 'Strict Confidentiality'}
             </h3>
             <p className="text-xs sm:text-sm text-[#22272B]/70 leading-relaxed font-sans">
               {lang === 'fa'
-                ? 'امضای قرارداد دوجانبه حفظ محرمانگی پیش از مشاهده هرگونه سند حساس مالی یا حقوقی.'
-                : 'Execution of bilateral NDAs prior to inspection of financial statements, tenders, or confidential strategy memos.'}
+                ? 'تمامی فایل‌ها و مقالات به صورت کاملاً محرمانه بررسی و نگهداری می‌شوند و امکان امضای توافق‌نامه NDA در صورت نیاز وجود دارد.'
+                : 'All source texts and project files are handled with complete confidentiality and discretion. Mutual NDAs are available upon request.'}
             </p>
           </div>
 
           <div className="p-6 bg-white border border-[#22272B]/10 space-y-3 shadow-sm">
             <CheckCircle2 className="w-6 h-6 text-[#B79656]" />
             <h3 className="font-serif text-lg font-semibold text-[#22272B]">
-              {lang === 'fa' ? 'عدم واگذاری به غیر' : 'Zero Outsourced Subcontracting'}
+              {lang === 'fa' ? 'ترجمه مستقیم توسط مترجم' : 'Direct Translation'}
             </h3>
             <p className="text-xs sm:text-sm text-[#22272B]/70 leading-relaxed font-sans">
               {lang === 'fa'
-                ? 'تمام پروژه‌ها شخصاً توسط اسماء پرنیان‌فرد انجام می‌شود و به مترجمان فریلنسر ناشناس واگذار نمی‌گردد.'
-                : 'Every word is translated, refined, and audited directly by Asma Parnianfard, ensuring uninterrupted single-voice consistency.'}
+                ? 'تمامی متون شخصاً توسط خود من ترجمه و بازخوانی می‌شوند تا یکدستی سبک و کیفیت کار تضمین شود.'
+                : 'Every text is translated and reviewed directly by Asma Parnianfard, ensuring consistent single-voice quality.'}
             </p>
           </div>
 
           <div className="p-6 bg-white border border-[#22272B]/10 space-y-3 shadow-sm">
             <Award className="w-6 h-6 text-[#22272B]" />
             <h3 className="font-serif text-lg font-semibold text-[#22272B]">
-              {lang === 'fa' ? 'پشتیبانی و بازنگری پس از تحویل' : 'Post-Delivery Linguistic Support'}
+              {lang === 'fa' ? 'پاسخگویی و بازنگری پس از تحویل' : 'Post-Delivery Support'}
             </h3>
             <p className="text-xs sm:text-sm text-[#22272B]/70 leading-relaxed font-sans">
               {lang === 'fa'
-                ? 'پاسخگویی به سوالات ممیزان و حسابرسان و اعمال اصلاحات جزئی بدون دریافت هیچ هزینه اضافی.'
-                : 'Full availability to assist audit committees, discuss terminology choices, and apply refinements at no additional charge.'}
+                ? 'پس از تحویل، امکان بررسی متن، طرح پرسش‌ها و اعمال اصلاحات یا توضیحات تکمیلی فراهم است.'
+                : 'Follow-up support is provided following delivery to accommodate client questions, clarifications, and stylistic refinements.'}
             </p>
           </div>
         </div>
@@ -289,12 +234,12 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-2 text-center md:text-left" style={{ textAlign: isRTL ? 'right' : undefined }}>
             <h2 className="text-2xl sm:text-3xl font-serif">
-              {lang === 'fa' ? 'تمایل دارید پروژه خود را مورد ارزیابی قرار دهید؟' : 'Ready to discuss your translation requirements?'}
+              {lang === 'fa' ? 'مایلید متن خود را برای بررسی ارسال کنید؟' : 'Ready to discuss your translation project?'}
             </h2>
             <p className="text-white/70 text-xs sm:text-sm font-sans">
-              {lang === 'fa' 
-                ? 'پیش‌فاکتور دقیق به همراه زمان‌بندی شفاف به موقع تقدیم شما خواهد شد.'
-                : 'Receive a confidential, itemized quote and turnaround projection promptly.'}
+              {lang === 'fa'
+                ? 'برآورد شفاف هزینه و زمان‌بندی خدمت شما ارائه خواهد شد.'
+                : 'Receive a clear, transparent quote and turnaround estimate.'}
             </p>
           </div>
 
@@ -303,7 +248,7 @@ export default function AboutPage() {
               to="/quote"
               className="px-6 py-3 bg-[#B79656] text-white hover:bg-white hover:text-[#22272B] transition-colors font-medium text-xs sm:text-sm"
             >
-              {lang === 'fa' ? 'درخواست استعلام قیمت' : 'Request Official Quote'}
+              {lang === 'fa' ? 'استعلام قیمت و سفارش' : 'Request a Quote'}
             </Link>
             <Link
               to="/contact"

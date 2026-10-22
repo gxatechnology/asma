@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Lock, 
-  LogOut, 
-  CheckCircle2, 
-  Clock, 
-  FileText, 
-  Download, 
-  Search, 
-  Filter, 
-  AlertCircle, 
-  Building2, 
-  User, 
-  Mail, 
-  Calendar, 
-  DollarSign, 
-  RefreshCw, 
-  ShieldCheck, 
-  Layers, 
-  Eye, 
-  FolderLock 
+import {
+  Lock,
+  LogOut,
+  CheckCircle2,
+  Clock,
+  FileText,
+  Download,
+  Search,
+  Filter,
+  AlertCircle,
+  Building2,
+  User,
+  Mail,
+  Calendar,
+  DollarSign,
+  RefreshCw,
+  ShieldCheck,
+  Layers,
+  Eye,
+  FolderLock
 } from 'lucide-react';
 import { QuoteRequest, GeneralEnquiry, PortfolioItem, BlogPost, EnquiryStatus } from '../types';
 import BrandIdentity from '../components/BrandIdentity';
@@ -32,7 +32,7 @@ export default function AdminDashboardPage() {
 
   // Dashboard Tabs
   const [activeTab, setActiveTab] = useState<'quotes' | 'enquiries' | 'portfolio' | 'blog' | 'files' | 'settings'>('quotes');
-  
+
   // Data states
   const [stats, setStats] = useState<{
     totalEnquiries: number;
@@ -53,7 +53,7 @@ export default function AdminDashboardPage() {
   const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [files, setFiles] = useState<{ filename: string; originalname: string; size: number; path: string; uploaded_at: string; enquiryId?: string }[]>([]);
-  
+
   const [loadingData, setLoadingData] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
   const [selectedQuote, setSelectedQuote] = useState<QuoteRequest | null>(null);
@@ -231,7 +231,7 @@ export default function AdminDashboardPage() {
   // AUTHENTICATED ADMIN DASHBOARD
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-      
+
       {/* TOP HEADER */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#22272B]/10">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4">
@@ -310,7 +310,7 @@ export default function AdminDashboardPage() {
           { id: 'quotes', label: `Quotes (${quotes.length})` },
           { id: 'enquiries', label: `General Inquiries (${enquiries.length})` },
           { id: 'files', label: `Document Vault (${files.length})` },
-          { id: 'portfolio', label: `Portfolio Items (${portfolio.length})` },
+
           { id: 'blog', label: `Journal Articles (${blogPosts.length})` },
           { id: 'settings', label: 'System & Security' },
         ].map((tab) => (
@@ -364,7 +364,7 @@ export default function AdminDashboardPage() {
               </thead>
               <tbody className="divide-y divide-[#22272B]/10">
                 {quotes
-                  .filter(q => 
+                  .filter(q =>
                     !searchFilter ||
                     q.fullName.toLowerCase().includes(searchFilter.toLowerCase()) ||
                     (q.organization && q.organization.toLowerCase().includes(searchFilter.toLowerCase())) ||
@@ -731,7 +731,7 @@ export default function AdminDashboardPage() {
             </div>
 
             <div className="flex items-center justify-between p-2 bg-[#F8F6F1]">
-              <span className="text-[#22272B]/60">Academic Credential:</span>
+              <span className="text-[#22272B]/60">Educational Credential:</span>
               <span className="font-bold text-[#22272B]">M.A. Language Interpretation & Translation (Azad University)</span>
             </div>
 

@@ -1,12 +1,14 @@
-export type ServiceCategory = 
+export type ServiceCategory =
   | 'translation'
+  | 'article'
+  | 'general'
   | 'financial'
   | 'accounting'
   | 'business'
   | 'proofreading'
   | 'localization';
 
-export type EnquiryStatus = 
+export type EnquiryStatus =
   | 'New'
   | 'In Review'
   | 'Quoted'

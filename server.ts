@@ -408,7 +408,7 @@ app.post('/api/quotes', upload.array('attachments', 5), (req: Request, res: Resp
       fullName,
       email,
       organization: organization || '',
-      service: service || 'financial',
+      service: service || 'translation',
       sourceLanguage: sourceLanguage || 'English',
       targetLanguage: targetLanguage || 'Persian',
       documentType: documentType || 'Standard Document',
@@ -429,7 +429,7 @@ app.post('/api/quotes', upload.array('attachments', 5), (req: Request, res: Resp
 
     return res.status(201).json({
       success: true,
-      message: 'Quotation request received successfully. Asma Parnianfard will evaluate your documents within 4 business hours.',
+      message: 'Quotation request received successfully. Asma Parnianfard will evaluate your documents.',
       quoteId: newQuote.id,
     });
   } catch (error: any) {

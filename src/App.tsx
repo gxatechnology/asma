@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { LanguageProvider } from './i18n/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
@@ -9,14 +9,6 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesOverviewPage from './pages/ServicesOverviewPage';
-import FinancialTranslationPage from './pages/services/FinancialTranslationPage';
-import AccountingTranslationPage from './pages/services/AccountingTranslationPage';
-import BusinessTranslationPage from './pages/services/BusinessTranslationPage';
-import ProofreadingPage from './pages/services/ProofreadingPage';
-import LocalizationPage from './pages/services/LocalizationPage';
-import TranslationPage from './pages/services/TranslationPage';
-import PortfolioPage from './pages/PortfolioPage';
-import PortfolioDetailPage from './pages/PortfolioDetailPage';
 import ProcessPage from './pages/ProcessPage';
 import QuotePage from './pages/QuotePage';
 import BlogPage from './pages/BlogPage';
@@ -39,17 +31,10 @@ export default function App() {
           <Navbar />
           <main className="flex-grow pt-20">
             <Routes>
+              {/* Confirmed Primary Routes */}
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/services" element={<ServicesOverviewPage />} />
-              <Route path="/services/financial" element={<FinancialTranslationPage />} />
-              <Route path="/services/accounting" element={<AccountingTranslationPage />} />
-              <Route path="/services/business" element={<BusinessTranslationPage />} />
-              <Route path="/services/proofreading" element={<ProofreadingPage />} />
-              <Route path="/services/localization" element={<LocalizationPage />} />
-              <Route path="/services/translation" element={<TranslationPage />} />
-              <Route path="/portfolio" element={<PortfolioPage />} />
-              <Route path="/portfolio/:slug" element={<PortfolioDetailPage />} />
               <Route path="/process" element={<ProcessPage />} />
               <Route path="/quote" element={<QuotePage />} />
               <Route path="/blog" element={<BlogPage />} />
@@ -61,6 +46,18 @@ export default function App() {
               <Route path="/thank-you" element={<ThankYouPage />} />
               <Route path="/fa" element={<PersianEditionPage />} />
               <Route path="/admin" element={<AdminDashboardPage />} />
+
+              {/* Graceful Redirects for Removed Services & Portfolio Routes */}
+              <Route path="/portfolio" element={<Navigate to="/" replace />} />
+              <Route path="/portfolio/*" element={<Navigate to="/" replace />} />
+              <Route path="/services/financial" element={<Navigate to="/services" replace />} />
+              <Route path="/services/accounting" element={<Navigate to="/services" replace />} />
+              <Route path="/services/business" element={<Navigate to="/services" replace />} />
+              <Route path="/services/proofreading" element={<Navigate to="/services" replace />} />
+              <Route path="/services/localization" element={<Navigate to="/services" replace />} />
+              <Route path="/services/translation" element={<Navigate to="/services" replace />} />
+
+              {/* 404 Fallback */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>

@@ -51,8 +51,8 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p>
             {lang === 'fa'
-              ? 'فایل‌های پروژه پس از تحویل نهایی به مدت ۱۴ روز کاری (دوره گارانتی بازنگری) در آرشیو آفلاین امن نگهداری می‌شوند تا امکان پاسخگویی به ممیزان و اعمال اصلاحات احتمالی میسر باشد. پس از پایان این دوره، در صورت درخواست کتبی کارفرما، تمامی پیش‌نویس‌ها و فایل‌های مرتبط به صورت برگشت‌ناپذیر امحا خواهند شد.'
-              : 'Source and target files are retained on encrypted storage for the 14-day post-delivery review window to service auditor queries and revisions. Following project completion, files are permanently expunged upon written request.'}
+              ? 'فایل‌های پروژه پس از تحویل نهایی در طول دوره بازنگری در آرشیو آفلاین امن نگهداری می‌شوند تا امکان پاسخگویی به سوالات و اعمال اصلاحات احتمالی میسر باشد. پس از اتمام پروژه، در صورت تمایل کارفرما، تمامی پیش‌نویس‌ها و فایل‌های مرتبط به طور کامل پاکسازی خواهند شد.'
+              : 'Source and target files are retained securely during the project and review period to support follow-up queries or revisions. Following project completion, working files are permanently deleted upon written request.'}
           </p>
         </section>
 

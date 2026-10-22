@@ -1,20 +1,16 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Award, 
-  ShieldCheck, 
-  CheckCircle2, 
-  ArrowLeft, 
-  Building2, 
-  Calculator, 
-  FileCheck, 
-  FileText, 
-  Globe2, 
-  Languages, 
-  ExternalLink 
+import {
+  Award,
+  ShieldCheck,
+  CheckCircle2,
+  ArrowLeft,
+  Languages,
+  BookOpen,
+  FileText,
+  ExternalLink
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
-import BilingualComparison from '../components/BilingualComparison';
 import EstimateCalculator from '../components/EstimateCalculator';
 
 export default function PersianEditionPage() {
@@ -29,7 +25,7 @@ export default function PersianEditionPage() {
       {/* HERO SECTION IN FA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#22272B]/10 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           <div className="lg:col-span-7 space-y-6">
             <div className="flex flex-wrap items-center gap-2 text-xs text-[#22272B]/75 font-medium">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#B79656]/15 text-[#B79656] border border-[#B79656]/30 font-bold text-xs">
@@ -39,16 +35,19 @@ export default function PersianEditionPage() {
               <span>•</span>
               <span>دانشگاه آزاد اسلامی مشهد</span>
               <span>•</span>
-              <span>خراسان رضوی، ایران</span>
+              <span>مترجم مستقل</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#22272B] leading-tight">
-              پل ارتباطی زبان‌ها. <br />
-              <span className="text-[#B79656] italic">پیونددهنده فرهنگ‌ها</span> با دقت علمی.
+              ترجمه <span className="text-[#B79656] italic">انگلیسی به فارسی</span>
             </h1>
 
+            <p className="text-xl sm:text-2xl font-serif text-[#B79656] font-medium">
+              دقیق، روان و وفادار به مفهوم
+            </p>
+
             <p className="text-base sm:text-lg text-[#22272B]/85 leading-relaxed">
-              خدمات تخصصی ترجمه انگلیسی به فارسی، ویرایش و بومی‌سازی متون مالی، حسابرسی، ترازنامه‌های IFRS، قراردادهای بین‌المللی و سیستم‌های نرم‌افزاری توسط اسماء پرنیان‌فرد.
+              من اسماء پرنیان‌فرد، مترجم مستقل متون انگلیسی به فارسی هستم و تمرکز من بر ترجمه مقالات و متون عمومی است. هدف من انتقال دقیق مفاهیم همگام با ارائه متنی روان، رسا و طبیعی به زبان فارسی است.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -56,14 +55,14 @@ export default function PersianEditionPage() {
                 to="/quote"
                 className="px-7 py-3.5 bg-[#22272B] text-white hover:bg-[#B79656] transition-colors font-medium text-sm inline-flex items-center gap-2"
               >
-                <span>درخواست استعلام قیمت و زمان‌بندی</span>
+                <span>استعلام قیمت و سفارش</span>
                 <ArrowLeft className="w-4 h-4" />
               </Link>
               <Link
-                to="/portfolio"
+                to="/services"
                 className="px-6 py-3.5 bg-white border border-[#22272B]/20 text-[#22272B] hover:border-[#B79656] text-sm font-medium"
               >
-                مشاهده نمونه کارهای تطبیقی
+                مشاهده خدمات ترجمه
               </Link>
             </div>
           </div>
@@ -81,13 +80,13 @@ export default function PersianEditionPage() {
               <div className="aspect-[4/5] overflow-hidden bg-[#E9E2D7]">
                 <img
                   src="/assets/asma-parnianfard-portrait.png"
-                  alt="اسماء پرنیان‌فرد، مترجم تخصصی انگلیسی به فارسی"
+                  alt="اسماء پرنیان‌فرد، مترجم متون انگلیسی به فارسی"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="pt-4 px-2 space-y-1">
                 <h2 className="text-xl font-serif font-bold text-[#22272B]">اسماء پرنیان‌فرد</h2>
-                <p className="text-xs text-[#B79656] font-semibold">مترجم و مشاور زبانی متون مالی و بازرگانی</p>
+                <p className="text-xs text-[#B79656] font-semibold">مترجم مستقل انگلیسی به فارسی</p>
                 <div className="pt-2 flex items-center justify-between text-xs text-[#22272B]/60 border-t border-[#22272B]/10 mt-2">
                   <span>مشهد، ایران</span>
                   <a
@@ -106,62 +105,46 @@ export default function PersianEditionPage() {
         </div>
       </section>
 
-      {/* 6 DISCIPLINES IN PERSIAN */}
+      {/* 3 CONFIRMED SERVICES IN PERSIAN */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="space-y-3">
-          <span className="text-xs font-bold text-[#B79656] tracking-wider uppercase">حوزه‌های تمرکز حرفه‌ای</span>
-          <h2 className="text-3xl font-serif text-[#22272B]">ترجمه تخصصی با تضمین صحت علمی و حقوقی</h2>
+          <span className="text-xs font-bold text-[#B79656] tracking-wider uppercase">خدمات تخصصی</span>
+          <h2 className="text-3xl font-serif text-[#22272B]">ترجمه متون نوشتاری با توجه به زمینه، وضوح و شیوایی</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              title: 'ترجمه مالی و IFRS',
-              desc: 'ترازنامه‌ها، یادداشت‌های حسابرسی، تحلیل جریانات نقدی و امیدنامه‌های عرضه سهام.',
-              icon: Calculator,
-              link: '/services/financial',
-            },
-            {
-              title: 'حسابداری و حسابرسی',
-              desc: 'گزارش‌های حسابرس مستقل، اسناد قیمت‌گذاری انتقالی و تطبیق حساب‌های بین‌المللی.',
-              icon: FileCheck,
-              link: '/services/accounting',
-            },
-            {
-              title: 'قراردادها و بازرگانی',
-              desc: 'اساسنامه‌های شرکتی، قراردادهای جوینت ونچر (JV)، اسناد مناقصات و تفاهم‌نامه‌های NDA.',
-              icon: Building2,
-              link: '/services/business',
-            },
-            {
-              title: 'ویرایش و بازخوانی',
-              desc: 'پالایش نثر فارسی، اصلاح رسم‌الخط و نیم‌فاصله‌ها و بازخوانی سطر به سطر در برابر مبدا.',
-              icon: FileText,
-              link: '/services/proofreading',
-            },
-            {
-              title: 'بومی‌سازی نرم‌افزار',
-              desc: 'تنظیم چیدمان راست‌به‌چپ (RTL)، استخراج فایل‌های ترجمه (JSON, XLIFF) و بررسی UX.',
-              icon: Globe2,
-              link: '/services/localization',
-            },
-            {
-              title: 'ترجمه عمومی و مقالات',
-              desc: 'نثر فاخر دانشگاهی، کتاب‌های مرجع اقتصادی و متون راهبردی سازمانی.',
+              title: 'ترجمه متون انگلیسی به فارسی',
+              desc: 'ترجمه کتبی و حرفه‌ای از انگلیسی به فارسی با توجه عمیق به معانی، بافتار متن، شفافیت و کاربرد طبیعی زبان.',
               icon: Languages,
-              link: '/services/translation',
+              link: '/services',
+            },
+            {
+              title: 'ترجمه مقالات',
+              desc: 'ترجمه مقالات و محتواهای نوشتاری از انگلیسی به فارسی، با حفظ دقیق پیام نویسنده و ساختاری خوانا و روان برای مخاطبان فارسی‌زبان.',
+              icon: BookOpen,
+              link: '/services',
+            },
+            {
+              title: 'ترجمه متون عمومی',
+              desc: 'ترجمه انواع متون عمومی از زبان انگلیسی به فارسی با دقت در معادل‌یابی، درک بافت متن و بیانی سلیس.',
+              icon: FileText,
+              link: '/services',
             },
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="bg-white border border-[#22272B]/10 p-6 space-y-4 hover:border-[#B79656] transition-colors shadow-sm">
-                <div className="w-10 h-10 bg-[#F8F6F1] flex items-center justify-center border border-[#22272B]/10">
-                  <Icon className="w-5 h-5 text-[#22272B]" />
+              <div key={idx} className="bg-white border border-[#22272B]/10 p-6 space-y-4 hover:border-[#B79656] transition-colors shadow-sm flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="w-10 h-10 bg-[#F8F6F1] flex items-center justify-center border border-[#22272B]/10">
+                    <Icon className="w-5 h-5 text-[#22272B]" />
+                  </div>
+                  <h3 className="font-serif font-bold text-lg text-[#22272B]">{item.title}</h3>
+                  <p className="text-xs text-[#22272B]/75 leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="font-serif font-bold text-lg text-[#22272B]">{item.title}</h3>
-                <p className="text-xs text-[#22272B]/75 leading-relaxed">{item.desc}</p>
                 <Link to={item.link} className="text-xs font-bold text-[#B79656] hover:underline inline-block pt-2">
-                  مطالعه جزییات و استانداردهای این حوزه ←
+                  مشاهده توضیحات خدمت ←
                 </Link>
               </div>
             );
@@ -169,24 +152,13 @@ export default function PersianEditionPage() {
         </div>
       </section>
 
-      {/* BILINGUAL COMPARISON */}
-      <section className="bg-white py-16 border-y border-[#22272B]/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="space-y-2">
-            <span className="text-xs font-bold text-[#B79656]">بررسی تطبیقی نمونه‌ها</span>
-            <h2 className="text-3xl font-serif text-[#22272B]">مقایسه سطر به سطر متن انگلیسی و معادل فارسی</h2>
-          </div>
-          <BilingualComparison />
-        </div>
-      </section>
-
       {/* CALCULATOR */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-5 space-y-4">
-            <h2 className="text-3xl font-serif text-[#22272B]">محاسبه تخمینی زمان تحویل و هزینه</h2>
+            <h2 className="text-3xl font-serif text-[#22272B]">بررسی مقیاس و حجم متن</h2>
             <p className="text-sm text-[#22272B]/80 leading-relaxed">
-              با انتخاب تعداد کلمات متن خود، مدت زمان استاندارد تحویل و بازه قیمتی تقریبی را مشاهده نمایید.
+              با انتخاب تعداد تقریبی کلمات، مقیاس حجم متن خود را مشاهده نمایید. زمان‌بندی دقیق تحویل پس از بررسی متن و میزان پیچیدگی آن به صورت شفاف توافق خواهد شد.
             </p>
           </div>
           <div className="lg:col-span-7">
