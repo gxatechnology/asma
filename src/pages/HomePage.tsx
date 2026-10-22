@@ -15,7 +15,11 @@ import {
   Clock,
   CheckCircle2,
   HelpCircle,
-  Calculator
+  Calculator,
+  BookText,
+  Search,
+  PenLine,
+  CheckCheck
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import EstimateCalculator from '../components/EstimateCalculator';
@@ -42,7 +46,7 @@ export default function HomePage() {
       description: lang === 'fa'
         ? 'ترجمه مقالات و محتواهای نوشتاری از انگلیسی به فارسی، با حفظ دقیق پیام نویسنده و ساختاری خوانا و روان برای مخاطبان فارسی‌زبان.'
         : 'English-to-Persian translation of articles and written content, preserving the original meaning and ensuring readability for Persian-speaking audiences.',
-      icon: BookOpen,
+      icon: BookText,
       metric: 'Reader Engagement',
       metric_fa: 'خوانایی بالا برای مخاطب',
     },
@@ -65,6 +69,7 @@ export default function HomePage() {
       desc: lang === 'fa'
         ? 'مطالعه دقیق متن مبدا، شناخت هدف نویسنده و انتخاب اصطلاحات متناسب با زمینه موضوع.'
         : 'Careful analysis of source materials, understanding core intent, context, and key terminology.',
+      icon: Search,
     },
     {
       step: '02',
@@ -72,6 +77,7 @@ export default function HomePage() {
       desc: lang === 'fa'
         ? 'ترجمه خط به خط منحصراً توسط شخص اسماء پرنیان‌فرد با رعایت شیوایی نثر فارسی و انتقال دقیق بار معنایی.'
         : 'Translating line by line with fidelity to meaning, clear phrasing, and natural Persian rhythm.',
+      icon: PenLine,
     },
     {
       step: '03',
@@ -79,6 +85,7 @@ export default function HomePage() {
       desc: lang === 'fa'
         ? 'بررسی موازی متن مبدا و مقصد جهت اطمینان از صحت جملات، عدم افتادگی و انسجام متن.'
         : 'Side-by-side comparative review verifying completeness, terminology consistency, and accurate meaning.',
+      icon: CheckCheck,
     },
     {
       step: '04',
@@ -86,6 +93,7 @@ export default function HomePage() {
       desc: lang === 'fa'
         ? 'بررسی صفحه‌آرایی، علائم نگارشی فارسی و پاسخگویی به هرگونه سوال یا نیاز به بازنگری تکمیلی.'
         : 'Final formatting review, Persian typography check, and post-delivery clarification support.',
+      icon: CheckCircle2,
     },
   ];
 
@@ -308,18 +316,18 @@ export default function HomePage() {
             return (
               <div
                 key={spec.id}
-                className="group relative bg-white p-8 border border-[#22272B]/10 hover:border-[#B79656] transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
+                className="premium-card p-8 flex flex-col justify-between group"
               >
                 <div className="space-y-5">
-                  <div className="w-12 h-12 bg-[#F8F6F1] flex items-center justify-center border border-[#22272B]/10 group-hover:bg-[#B79656] group-hover:text-white transition-colors duration-300">
-                    <Icon className="w-6 h-6 text-[#22272B] group-hover:text-white transition-colors duration-300" />
+                  <div className="premium-icon-box">
+                    <Icon className="w-6 h-6 text-[#22272B]" />
                   </div>
 
                   <div className="space-y-2">
                     <span className="text-[11px] font-mono uppercase tracking-wider text-[#B79656] font-medium block">
                       {lang === 'fa' ? spec.metric_fa : spec.metric}
                     </span>
-                    <h3 className="text-xl font-serif text-[#22272B] font-semibold group-hover:text-[#B79656] transition-colors">
+                    <h3 className="text-xl font-serif text-[#22272B] font-semibold premium-card-title transition-colors">
                       {spec.title}
                     </h3>
                     <p className="text-sm text-[#22272B]/70 leading-relaxed font-sans">
@@ -334,7 +342,7 @@ export default function HomePage() {
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#22272B] group-hover:text-[#B79656] transition-colors"
                   >
                     <span>{lang === 'fa' ? 'اطلاعات بیشتر درباره این خدمت' : 'Learn more about this service'}</span>
-                    <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isRTL ? 'group-hover:-translate-x-1 rotate-180' : 'group-hover:translate-x-1'}`} />
+                    <ChevronRight className={`w-3.5 h-3.5 transition-transform duration-200 premium-arrow ${isRTL ? 'rotate-180' : ''}`} />
                   </Link>
                 </div>
               </div>
@@ -387,22 +395,30 @@ export default function HomePage() {
           </div>
 
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {assuranceSteps.map((item) => (
-              <div
-                key={item.step}
-                className="bg-white p-7 border border-[#22272B]/10 relative space-y-4 shadow-sm"
-              >
-                <span className="text-3xl font-serif font-bold text-[#B79656]/30 block">
-                  {item.step}
-                </span>
-                <h3 className="text-lg font-serif font-semibold text-[#22272B]">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#22272B]/70 leading-relaxed font-sans">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+            {assuranceSteps.map((item) => {
+              const StepIcon = item.icon;
+              return (
+                <div
+                  key={item.step}
+                  className="premium-card p-7 relative space-y-4 group"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-3xl font-serif font-bold text-[#B79656]/35 block">
+                      {item.step}
+                    </span>
+                    <div className="premium-icon-box-sm">
+                      <StepIcon className="w-5 h-5 text-[#22272B]" />
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-serif font-semibold text-[#22272B] premium-card-title transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#22272B]/70 leading-relaxed font-sans">
+                    {item.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
 
         </div>
@@ -547,7 +563,7 @@ export default function HomePage() {
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="bg-white border border-[#22272B]/10 overflow-hidden transition-all duration-200"
+              className="premium-card overflow-hidden"
             >
               <button
                 type="button"

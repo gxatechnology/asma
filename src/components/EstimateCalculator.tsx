@@ -96,7 +96,7 @@ export const EstimateCalculator: React.FC = () => {
 
       {/* Timeline Expectations */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-        <div className="bg-[#FAF8F5] border border-[#E8E2D5] rounded-xl p-4">
+        <div className="premium-card premium-card-ivory p-4">
           <div className="flex items-center gap-2 mb-1">
             <Clock className="w-4 h-4 text-[#788A78]" />
             <span className="text-xs uppercase tracking-wider font-bold text-[#22272B]">
@@ -110,7 +110,7 @@ export const EstimateCalculator: React.FC = () => {
           </p>
         </div>
 
-        <div className="bg-[#FAF8F5] border border-[#B79656]/30 rounded-xl p-4">
+        <div className="premium-card premium-card-ivory p-4 border-[#B79656]/40">
           <div className="flex items-center gap-2 mb-1">
             <Zap className="w-4 h-4 text-[#B79656]" />
             <span className="text-xs uppercase tracking-wider font-bold text-[#8C6F34]">

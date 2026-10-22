@@ -2,11 +2,16 @@ import React from 'react';
 import {
   ShieldCheck,
   Clock,
+  Clock3,
   FileCheck,
+  FileText,
   Award,
   Lock,
   HelpCircle,
-  FileSpreadsheet
+  FileSpreadsheet,
+  PenTool,
+  CheckCircle2,
+  MessageSquare
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import QuoteForm from '../components/QuoteForm';
@@ -61,7 +66,7 @@ export default function QuotePage() {
           <div className="lg:col-span-4 space-y-6">
 
             {/* Standards Box */}
-            <div className="bg-white border border-[#22272B]/10 p-6 space-y-4 shadow-sm">
+            <div className="premium-card p-6 space-y-4">
               <div className="flex items-center gap-3 pb-3 border-b border-[#22272B]/10">
                 <div className="w-9 h-9 rounded-full border border-[#B79656]/40 bg-[#22272B] p-1.5 flex items-center justify-center shrink-0">
                   <img
@@ -71,7 +76,7 @@ export default function QuotePage() {
                   />
                 </div>
                 <div>
-                  <h2 className="font-serif text-base font-bold text-[#22272B]">
+                  <h2 className="font-serif text-base font-bold text-[#22272B] premium-card-title transition-colors">
                     {lang === 'fa' ? 'استانداردهای حرفه‌ای' : 'Professional Standards'}
                   </h2>
                   <span className="text-[10px] font-sans text-[#B79656] uppercase tracking-wider block">
@@ -82,7 +87,7 @@ export default function QuotePage() {
 
               <ul className="space-y-3 text-xs sm:text-sm text-[#22272B]/80 font-sans">
                 <li className="flex items-start gap-2.5">
-                  <Lock className="w-4 h-4 text-[#788A78] flex-shrink-0 mt-0.5" />
+                  <ShieldCheck className="w-4 h-4 text-[#788A78] flex-shrink-0 mt-0.5" />
                   <span>
                     <strong>{lang === 'fa' ? 'رازداری و محرمانگی:' : 'Confidentiality:'}</strong>{' '}
                     {lang === 'fa' ? 'حفظ کامل حریم اسناد و امکان انعقاد قرارداد NDA' : 'Secure document privacy; mutual NDAs available upon request.'}
@@ -90,7 +95,7 @@ export default function QuotePage() {
                 </li>
 
                 <li className="flex items-start gap-2.5">
-                  <Clock className="w-4 h-4 text-[#B79656] flex-shrink-0 mt-0.5" />
+                  <Clock3 className="w-4 h-4 text-[#B79656] flex-shrink-0 mt-0.5" />
                   <span>
                     <strong>{lang === 'fa' ? 'شفافیت در زمان‌بندی:' : 'Transparent Scheduling:'}</strong>{' '}
                     {lang === 'fa' ? 'بررسی متن و توافق زمان‌بندی شفاف' : 'Direct evaluation of word count and project timeline.'}
@@ -98,7 +103,7 @@ export default function QuotePage() {
                 </li>
 
                 <li className="flex items-start gap-2.5">
-                  <Award className="w-4 h-4 text-[#22272B] flex-shrink-0 mt-0.5" />
+                  <PenTool className="w-4 h-4 text-[#22272B] flex-shrink-0 mt-0.5" />
                   <span>
                     <strong>{lang === 'fa' ? 'همکاری مستقیم با مترجم:' : 'Direct Engagement:'}</strong>{' '}
                     {lang === 'fa' ? 'ترجمه مستقیم توسط اسماء پرنیان‌فرد (کارشناس ارشد)' : 'Direct single-voice translation by Asma Parnianfard, M.A.'}
@@ -106,7 +111,7 @@ export default function QuotePage() {
                 </li>
 
                 <li className="flex items-start gap-2.5">
-                  <ShieldCheck className="w-4 h-4 text-[#788A78] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#788A78] flex-shrink-0 mt-0.5" />
                   <span>
                     <strong>{lang === 'fa' ? 'پشتیبانی پس از تحویل:' : 'Post-Delivery Support:'}</strong>{' '}
                     {lang === 'fa' ? 'پاسخگویی و بازنگری اصطلاحات در صورت نیاز' : 'Refinements and terminology consultations as needed.'}
@@ -116,20 +121,26 @@ export default function QuotePage() {
             </div>
 
             {/* Formats Supported */}
-            <div className="bg-[#F8F6F1] border border-[#22272B]/10 p-6 space-y-3">
-              <h3 className="font-serif text-base font-semibold text-[#22272B]">
-                {lang === 'fa' ? 'فرمت‌های قابل پذیرش' : 'Accepted Source Formats'}
-              </h3>
+            <div className="premium-card premium-card-ivory p-6 space-y-3">
+              <div className="flex items-center gap-2">
+                <FileText className="w-4 h-4 text-[#B79656]" />
+                <h3 className="font-serif text-base font-semibold text-[#22272B]">
+                  {lang === 'fa' ? 'فرمت‌های قابل پذیرش' : 'Accepted Source Formats'}
+                </h3>
+              </div>
               <p className="text-xs text-[#22272B]/70 font-sans leading-relaxed">
                 PDF, Microsoft Word (.docx, .doc), TXT, RTF (up to 20MB per file).
               </p>
             </div>
 
             {/* Direct Support */}
-            <div className="p-6 bg-white border border-[#22272B]/10 space-y-2 text-xs">
-              <span className="font-mono text-[#B79656] uppercase font-bold block">
-                {lang === 'fa' ? 'ارتباط مستقیم با مترجم' : 'Direct Inquiry'}
-              </span>
+            <div className="premium-card p-6 space-y-2 text-xs">
+              <div className="flex items-center gap-2">
+                <MessageSquare className="w-3.5 h-3.5 text-[#B79656]" />
+                <span className="font-mono text-[#B79656] uppercase font-bold block">
+                  {lang === 'fa' ? 'ارتباط مستقیم با مترجم' : 'Direct Inquiry'}
+                </span>
+              </div>
               <p className="text-[#22272B]/75 font-sans">
                 {lang === 'fa'
                   ? 'جهت ارتباط مستقیم می‌توانید از طریق لینکدین یا فرم تماس پیام ارسال فرمایید.'

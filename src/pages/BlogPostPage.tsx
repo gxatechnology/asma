@@ -140,7 +140,7 @@ export default function BlogPostPage() {
             )}
           </p>
 
-          <div className="p-6 bg-[#F8F6F1] border border-[#22272B]/10 space-y-3 text-sm">
+          <div className="premium-card premium-card-ivory p-6 space-y-3 text-sm">
             <h3 className="font-serif font-bold text-[#22272B] text-base">
               {lang === 'fa' ? 'اصول کلیدی در ترجمه مقالات:' : 'Key Principles in Article Translation:'}
             </h3>
@@ -187,7 +187,7 @@ export default function BlogPostPage() {
 
       {/* AUTHOR BIO AT BOTTOM */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#E9E2D7]/40 border border-[#22272B]/10 p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
+        <div className="premium-card premium-card-ivory p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
           <div className="relative shrink-0">
             <img
               src="/assets/asma-parnianfard-portrait.png"

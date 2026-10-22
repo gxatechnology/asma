@@ -6,7 +6,7 @@ import {
   CheckCircle2,
   ArrowLeft,
   Languages,
-  BookOpen,
+  BookText,
   FileText,
   ExternalLink
 } from 'lucide-react';
@@ -123,7 +123,7 @@ export default function PersianEditionPage() {
             {
               title: 'ترجمه مقالات',
               desc: 'ترجمه مقالات و محتواهای نوشتاری از انگلیسی به فارسی، با حفظ دقیق پیام نویسنده و ساختاری خوانا و روان برای مخاطبان فارسی‌زبان.',
-              icon: BookOpen,
+              icon: BookText,
               link: '/services',
             },
             {
@@ -135,16 +135,25 @@ export default function PersianEditionPage() {
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="bg-white border border-[#22272B]/10 p-6 space-y-4 hover:border-[#B79656] transition-colors shadow-sm flex flex-col justify-between">
+              <div
+                key={idx}
+                className="premium-card p-6 flex flex-col justify-between group"
+              >
                 <div className="space-y-4">
-                  <div className="w-10 h-10 bg-[#F8F6F1] flex items-center justify-center border border-[#22272B]/10">
-                    <Icon className="w-5 h-5 text-[#22272B]" />
+                  <div className="premium-icon-box">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-serif font-bold text-lg text-[#22272B]">{item.title}</h3>
+                  <h3 className="premium-card-title font-serif font-bold text-lg text-[#22272B]">
+                    {item.title}
+                  </h3>
                   <p className="text-xs text-[#22272B]/75 leading-relaxed">{item.desc}</p>
                 </div>
-                <Link to={item.link} className="text-xs font-bold text-[#B79656] hover:underline inline-block pt-2">
-                  مشاهده توضیحات خدمت ←
+                <Link
+                  to={item.link}
+                  className="text-xs font-bold text-[#B79656] inline-flex items-center gap-1.5 pt-4 group-hover:underline"
+                >
+                  <span>مشاهده توضیحات خدمت</span>
+                  <ArrowLeft className="w-3.5 h-3.5 premium-arrow transition-transform" />
                 </Link>
               </div>
             );

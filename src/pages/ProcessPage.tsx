@@ -5,12 +5,14 @@ import {
   ShieldCheck,
   Search,
   Languages,
+  PenLine,
+  CheckCheck,
+  Type,
   FileCheck,
   CheckCircle2,
   ArrowRight,
   Clock,
-  Lock,
-  Cpu
+  Lock
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -24,7 +26,7 @@ export default function ProcessPage() {
       desc: lang === 'fa'
         ? 'ارسال متن یا مقاله از طریق فرم استعلام. تمامی فایل‌ها با رعایت کامل رازداری بررسی می‌شوند و در صورت تمایل کارفرما، توافق‌نامه حفظ محرمانگی (NDA) امضا خواهد شد.'
         : 'Source files are received securely. Materials are reviewed under strict confidentiality, with mutual Non-Disclosure Agreements (NDAs) available upon request.',
-      icon: Lock,
+      icon: ShieldCheck,
       deliverable: lang === 'fa' ? 'برآورد شفاف هزینه و زمان‌بندی دقیق' : 'Itemized Turnaround & Scope Estimate',
     },
     {
@@ -42,7 +44,7 @@ export default function ProcessPage() {
       desc: lang === 'fa'
         ? 'ترجمه خط به خط منحصراً توسط شخص اسماء پرنیان‌فرد، با تمرکز بر انتقال کامل مفهوم و پایبندی به ساختار نحوی شیوا و طبیعی زبان فارسی.'
         : 'Line-by-line translation executed solely by Asma Parnianfard, ensuring consistent stylistic tone, conceptual clarity, and natural Persian phrasing.',
-      icon: Languages,
+      icon: PenLine,
       deliverable: lang === 'fa' ? 'پیش‌نویس اولیه ترجمه فارسی' : 'Primary Persian Target Draft',
     },
     {
@@ -51,7 +53,7 @@ export default function ProcessPage() {
       desc: lang === 'fa'
         ? 'مقایسه موازی متن ترجمه در برابر مبدا انگلیسی جهت اطمینان از صحت جملات، عدم افتادگی و انطباق کامل با مفهوم اصلی.'
         : 'Rigorous side-by-side verification comparing English source and Persian translation to verify completeness and faithful meaning.',
-      icon: FileCheck,
+      icon: CheckCheck,
       deliverable: lang === 'fa' ? 'کنترل دقت و رفع هرگونه ابهام' : 'Omission & Concordance Verification',
     },
     {
@@ -60,7 +62,7 @@ export default function ProcessPage() {
       desc: lang === 'fa'
         ? 'تنظیم پاراگراف‌ها، علائم نگارشی فارسی، رعایت نیم‌فاصله‌ها و تطبیق ساختار فایل نهایی با فرمت فایل مبدا.'
         : 'Polishing Persian orthography, punctuation, spacing, and formatting to deliver a clean, well-formatted document.',
-      icon: Cpu,
+      icon: Type,
       deliverable: lang === 'fa' ? 'سند نهایی در قالب استاندارد (Word / PDF)' : 'Final Formatted Document in Original Format',
     },
     {
@@ -116,7 +118,7 @@ export default function ProcessPage() {
             return (
               <div
                 key={stg.num}
-                className="bg-white border border-[#22272B]/10 p-8 sm:p-10 shadow-sm hover:border-[#B79656] transition-all duration-300 relative"
+                className="premium-card p-8 sm:p-10 relative group"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
@@ -125,14 +127,14 @@ export default function ProcessPage() {
                     <span className="text-4xl sm:text-5xl font-serif font-bold text-[#B79656]/30">
                       {stg.num}
                     </span>
-                    <div className="w-12 h-12 bg-[#F8F6F1] flex items-center justify-center border border-[#22272B]/10">
+                    <div className="premium-icon-box">
                       <Icon className="w-6 h-6 text-[#22272B]" />
                     </div>
                   </div>
 
                   {/* Center Description */}
                   <div className="lg:col-span-6 space-y-2">
-                    <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#22272B]">
+                    <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#22272B] premium-card-title transition-colors">
                       {stg.title}
                     </h2>
                     <p className="text-sm text-[#22272B]/75 leading-relaxed font-sans">

@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import {
   Languages,
   BookOpen,
+  BookText,
   FileText,
   ArrowRight,
   Clock,
+  Clock3,
+  Zap,
   ShieldCheck,
   Check,
   ChevronRight,
@@ -41,7 +44,7 @@ export default function ServicesOverviewPage() {
       description: lang === 'fa'
         ? 'ترجمه مقالات و محتواهای نوشتاری از انگلیسی به فارسی، با حفظ دقیق پیام نویسنده و ساختاری خوانا و روان برای مخاطبان فارسی‌زبان.'
         : 'English-to-Persian translation of articles and written content, preserving the original meaning and ensuring readability for Persian-speaking audiences.',
-      icon: BookOpen,
+      icon: BookText,
       deliverables: [
         lang === 'fa' ? 'حفظ لحن استدلالی، آموزشی یا تحلیلی متن اصلی' : 'Preservation of authorial register and argumentation flow',
         lang === 'fa' ? 'پیوستگی منطقی میان بندها و خوانایی بالا' : 'Logical paragraph transitions and enhanced readability',
@@ -73,6 +76,7 @@ export default function ServicesOverviewPage() {
       name: lang === 'fa' ? 'تحویل استاندارد' : 'Standard Delivery',
       desc: lang === 'fa' ? 'مناسب برای پروژه‌های عادی با زمان‌بندی طبیعی' : 'Ideal for scheduled projects with regular turnaround',
       speed: lang === 'fa' ? 'زمان‌بندی توافقی بر اساس حجم' : 'Scheduled based on document volume',
+      icon: Clock3,
       features: [
         lang === 'fa' ? 'ترجمه کامل و دقیق انسانی توسط اسماء پرنیان‌فرد' : 'Full human translation by Asma Parnianfard',
         lang === 'fa' ? 'بازخوانی تطبیقی سطر به سطر متن مبدا و مقصد' : 'Side-by-side comparative review and quality check',
@@ -84,6 +88,7 @@ export default function ServicesOverviewPage() {
       name: lang === 'fa' ? 'تحویل فوری و با اولویت' : 'Priority / Expedited',
       desc: lang === 'fa' ? 'برای متون نیازمند تحویل سریع با هماهنگی قبلی' : 'Dedicated acceleration for time-sensitive materials',
       speed: lang === 'fa' ? 'زمان‌بندی فشرده با هماهنگی قبلی' : 'Expedited scheduling on consultation',
+      icon: Zap,
       highlight: true,
       features: [
         lang === 'fa' ? 'اولویت‌دهی در صف کاری مترجم' : 'Dedicated priority scheduling in translation queue',
@@ -137,15 +142,15 @@ export default function ServicesOverviewPage() {
               <div
                 key={svc.id}
                 id={svc.id}
-                className="bg-white border border-[#22272B]/10 p-8 shadow-sm hover:border-[#B79656] transition-all duration-300 flex flex-col justify-between"
+                className="premium-card p-8 flex flex-col justify-between group"
               >
                 <div className="space-y-6">
-                  <div className="w-12 h-12 bg-[#F8F6F1] flex items-center justify-center border border-[#22272B]/10">
+                  <div className="premium-icon-box">
                     <Icon className="w-6 h-6 text-[#22272B]" />
                   </div>
 
                   <div className="space-y-2">
-                    <h2 className="text-2xl font-serif font-semibold text-[#22272B]">
+                    <h2 className="text-2xl font-serif font-semibold text-[#22272B] premium-card-title transition-colors">
                       {svc.title}
                     </h2>
                     <p className="text-xs font-mono text-[#B79656] font-medium">
@@ -180,7 +185,7 @@ export default function ServicesOverviewPage() {
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#B79656] hover:text-[#22272B] transition-colors"
                   >
                     <span>{lang === 'fa' ? 'استعلام قیمت این خدمت' : 'Request Quote'}</span>
-                    <ChevronRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
+                    <ChevronRight className={`w-3.5 h-3.5 transition-transform duration-200 premium-arrow ${isRTL ? 'rotate-180' : ''}`} />
                   </Link>
                 </div>
               </div>
@@ -207,20 +212,27 @@ export default function ServicesOverviewPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
-            {deliveryTiers.map((tier, idx) => (
+            {deliveryTiers.map((tier, idx) => {
+              const TierIcon = tier.icon;
+              return (
               <div
                 key={idx}
-                className={`p-8 border rounded-none relative flex flex-col justify-between ${
+                className={`premium-card p-8 relative flex flex-col justify-between group ${
                   tier.highlight
-                    ? 'border-[#B79656] bg-[#FDFCF9] shadow-md'
-                    : 'border-[#22272B]/10 bg-[#F8F6F1]'
+                    ? 'border-[#B79656]/50 bg-[#FDFCF9]'
+                    : 'bg-[#FAF8F5]'
                 }`}
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-serif text-xl font-bold text-[#22272B]">{tier.name}</h3>
+                    <div className="flex items-center gap-3">
+                      <div className="premium-icon-box-sm">
+                        <TierIcon className="w-5 h-5 text-[#22272B]" />
+                      </div>
+                      <h3 className="font-serif text-xl font-bold text-[#22272B] premium-card-title transition-colors">{tier.name}</h3>
+                    </div>
                     {tier.highlight && (
-                      <span className="px-2.5 py-1 bg-[#B79656] text-white text-[10px] font-mono uppercase tracking-wider">
+                      <span className="px-2.5 py-1 bg-[#B79656] text-white text-[10px] font-mono uppercase tracking-wider rounded">
                         {lang === 'fa' ? 'اولویت ویژه' : 'Priority Track'}
                       </span>
                     )}
@@ -253,7 +265,8 @@ export default function ServicesOverviewPage() {
                   </Link>
                 </div>
               </div>
-            ))}
+            );
+          })}
           </div>
         </div>
       </section>

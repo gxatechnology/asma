@@ -56,7 +56,7 @@ export default function ContactPage() {
           {/* Contact Details Left Column */}
           <div className="lg:col-span-5 space-y-8">
 
-            <div className="bg-white border border-[#22272B]/10 p-6 sm:p-8 space-y-6 shadow-sm">
+            <div className="premium-card p-6 sm:p-8 space-y-6">
               <BrandIdentity
                 variant="inline"
                 theme="light"
@@ -114,7 +114,7 @@ export default function ContactPage() {
             </div>
 
             {/* Confidentiality Commitment Box */}
-            <div className="p-6 bg-[#F8F6F1] border border-[#22272B]/10 space-y-3">
+            <div className="premium-card premium-card-ivory p-6 space-y-3">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#788A78]" />
                 <h3 className="font-serif text-sm font-bold text-[#22272B]">

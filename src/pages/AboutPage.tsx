@@ -12,7 +12,9 @@ import {
   FileText,
   ArrowRight,
   ArrowLeft,
-  Lock
+  Lock,
+  PenTool,
+  MessageSquare
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -191,9 +193,11 @@ export default function AboutPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 bg-white border border-[#22272B]/10 space-y-3 shadow-sm">
-            <ShieldCheck className="w-6 h-6 text-[#788A78]" />
-            <h3 className="font-serif text-lg font-semibold text-[#22272B]">
+          <div className="premium-card p-6 space-y-4 group">
+            <div className="premium-icon-box-sm">
+              <ShieldCheck className="w-5 h-5 text-[#22272B]" />
+            </div>
+            <h3 className="font-serif text-lg font-semibold text-[#22272B] premium-card-title transition-colors">
               {lang === 'fa' ? 'حفظ کامل محرمانگی' : 'Strict Confidentiality'}
             </h3>
             <p className="text-xs sm:text-sm text-[#22272B]/70 leading-relaxed font-sans">
@@ -203,9 +207,11 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="p-6 bg-white border border-[#22272B]/10 space-y-3 shadow-sm">
-            <CheckCircle2 className="w-6 h-6 text-[#B79656]" />
-            <h3 className="font-serif text-lg font-semibold text-[#22272B]">
+          <div className="premium-card p-6 space-y-4 group">
+            <div className="premium-icon-box-sm">
+              <PenTool className="w-5 h-5 text-[#22272B]" />
+            </div>
+            <h3 className="font-serif text-lg font-semibold text-[#22272B] premium-card-title transition-colors">
               {lang === 'fa' ? 'ترجمه مستقیم توسط مترجم' : 'Direct Translation'}
             </h3>
             <p className="text-xs sm:text-sm text-[#22272B]/70 leading-relaxed font-sans">
@@ -215,9 +221,11 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="p-6 bg-white border border-[#22272B]/10 space-y-3 shadow-sm">
-            <Award className="w-6 h-6 text-[#22272B]" />
-            <h3 className="font-serif text-lg font-semibold text-[#22272B]">
+          <div className="premium-card p-6 space-y-4 group">
+            <div className="premium-icon-box-sm">
+              <MessageSquare className="w-5 h-5 text-[#22272B]" />
+            </div>
+            <h3 className="font-serif text-lg font-semibold text-[#22272B] premium-card-title transition-colors">
               {lang === 'fa' ? 'پاسخگویی و بازنگری پس از تحویل' : 'Post-Delivery Support'}
             </h3>
             <p className="text-xs sm:text-sm text-[#22272B]/70 leading-relaxed font-sans">

@@ -162,7 +162,7 @@ export default function FAQPage() {
 
       {/* FILTER & SEARCH */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border border-[#22272B]/10 p-6 shadow-sm space-y-6">
+        <div className="premium-card p-6 sm:p-8 space-y-6">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
             {/* Category tabs */}
             <div className="flex flex-wrap gap-2">

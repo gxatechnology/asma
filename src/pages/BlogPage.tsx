@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   BookOpen,
+  BookOpenText,
   Search,
   Calendar,
   Clock,
+  Clock3,
   User,
   ArrowRight,
   Tag
@@ -188,18 +190,21 @@ export default function BlogPage() {
             {filteredPosts.map((post) => (
               <article
                 key={post.id}
-                className="bg-[#F8F6F1] border border-[#22272B]/10 p-6 space-y-4 flex flex-col justify-between hover:border-[#B79656] transition-colors"
+                className="premium-card p-6 space-y-4 flex flex-col justify-between group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-[11px] font-mono text-[#22272B]/60">
-                    <span className="text-[#B79656] font-semibold uppercase">{post.category}</span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" /> {post.readTime}
+                    <span className="text-[#B79656] font-semibold uppercase tracking-wider inline-flex items-center gap-1.5">
+                      <BookOpenText className="w-3.5 h-3.5 text-[#B79656]" />
+                      <span>{post.category}</span>
+                    </span>
+                    <span className="flex items-center gap-1 font-sans text-[#22272B]/60">
+                      <Clock3 className="w-3 h-3 text-[#B79656]" /> {post.readTime}
                     </span>
                   </div>
 
-                  <h2 className="text-xl font-serif font-bold text-[#22272B] hover:text-[#B79656] transition-colors">
-                    <Link to={`/blog/${post.slug}`}>
+                  <h2 className="text-xl font-serif font-bold text-[#22272B] premium-card-title transition-colors">
+                    <Link to={`/blog/${post.slug}`} className="hover:text-[#B79656] transition-colors">
                       {lang === 'fa' ? post.title_fa : post.title}
                     </Link>
                   </h2>
@@ -215,10 +220,10 @@ export default function BlogPage() {
                   </span>
                   <Link
                     to={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#B79656] hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#B79656] group-hover:text-[#22272B] transition-colors"
                   >
                     <span>{lang === 'fa' ? 'مطالعه یادداشت' : 'Read Article'}</span>
-                    <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
+                    <ArrowRight className={`w-3.5 h-3.5 transition-transform duration-200 premium-arrow ${isRTL ? 'rotate-180' : ''}`} />
                   </Link>
                 </div>
               </article>

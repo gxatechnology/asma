@@ -55,6 +55,134 @@
   }
 }
 
+/* ==========================================================================
+   PREMIUM CARD & ICON SYSTEM (Antique Gold #B79656 / Charcoal #22272B)
+   ========================================================================== */
+
+.premium-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(34, 39, 43, 0.10);
+  border-radius: 0.875rem; /* 14px */
+  transition:
+    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px -2px rgba(34, 39, 43, 0.04);
+}
+
+/* Subtle ivory card variation */
+.premium-card-ivory {
+  background-color: #FAF8F5;
+  border-color: rgba(34, 39, 43, 0.08);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .premium-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(183, 150, 86, 0.65);
+    box-shadow:
+      0 16px 36px -4px rgba(34, 39, 43, 0.09),
+      0 0 20px 0 rgba(183, 150, 86, 0.14);
+  }
+
+  .premium-card:hover .premium-icon-box {
+    background-color: #B79656;
+    border-color: #B79656;
+    color: #FFFFFF;
+    box-shadow: 0 6px 16px -2px rgba(183, 150, 86, 0.35);
+    transform: translateY(-1px);
+  }
+
+  .premium-card:hover .premium-icon-box svg {
+    color: #FFFFFF;
+    stroke: #FFFFFF;
+  }
+
+  .premium-card:hover .premium-card-title {
+    color: #B79656;
+  }
+
+  .premium-card:hover .premium-arrow {
+    transform: translateX(4px);
+    color: #B79656;
+  }
+
+  [dir="rtl"] .premium-card:hover .premium-arrow {
+    transform: translateX(-4px);
+    color: #B79656;
+  }
+}
+
+.premium-card:focus-visible {
+  outline: 2px solid #B79656;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premium-card,
+  .premium-icon-box,
+  .premium-card-title,
+  .premium-arrow {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Refined 54px square icon container */
+.premium-icon-box {
+  width: 3.375rem; /* 54px */
+  height: 3.375rem; /* 54px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem; /* 12px rounded */
+  background-color: #F8F6F1;
+  border: 1px solid rgba(183, 150, 86, 0.40);
+  color: #22272B;
+  flex-shrink: 0;
+  transition:
+    background-color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-icon-box svg {
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+  stroke-width: 1.85px;
+  transition: color 280ms ease, stroke 280ms ease;
+}
+
+/* Compact 44px icon container for smaller cards */
+.premium-icon-box-sm {
+  width: 2.75rem; /* 44px */
+  height: 2.75rem; /* 44px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.625rem;
+  background-color: #F8F6F1;
+  border: 1px solid rgba(183, 150, 86, 0.35);
+  color: #22272B;
+  flex-shrink: 0;
+  transition:
+    background-color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-icon-box-sm svg {
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
+  stroke-width: 1.85px;
+  transition: color 280ms ease, stroke 280ms ease;
+}
+
 /* Editorial subtle glow and glass styling */
 .gold-glow {
   box-shadow: 0 0 24px rgba(183, 150, 86, 0.25);
@@ -93,4 +221,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #B79656;
 }
-
